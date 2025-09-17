@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package tools;
 
 import java.util.Date;
@@ -12,9 +8,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 /**
  *
- * @author mario
+ * @author u1845853
  */
 public class Util {
 
@@ -96,3 +96,7 @@ public class Util {
 		
     }
 }
+
+//primeiro commit - Pacotes tools e view. Util.java finalizado.
+// segundo commit - Tela principal e telas dos cadastros finalizados
+// terceiro commit - Telas de cadastros usando o Util.java
