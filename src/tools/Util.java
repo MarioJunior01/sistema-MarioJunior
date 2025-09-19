@@ -54,12 +54,7 @@ public class Util {
     public static boolean perguntar(String cad) {
         int resposta = JOptionPane.showConfirmDialog(null, cad);
         System.out.println(resposta);
-        if (resposta != 0) {
-
-            return true;
-        } else {
-            return false;
-        }
+        return resposta != 0;
     }
 
     public static int srToInt(String num) {
