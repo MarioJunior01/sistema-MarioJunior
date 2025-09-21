@@ -26,15 +26,15 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="JBTIncluir" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="JBTAlterar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="JBTExcluir" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnExcluir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JBTConfirmar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnConfirmar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
-                      <Component id="JBTCancelar1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -49,9 +49,9 @@
                                   <Component id="jLabel3" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" pref="55" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="JtfmCpfFuncionario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JtfmTelefoneFuncionario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JtfEmailFuncionario" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                  <Component id="jFmtCpfFuncionario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jFmtTelefoneFuncionario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTxtEmailFuncionario" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -65,10 +65,10 @@
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel4" max="32767" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="JtfmDataNascimentoFuncionario" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="jFmtDataNascimentoFuncionario" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="JcbSexoFuncionario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JcbSetorFuncionario" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="jCboSexoFuncionario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCboSetorFuncionario" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel7" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
                           </Group>
@@ -76,7 +76,7 @@
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="JBTPesquisar" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -90,15 +90,15 @@
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JtfmDataNascimentoFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFmtDataNascimentoFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JcbSetorFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCboSetorFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JcbSexoFuncionario" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="jCboSexoFuncionario" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -118,25 +118,25 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JtfmCpfFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFmtCpfFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JtfmTelefoneFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFmtTelefoneFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JtfEmailFuncionario" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTxtEmailFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBTAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTCancelar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
@@ -159,23 +159,23 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JtfmCpfFuncionario">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtCpfFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JtfmTelefoneFuncionario">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtTelefoneFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JtfmDataNascimentoFuncionario">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtDataNascimentoFuncionario">
     </Component>
-    <Component class="javax.swing.JComboBox" name="JcbSetorFuncionario">
+    <Component class="javax.swing.JComboBox" name="jCboSetorFuncionario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -201,14 +201,14 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JtfEmailFuncionario">
+    <Component class="javax.swing.JTextField" name="jTxtEmailFuncionario">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sexo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="JcbSexoFuncionario">
+    <Component class="javax.swing.JComboBox" name="jCboSexoFuncionario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -222,7 +222,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTIncluir">
+    <Component class="javax.swing.JButton" name="jBtnIncluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit_add.png"/>
@@ -230,10 +230,10 @@
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTIncluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnIncluirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTAlterar">
+    <Component class="javax.swing.JButton" name="jBtnAlterar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit.png"/>
@@ -241,10 +241,10 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTAlterarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAlterarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTExcluir">
+    <Component class="javax.swing.JButton" name="jBtnExcluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit_remove.png"/>
@@ -252,10 +252,10 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTExcluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnExcluirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTConfirmar">
+    <Component class="javax.swing.JButton" name="jBtnConfirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/apply.png"/>
@@ -263,10 +263,10 @@
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTConfirmarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnConfirmarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTCancelar1">
+    <Component class="javax.swing.JButton" name="jBtnCancelar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/cancel.png"/>
@@ -274,10 +274,10 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTCancelar1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTPesquisar">
+    <Component class="javax.swing.JButton" name="jBtnPesquisar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/search.png"/>
@@ -285,7 +285,7 @@
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTPesquisarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnPesquisarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">

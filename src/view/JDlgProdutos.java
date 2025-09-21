@@ -30,6 +30,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jTxtNomeProduto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -49,6 +50,8 @@ public class JDlgProdutos extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jFmtDataValidade = new javax.swing.JFormattedTextField();
         jFmtDataFabricacao = new javax.swing.JFormattedTextField();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Produtos");
@@ -315,6 +318,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JTextField jTxtDescricao;
     private javax.swing.JTextField jTxtNomeFabricante;
     private javax.swing.JTextField jTxtNomeProduto;
