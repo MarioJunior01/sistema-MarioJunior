@@ -27,9 +27,9 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFDataFabricacao" alignment="0" pref="125" max="32767" attributes="0"/>
+                  <Component id="jFmtDataFabricacao" alignment="0" pref="125" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFDataValidade" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jFmtDataValidade" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -37,35 +37,35 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTXTSegmentoProduto" min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="jTxtSegmentoProduto" min="-2" pref="186" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="JTXTDescricao" max="32767" attributes="0"/>
+                  <Component id="jTxtDescricao" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JBTIncluir" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="JBTAlterar" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="JBTExcluir" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnExcluir" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="JBTConfirmar" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnConfirmar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="JBTCancelar1" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="JBTPesquisar" min="-2" max="-2" attributes="0"/>
+              <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTXTNomeProduto" alignment="0" pref="352" max="32767" attributes="0"/>
+                  <Component id="jTxtNomeProduto" alignment="0" pref="352" max="32767" attributes="0"/>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTXTNomeFabricante" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTxtNomeFabricante" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -81,7 +81,7 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTXTNomeProduto" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTxtNomeProduto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -91,35 +91,35 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTXTNomeFabricante" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxtNomeFabricante" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTXTSegmentoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFDataFabricacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtSegmentoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFmtDataFabricacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTXTDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFDataValidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFmtDataValidade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBTAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBTCancelar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
@@ -132,9 +132,9 @@
         <Property name="text" type="java.lang.String" value="Nome do Produto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTXTNomeProduto">
+    <Component class="javax.swing.JTextField" name="jTxtNomeProduto">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTXTNomeProdutoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtNomeProdutoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -147,14 +147,14 @@
         <Property name="text" type="java.lang.String" value="Nome do Fabricante"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTXTNomeFabricante">
+    <Component class="javax.swing.JTextField" name="jTxtNomeFabricante">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Segmento do Produto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTXTSegmentoProduto">
+    <Component class="javax.swing.JTextField" name="jTxtSegmentoProduto">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -166,12 +166,12 @@
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o do Produto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTXTDescricao">
+    <Component class="javax.swing.JTextField" name="jTxtDescricao">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTXTDescricaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtDescricaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTAlterar">
+    <Component class="javax.swing.JButton" name="jBtnAlterar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit.png"/>
@@ -179,10 +179,10 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTAlterarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAlterarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTExcluir">
+    <Component class="javax.swing.JButton" name="jBtnExcluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit_remove.png"/>
@@ -190,10 +190,10 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTExcluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnExcluirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTIncluir">
+    <Component class="javax.swing.JButton" name="jBtnIncluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/edit_add.png"/>
@@ -201,10 +201,10 @@
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTIncluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnIncluirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTPesquisar">
+    <Component class="javax.swing.JButton" name="jBtnPesquisar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/search.png"/>
@@ -212,10 +212,10 @@
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTPesquisarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnPesquisarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTConfirmar">
+    <Component class="javax.swing.JButton" name="jBtnConfirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/apply.png"/>
@@ -223,10 +223,10 @@
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTConfirmarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnConfirmarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBTCancelar1">
+    <Component class="javax.swing.JButton" name="jBtnCancelar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/cancel.png"/>
@@ -234,7 +234,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBTCancelar1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCancelarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -244,9 +244,9 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JTFDataValidade">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtDataValidade">
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JTFDataFabricacao">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtDataFabricacao">
     </Component>
   </SubComponents>
 </Form>

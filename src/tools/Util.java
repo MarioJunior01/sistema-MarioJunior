@@ -52,7 +52,8 @@ public class Util {
     }
 
     public static boolean perguntar(String cad) {
-        int resposta = JOptionPane.showConfirmDialog(null, cad);
+        int resposta = JOptionPane.showConfirmDialog(null, cad,"",JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
         System.out.println(resposta);
         return resposta != 0;
     }

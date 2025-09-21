@@ -18,6 +18,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
      */
     public JDlgProdutos() {
         initComponents();
+        Util.habilitar(false, jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao, jBtnConfirmar, jBtnCancelar);
     }
 
     /**
@@ -30,33 +31,33 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JTXTNomeProduto = new javax.swing.JTextField();
+        jTxtNomeProduto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        JTXTNomeFabricante = new javax.swing.JTextField();
+        jTxtNomeFabricante = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        JTXTSegmentoProduto = new javax.swing.JTextField();
+        jTxtSegmentoProduto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        JTXTDescricao = new javax.swing.JTextField();
-        JBTAlterar = new javax.swing.JButton();
-        JBTExcluir = new javax.swing.JButton();
-        JBTIncluir = new javax.swing.JButton();
-        JBTPesquisar = new javax.swing.JButton();
-        JBTConfirmar = new javax.swing.JButton();
-        JBTCancelar1 = new javax.swing.JButton();
+        jTxtDescricao = new javax.swing.JTextField();
+        jBtnAlterar = new javax.swing.JButton();
+        jBtnExcluir = new javax.swing.JButton();
+        jBtnIncluir = new javax.swing.JButton();
+        jBtnPesquisar = new javax.swing.JButton();
+        jBtnConfirmar = new javax.swing.JButton();
+        jBtnCancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        JTFDataValidade = new javax.swing.JFormattedTextField();
-        JTFDataFabricacao = new javax.swing.JFormattedTextField();
+        jFmtDataValidade = new javax.swing.JFormattedTextField();
+        jFmtDataFabricacao = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Produtos");
 
         jLabel1.setText("Nome do Produto");
 
-        JTXTNomeProduto.addActionListener(new java.awt.event.ActionListener() {
+        jTxtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTXTNomeProdutoActionPerformed(evt);
+                jTxtNomeProdutoActionPerformed(evt);
             }
         });
 
@@ -70,57 +71,57 @@ public class JDlgProdutos extends javax.swing.JFrame {
 
         jLabel6.setText("Descrição do Produto");
 
-        JTXTDescricao.addActionListener(new java.awt.event.ActionListener() {
+        jTxtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTXTDescricaoActionPerformed(evt);
+                jTxtDescricaoActionPerformed(evt);
             }
         });
 
-        JBTAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
-        JBTAlterar.setText("Alterar");
-        JBTAlterar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        jBtnAlterar.setText("Alterar");
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTAlterarActionPerformed(evt);
+                jBtnAlterarActionPerformed(evt);
             }
         });
 
-        JBTExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
-        JBTExcluir.setText("Excluir");
-        JBTExcluir.addActionListener(new java.awt.event.ActionListener() {
+        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
+        jBtnExcluir.setText("Excluir");
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTExcluirActionPerformed(evt);
+                jBtnExcluirActionPerformed(evt);
             }
         });
 
-        JBTIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
-        JBTIncluir.setText("Incluir");
-        JBTIncluir.addActionListener(new java.awt.event.ActionListener() {
+        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
+        jBtnIncluir.setText("Incluir");
+        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTIncluirActionPerformed(evt);
+                jBtnIncluirActionPerformed(evt);
             }
         });
 
-        JBTPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
-        JBTPesquisar.setText("Pesquisar");
-        JBTPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
+        jBtnPesquisar.setText("Pesquisar");
+        jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTPesquisarActionPerformed(evt);
+                jBtnPesquisarActionPerformed(evt);
             }
         });
 
-        JBTConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
-        JBTConfirmar.setText("Confirmar");
-        JBTConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
+        jBtnConfirmar.setText("Confirmar");
+        jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTConfirmarActionPerformed(evt);
+                jBtnConfirmarActionPerformed(evt);
             }
         });
 
-        JBTCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
-        JBTCancelar1.setText("Cancelar");
-        JBTCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTCancelar1ActionPerformed(evt);
+                jBtnCancelarActionPerformed(evt);
             }
         });
 
@@ -133,39 +134,39 @@ public class JDlgProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addComponent(JTFDataFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(jFmtDataFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(jLabel5)
-                    .addComponent(JTFDataValidade))
+                    .addComponent(jFmtDataValidade))
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
-                            .addComponent(JTXTSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(JTXTDescricao))
+                    .addComponent(jTxtDescricao))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JBTIncluir)
+                .addComponent(jBtnIncluir)
                 .addGap(15, 15, 15)
-                .addComponent(JBTAlterar)
+                .addComponent(jBtnAlterar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBTExcluir)
+                .addComponent(jBtnExcluir)
                 .addGap(18, 18, 18)
-                .addComponent(JBTConfirmar)
+                .addComponent(jBtnConfirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBTCancelar1)
+                .addComponent(jBtnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JBTPesquisar)
+                .addComponent(jBtnPesquisar)
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
-                    .addComponent(JTXTNomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(JTXTNomeFabricante))
+                    .addComponent(jTxtNomeFabricante))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(83, 83, 83))
@@ -178,85 +179,90 @@ public class JDlgProdutos extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTXTNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTXTNomeFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxtNomeFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTXTSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTFDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFmtDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTXTDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTFDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFmtDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBTAlterar)
-                    .addComponent(JBTExcluir)
-                    .addComponent(JBTPesquisar)
-                    .addComponent(JBTIncluir)
-                    .addComponent(JBTConfirmar)
-                    .addComponent(JBTCancelar1))
+                    .addComponent(jBtnAlterar)
+                    .addComponent(jBtnExcluir)
+                    .addComponent(jBtnPesquisar)
+                    .addComponent(jBtnIncluir)
+                    .addComponent(jBtnConfirmar)
+                    .addComponent(jBtnCancelar))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTXTNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTXTNomeProdutoActionPerformed
-        Util.habilitar(true, JTXTNomeProduto, JTFDataValidade, JTXTNomeFabricante, JTFDataValidade, JTXTDescricao, JTXTSegmentoProduto, JTXTDescricao);
-        Util.habilitar(false, JBTIncluir, JBTAlterar, JBTExcluir, JBTPesquisar);
-    }//GEN-LAST:event_JTXTNomeProdutoActionPerformed
+    private void jTxtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeProdutoActionPerformed
 
-    private void JTXTDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTXTDescricaoActionPerformed
+    }//GEN-LAST:event_jTxtNomeProdutoActionPerformed
+
+    private void jTxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTXTDescricaoActionPerformed
+    }//GEN-LAST:event_jTxtDescricaoActionPerformed
 
-    private void JBTAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTAlterarActionPerformed
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, JTXTNomeProduto, JTFDataValidade, JTXTNomeFabricante, JTFDataValidade, JTXTDescricao, JTXTSegmentoProduto, JTXTDescricao);
-        Util.habilitar(false, JBTIncluir, JBTAlterar, JBTExcluir, JBTPesquisar);
-    }//GEN-LAST:event_JBTAlterarActionPerformed
+        Util.habilitar(true, jTxtNomeProduto, jFmtDataValidade, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
 
-    private void JBTExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTExcluirActionPerformed
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBTExcluirActionPerformed
+        Util.perguntar("Deseja excluir o registro?");
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
 
-    private void JBTIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTIncluirActionPerformed
+    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBTIncluirActionPerformed
+        Util.habilitar(true, jTxtNomeProduto, jFmtDataValidade, jTxtNomeFabricante, jFmtDataFabricacao, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
 
-    private void JBTPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTPesquisarActionPerformed
+    }//GEN-LAST:event_jBtnIncluirActionPerformed
+
+    private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
         Util.mensagem("Não implementado ");
-    }//GEN-LAST:event_JBTPesquisarActionPerformed
+    }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
-    private void JBTConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTConfirmarActionPerformed
+    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, JTXTNomeProduto, JTXTNomeFabricante,JTFDataFabricacao,JTFDataValidade, JTXTDescricao, JTXTSegmentoProduto, JTXTDescricao);
-        Util.habilitar(false, JBTIncluir, JBTAlterar, JBTExcluir, JBTPesquisar);
-    }//GEN-LAST:event_JBTConfirmarActionPerformed
+ 
+        Util.habilitar(false, jTxtNomeProduto, jTxtNomeFabricante, jFmtDataFabricacao, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao,jBtnCancelar,jBtnConfirmar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+    }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
-    private void JBTCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTCancelar1ActionPerformed
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
 
-        Util.habilitar(false, JTXTNomeProduto,JTFDataFabricacao, JTXTNomeFabricante, JTFDataValidade, JTXTDescricao, JTXTSegmentoProduto, JTXTDescricao);
-        Util.habilitar(true, JBTIncluir, JBTAlterar, JBTExcluir, JBTPesquisar);
-        Util.limpar(JTXTNomeProduto, JTFDataFabricacao,JTXTNomeFabricante, JTFDataValidade, JTXTDescricao, JTXTSegmentoProduto, JTXTDescricao);
-    }//GEN-LAST:event_JBTCancelar1ActionPerformed
+        Util.habilitar(false, jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar(jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,18 +300,14 @@ public class JDlgProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBTAlterar;
-    private javax.swing.JButton JBTCancelar1;
-    private javax.swing.JButton JBTConfirmar;
-    private javax.swing.JButton JBTExcluir;
-    private javax.swing.JButton JBTIncluir;
-    private javax.swing.JButton JBTPesquisar;
-    private javax.swing.JFormattedTextField JTFDataFabricacao;
-    private javax.swing.JFormattedTextField JTFDataValidade;
-    private javax.swing.JTextField JTXTDescricao;
-    private javax.swing.JTextField JTXTNomeFabricante;
-    private javax.swing.JTextField JTXTNomeProduto;
-    private javax.swing.JTextField JTXTSegmentoProduto;
+    private javax.swing.JButton jBtnAlterar;
+    private javax.swing.JButton jBtnCancelar;
+    private javax.swing.JButton jBtnConfirmar;
+    private javax.swing.JButton jBtnExcluir;
+    private javax.swing.JButton jBtnIncluir;
+    private javax.swing.JButton jBtnPesquisar;
+    private javax.swing.JFormattedTextField jFmtDataFabricacao;
+    private javax.swing.JFormattedTextField jFmtDataValidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -313,5 +315,9 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTxtDescricao;
+    private javax.swing.JTextField jTxtNomeFabricante;
+    private javax.swing.JTextField jTxtNomeProduto;
+    private javax.swing.JTextField jTxtSegmentoProduto;
     // End of variables declaration//GEN-END:variables
 }

@@ -83,6 +83,12 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
         jLabel4.setText("CPF");
 
+        jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtCpfActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Data de Nascimento");
 
         jFmtDataDeNascimento.addActionListener(new java.awt.event.ActionListener() {
@@ -311,6 +317,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
                 jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
                 jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+            
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
@@ -341,6 +348,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jFmtDataDeNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataDeNascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtDataDeNascimentoActionPerformed
+
+    private void jFmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtCpfActionPerformed
 
     /**
      * @param args the command line arguments
