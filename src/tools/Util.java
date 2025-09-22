@@ -69,24 +69,20 @@ public class Util {
     }
 
     public static double strToDouble(String num) {
-        return 0;
+        return  Double.parseDouble(num);
 
     }
 
     public static String doubleToStr(double  num) {
-        
-       StringBuilder  numSbuilde = new  StringBuilder();
-         numSbuilde.append("");
-          return numSbuilde.toString();
-
+     return Double.toString(num);
     }
 
     public static String dateToStr(Date data) {
-
-        return ""; 
+    
+        return "";
 		
     }
-     public static Date strToDate(Date data) {
+     public static Date strToDate(String  data) {
 
         return null; 
 		
