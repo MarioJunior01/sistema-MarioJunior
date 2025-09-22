@@ -18,7 +18,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     public JDlgFuncionarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Util.habilitar(false, JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnCancelar, mpj_jBtnConfirmar);
     }
 
     /**
@@ -31,25 +31,25 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JtxtNomeFuncionario = new javax.swing.JTextField();
+        mpj_jTxtNomeFuncionario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jFmtCpfFuncionario = new javax.swing.JFormattedTextField();
+        mpj_jFmtCpfFuncionario = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
-        jFmtTelefoneFuncionario = new javax.swing.JFormattedTextField();
+        mpj_jFmtTelefoneFuncionario = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
-        jFmtDataNascimentoFuncionario = new javax.swing.JFormattedTextField();
-        jCboSetorFuncionario = new javax.swing.JComboBox<>();
+        mpj_jFmtDataNascimentoFuncionario = new javax.swing.JFormattedTextField();
+        mpj_jCboSetorFuncionario = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTxtEmailFuncionario = new javax.swing.JTextField();
+        mpj_jTxtEmailFuncionario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jCboSexoFuncionario = new javax.swing.JComboBox<>();
-        jBtnIncluir = new javax.swing.JButton();
-        jBtnAlterar = new javax.swing.JButton();
-        jBtnExcluir = new javax.swing.JButton();
-        jBtnConfirmar = new javax.swing.JButton();
-        jBtnCancelar = new javax.swing.JButton();
-        jBtnPesquisar = new javax.swing.JButton();
+        mpj_jCboSexoFuncionario = new javax.swing.JComboBox<>();
+        mpj_jBtnIncluir = new javax.swing.JButton();
+        mpj_jBtnAlterar = new javax.swing.JButton();
+        mpj_jBtnExcluir = new javax.swing.JButton();
+        mpj_jBtnConfirmar = new javax.swing.JButton();
+        mpj_jBtnCancelar = new javax.swing.JButton();
+        mpj_jBtnPesquisar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -57,9 +57,9 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
         jLabel1.setText("Nome Completo:");
 
-        JtxtNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jTxtNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JtxtNomeFuncionarioActionPerformed(evt);
+                mpj_jTxtNomeFuncionarioActionPerformed(evt);
             }
         });
 
@@ -69,7 +69,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
         jLabel4.setText("Data de Nascimento:");
 
-        jCboSetorFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Administrativo", "Atendimento", "Caixa", "Vendas" }));
+        mpj_jCboSetorFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Administrativo", "Atendimento", "Caixa", "Vendas" }));
 
         jLabel5.setText("Setor Funcionário:");
 
@@ -77,53 +77,53 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
         jLabel7.setText("Sexo:");
 
-        jCboSexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outros" }));
+        mpj_jCboSexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outros" }));
 
-        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
-        jBtnIncluir.setText("Incluir");
-        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
+        mpj_jBtnIncluir.setText("Incluir");
+        mpj_jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnIncluirActionPerformed(evt);
+                mpj_jBtnIncluirActionPerformed(evt);
             }
         });
 
-        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
-        jBtnAlterar.setText("Alterar");
-        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        mpj_jBtnAlterar.setText("Alterar");
+        mpj_jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAlterarActionPerformed(evt);
+                mpj_jBtnAlterarActionPerformed(evt);
             }
         });
 
-        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
-        jBtnExcluir.setText("Excluir");
-        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
+        mpj_jBtnExcluir.setText("Excluir");
+        mpj_jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnExcluirActionPerformed(evt);
+                mpj_jBtnExcluirActionPerformed(evt);
             }
         });
 
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
-        jBtnConfirmar.setText("Confirmar");
-        jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
+        mpj_jBtnConfirmar.setText("Confirmar");
+        mpj_jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnConfirmarActionPerformed(evt);
+                mpj_jBtnConfirmarActionPerformed(evt);
             }
         });
 
-        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
-        jBtnCancelar.setText("Cancelar");
-        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        mpj_jBtnCancelar.setText("Cancelar");
+        mpj_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCancelarActionPerformed(evt);
+                mpj_jBtnCancelarActionPerformed(evt);
             }
         });
 
-        jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
-        jBtnPesquisar.setText("Pesquisar");
-        jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
+        mpj_jBtnPesquisar.setText("Pesquisar");
+        mpj_jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnPesquisarActionPerformed(evt);
+                mpj_jBtnPesquisarActionPerformed(evt);
             }
         });
 
@@ -139,15 +139,15 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBtnIncluir)
+                        .addComponent(mpj_jBtnIncluir)
                         .addGap(15, 15, 15)
-                        .addComponent(jBtnAlterar)
+                        .addComponent(mpj_jBtnAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBtnExcluir)
+                        .addComponent(mpj_jBtnExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnConfirmar)
+                        .addComponent(mpj_jBtnConfirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(jBtnCancelar))
+                        .addComponent(mpj_jBtnCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -156,13 +156,13 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JtxtNomeFuncionario)
+                                    .addComponent(mpj_jTxtNomeFuncionario)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFmtCpfFuncionario)
-                                    .addComponent(jFmtTelefoneFuncionario)
-                                    .addComponent(jTxtEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(mpj_jFmtCpfFuncionario)
+                                    .addComponent(mpj_jFmtTelefoneFuncionario)
+                                    .addComponent(mpj_jTxtEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1)))
@@ -172,13 +172,12 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
-                                .addComponent(jFmtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jCboSexoFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCboSetorFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(mpj_jFmtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mpj_jCboSexoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(mpj_jCboSetorFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnPesquisar)
+                .addComponent(mpj_jBtnPesquisar)
                 .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
@@ -190,15 +189,15 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFmtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jFmtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCboSetorFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jCboSetorFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCboSexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jCboSexoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -208,78 +207,80 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(JtxtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mpj_jTxtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFmtCpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jFmtCpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFmtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jFmtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jTxtEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnAlterar)
-                    .addComponent(jBtnExcluir)
-                    .addComponent(jBtnPesquisar)
-                    .addComponent(jBtnIncluir)
-                    .addComponent(jBtnConfirmar)
-                    .addComponent(jBtnCancelar))
+                    .addComponent(mpj_jBtnAlterar)
+                    .addComponent(mpj_jBtnExcluir)
+                    .addComponent(mpj_jBtnPesquisar)
+                    .addComponent(mpj_jBtnIncluir)
+                    .addComponent(mpj_jBtnConfirmar)
+                    .addComponent(mpj_jBtnCancelar))
                 .addGap(71, 71, 71))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
+    private void mpj_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario);
-    }//GEN-LAST:event_jBtnIncluirActionPerformed
+        Util.habilitar(true, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario);
+    }//GEN-LAST:event_mpj_jBtnIncluirActionPerformed
 
-    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+    private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-    }//GEN-LAST:event_jBtnAlterarActionPerformed
+        Util.habilitar(true, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+    }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
-    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+    private void mpj_jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         Util.perguntar("Deseja excluir o registro?");
-    }//GEN-LAST:event_jBtnExcluirActionPerformed
+    }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
-    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
+    private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
 
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
 
-    }//GEN-LAST:event_jBtnConfirmarActionPerformed
+    }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
-    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+    private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
         // TODO add your handling code here:
 
-        Util.habilitar(false, JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario, jBtnCancelar, jBtnConfirmar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(JtxtNomeFuncionario, jFmtTelefoneFuncionario, jFmtDataNascimentoFuncionario, jFmtCpfFuncionario, jTxtEmailFuncionario, jCboSexoFuncionario, jCboSetorFuncionario);
+        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnCancelar, mpj_jBtnConfirmar);
+        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboSexoFuncionario, mpj_jCboSetorFuncionario);
 
-    }//GEN-LAST:event_jBtnCancelarActionPerformed
+    }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
 
-    private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
+    private void mpj_jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        Util.mensagem("Não implementado ");
-    }//GEN-LAST:event_jBtnPesquisarActionPerformed
+        JDlgFuncionariosPesquisar jdlgFuncionariosPesquisar = new JDlgFuncionariosPesquisar(null,true);
+       jdlgFuncionariosPesquisar.setTelaPai(this);
+       jdlgFuncionariosPesquisar.setVisible(true);
+    }//GEN-LAST:event_mpj_jBtnPesquisarActionPerformed
 
-    private void JtxtNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxtNomeFuncionarioActionPerformed
+    private void mpj_jTxtNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jTxtNomeFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JtxtNomeFuncionarioActionPerformed
+    }//GEN-LAST:event_mpj_jTxtNomeFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,18 +326,6 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JtxtNomeFuncionario;
-    private javax.swing.JButton jBtnAlterar;
-    private javax.swing.JButton jBtnCancelar;
-    private javax.swing.JButton jBtnConfirmar;
-    private javax.swing.JButton jBtnExcluir;
-    private javax.swing.JButton jBtnIncluir;
-    private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JComboBox<String> jCboSetorFuncionario;
-    private javax.swing.JComboBox<String> jCboSexoFuncionario;
-    private javax.swing.JFormattedTextField jFmtCpfFuncionario;
-    private javax.swing.JFormattedTextField jFmtDataNascimentoFuncionario;
-    private javax.swing.JFormattedTextField jFmtTelefoneFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -346,6 +335,18 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTxtEmailFuncionario;
+    private javax.swing.JButton mpj_jBtnAlterar;
+    private javax.swing.JButton mpj_jBtnCancelar;
+    private javax.swing.JButton mpj_jBtnConfirmar;
+    private javax.swing.JButton mpj_jBtnExcluir;
+    private javax.swing.JButton mpj_jBtnIncluir;
+    private javax.swing.JButton mpj_jBtnPesquisar;
+    private javax.swing.JComboBox<String> mpj_jCboSetorFuncionario;
+    private javax.swing.JComboBox<String> mpj_jCboSexoFuncionario;
+    private javax.swing.JFormattedTextField mpj_jFmtCpfFuncionario;
+    private javax.swing.JFormattedTextField mpj_jFmtDataNascimentoFuncionario;
+    private javax.swing.JFormattedTextField mpj_jFmtTelefoneFuncionario;
+    private javax.swing.JTextField mpj_jTxtEmailFuncionario;
+    private javax.swing.JTextField mpj_jTxtNomeFuncionario;
     // End of variables declaration//GEN-END:variables
 }

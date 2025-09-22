@@ -18,7 +18,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
      */
     public JDlgProdutos() {
         initComponents();
-        Util.habilitar(false, jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar);
     }
 
     /**
@@ -32,24 +32,24 @@ public class JDlgProdutos extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
-        jTxtNomeProduto = new javax.swing.JTextField();
+        mpj_jTxtNomeProduto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTxtNomeFabricante = new javax.swing.JTextField();
+        mpj_jTxtNomeFabricante = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTxtSegmentoProduto = new javax.swing.JTextField();
+        mpj_jTxtSegmentoProduto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTxtDescricao = new javax.swing.JTextField();
-        jBtnAlterar = new javax.swing.JButton();
-        jBtnExcluir = new javax.swing.JButton();
-        jBtnIncluir = new javax.swing.JButton();
-        jBtnPesquisar = new javax.swing.JButton();
-        jBtnConfirmar = new javax.swing.JButton();
-        jBtnCancelar = new javax.swing.JButton();
+        mpj_jTxtDescricao = new javax.swing.JTextField();
+        mpj_jBtnAlterar = new javax.swing.JButton();
+        mpj_jBtnExcluir = new javax.swing.JButton();
+        mpj_jBtnIncluir = new javax.swing.JButton();
+        mpj_jBtnPesquisar = new javax.swing.JButton();
+        mpj_jBtnConfirmar = new javax.swing.JButton();
+        mpj_jBtnCancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jFmtDataValidade = new javax.swing.JFormattedTextField();
-        jFmtDataFabricacao = new javax.swing.JFormattedTextField();
+        mpj_jFmtDataValidade = new javax.swing.JFormattedTextField();
+        mpj_jFmtDataFabricacao = new javax.swing.JFormattedTextField();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -58,9 +58,9 @@ public class JDlgProdutos extends javax.swing.JFrame {
 
         jLabel1.setText("Nome do Produto");
 
-        jTxtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jTxtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNomeProdutoActionPerformed(evt);
+                mpj_jTxtNomeProdutoActionPerformed(evt);
             }
         });
 
@@ -74,57 +74,57 @@ public class JDlgProdutos extends javax.swing.JFrame {
 
         jLabel6.setText("Descrição do Produto");
 
-        jTxtDescricao.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jTxtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtDescricaoActionPerformed(evt);
+                mpj_jTxtDescricaoActionPerformed(evt);
             }
         });
 
-        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
-        jBtnAlterar.setText("Alterar");
-        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit.png"))); // NOI18N
+        mpj_jBtnAlterar.setText("Alterar");
+        mpj_jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAlterarActionPerformed(evt);
+                mpj_jBtnAlterarActionPerformed(evt);
             }
         });
 
-        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
-        jBtnExcluir.setText("Excluir");
-        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_remove.png"))); // NOI18N
+        mpj_jBtnExcluir.setText("Excluir");
+        mpj_jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnExcluirActionPerformed(evt);
+                mpj_jBtnExcluirActionPerformed(evt);
             }
         });
 
-        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
-        jBtnIncluir.setText("Incluir");
-        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_add.png"))); // NOI18N
+        mpj_jBtnIncluir.setText("Incluir");
+        mpj_jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnIncluirActionPerformed(evt);
+                mpj_jBtnIncluirActionPerformed(evt);
             }
         });
 
-        jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
-        jBtnPesquisar.setText("Pesquisar");
-        jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
+        mpj_jBtnPesquisar.setText("Pesquisar");
+        mpj_jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnPesquisarActionPerformed(evt);
+                mpj_jBtnPesquisarActionPerformed(evt);
             }
         });
 
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
-        jBtnConfirmar.setText("Confirmar");
-        jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apply.png"))); // NOI18N
+        mpj_jBtnConfirmar.setText("Confirmar");
+        mpj_jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnConfirmarActionPerformed(evt);
+                mpj_jBtnConfirmarActionPerformed(evt);
             }
         });
 
-        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
-        jBtnCancelar.setText("Cancelar");
-        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        mpj_jBtnCancelar.setText("Cancelar");
+        mpj_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCancelarActionPerformed(evt);
+                mpj_jBtnCancelarActionPerformed(evt);
             }
         });
 
@@ -137,39 +137,39 @@ public class JDlgProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addComponent(jFmtDataFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(mpj_jFmtDataFabricacao, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(jLabel5)
-                    .addComponent(jFmtDataValidade))
+                    .addComponent(mpj_jFmtDataValidade))
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
-                            .addComponent(jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(mpj_jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTxtDescricao))
+                    .addComponent(mpj_jTxtDescricao))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBtnIncluir)
+                .addComponent(mpj_jBtnIncluir)
                 .addGap(15, 15, 15)
-                .addComponent(jBtnAlterar)
+                .addComponent(mpj_jBtnAlterar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnExcluir)
+                .addComponent(mpj_jBtnExcluir)
                 .addGap(18, 18, 18)
-                .addComponent(jBtnConfirmar)
+                .addComponent(mpj_jBtnConfirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnCancelar)
+                .addComponent(mpj_jBtnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnPesquisar)
+                .addComponent(mpj_jBtnPesquisar)
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
-                    .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(mpj_jTxtNomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(jTxtNomeFabricante))
+                    .addComponent(mpj_jTxtNomeFabricante))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(83, 83, 83))
@@ -182,90 +182,92 @@ public class JDlgProdutos extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_jTxtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtNomeFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mpj_jTxtNomeFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFmtDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mpj_jTxtSegmentoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mpj_jFmtDataFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFmtDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mpj_jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mpj_jFmtDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnAlterar)
-                    .addComponent(jBtnExcluir)
-                    .addComponent(jBtnPesquisar)
-                    .addComponent(jBtnIncluir)
-                    .addComponent(jBtnConfirmar)
-                    .addComponent(jBtnCancelar))
+                    .addComponent(mpj_jBtnAlterar)
+                    .addComponent(mpj_jBtnExcluir)
+                    .addComponent(mpj_jBtnPesquisar)
+                    .addComponent(mpj_jBtnIncluir)
+                    .addComponent(mpj_jBtnConfirmar)
+                    .addComponent(mpj_jBtnCancelar))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeProdutoActionPerformed
+    private void mpj_jTxtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jTxtNomeProdutoActionPerformed
 
-    }//GEN-LAST:event_jTxtNomeProdutoActionPerformed
+    }//GEN-LAST:event_mpj_jTxtNomeProdutoActionPerformed
 
-    private void jTxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtDescricaoActionPerformed
+    private void mpj_jTxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jTxtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtDescricaoActionPerformed
+    }//GEN-LAST:event_mpj_jTxtDescricaoActionPerformed
 
-    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+    private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtNomeProduto, jFmtDataValidade, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-    }//GEN-LAST:event_jBtnAlterarActionPerformed
+        Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+        Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+    }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
-    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+    private void mpj_jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         Util.perguntar("Deseja excluir o registro?");
-    }//GEN-LAST:event_jBtnExcluirActionPerformed
+    }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
-    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
+    private void mpj_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtNomeProduto, jFmtDataValidade, jTxtNomeFabricante, jFmtDataFabricacao, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
+        Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.limpar(mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
 
-    }//GEN-LAST:event_jBtnIncluirActionPerformed
+    }//GEN-LAST:event_mpj_jBtnIncluirActionPerformed
 
-    private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
+    private void mpj_jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        Util.mensagem("Não implementado ");
-    }//GEN-LAST:event_jBtnPesquisarActionPerformed
+         JDlgProdutosPesquisar jdlgProdutosPesquisar = new JDlgProdutosPesquisar(null,true);
+       jdlgProdutosPesquisar.setTelaPai(this);
+       jdlgProdutosPesquisar.setVisible(true);
+    }//GEN-LAST:event_mpj_jBtnPesquisarActionPerformed
 
-    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
+    private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
  
-        Util.habilitar(false, jTxtNomeProduto, jTxtNomeFabricante, jFmtDataFabricacao, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao,jBtnCancelar,jBtnConfirmar);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-    }//GEN-LAST:event_jBtnConfirmarActionPerformed
+        Util.habilitar(false, mpj_jTxtNomeProduto, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao,mpj_jBtnCancelar,mpj_jBtnConfirmar);
+        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+    }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
-    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+    private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
         // TODO add your handling code here:
 
-        Util.habilitar(false, jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
-        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(jTxtNomeProduto, jFmtDataFabricacao, jTxtNomeFabricante, jFmtDataValidade, jTxtDescricao, jTxtSegmentoProduto, jTxtDescricao);
-    }//GEN-LAST:event_jBtnCancelarActionPerformed
+        Util.habilitar(false, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.limpar(mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+    }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,14 +305,6 @@ public class JDlgProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAlterar;
-    private javax.swing.JButton jBtnCancelar;
-    private javax.swing.JButton jBtnConfirmar;
-    private javax.swing.JButton jBtnExcluir;
-    private javax.swing.JButton jBtnIncluir;
-    private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JFormattedTextField jFmtDataFabricacao;
-    private javax.swing.JFormattedTextField jFmtDataValidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -319,9 +313,17 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JTextField jTxtDescricao;
-    private javax.swing.JTextField jTxtNomeFabricante;
-    private javax.swing.JTextField jTxtNomeProduto;
-    private javax.swing.JTextField jTxtSegmentoProduto;
+    private javax.swing.JButton mpj_jBtnAlterar;
+    private javax.swing.JButton mpj_jBtnCancelar;
+    private javax.swing.JButton mpj_jBtnConfirmar;
+    private javax.swing.JButton mpj_jBtnExcluir;
+    private javax.swing.JButton mpj_jBtnIncluir;
+    private javax.swing.JButton mpj_jBtnPesquisar;
+    private javax.swing.JFormattedTextField mpj_jFmtDataFabricacao;
+    private javax.swing.JFormattedTextField mpj_jFmtDataValidade;
+    private javax.swing.JTextField mpj_jTxtDescricao;
+    private javax.swing.JTextField mpj_jTxtNomeFabricante;
+    private javax.swing.JTextField mpj_jTxtNomeProduto;
+    private javax.swing.JTextField mpj_jTxtSegmentoProduto;
     // End of variables declaration//GEN-END:variables
 }
