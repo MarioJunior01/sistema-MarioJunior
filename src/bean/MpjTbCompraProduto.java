@@ -2,7 +2,7 @@ package bean;
 // Generated 08/10/2025 12:07:45 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -27,7 +27,7 @@ public class MpjTbCompraProduto  implements java.io.Serializable {
      private MpjTbCompra mpjTbCompra;
      private MpjTbProduto mpjTbProduto;
      private int mpjQuantidadeProduto;
-     private BigDecimal mpjValorUnitario;
+     private double  mpjValorUnitario;
 
     public MpjTbCompraProduto() {
     }
@@ -39,7 +39,7 @@ public class MpjTbCompraProduto  implements java.io.Serializable {
         this.mpjTbProduto = mpjTbProduto;
         this.mpjQuantidadeProduto = mpjQuantidadeProduto;
     }
-    public MpjTbCompraProduto(MpjTbCompraProdutoId id, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto, BigDecimal mpjValorUnitario) {
+    public MpjTbCompraProduto(MpjTbCompraProdutoId id, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto, double mpjValorUnitario) {
        this.id = id;
        this.mpjTbCompra = mpjTbCompra;
        this.mpjTbProduto = mpjTbProduto;
@@ -93,11 +93,11 @@ public class MpjTbCompraProduto  implements java.io.Serializable {
 
     
     @Column(name="mpj_valorUnitario", precision=10)
-    public BigDecimal getMpjValorUnitario() {
+    public double getMpjValorUnitario() {
         return this.mpjValorUnitario;
     }
     
-    public void setMpjValorUnitario(BigDecimal mpjValorUnitario) {
+    public void setMpjValorUnitario(double mpjValorUnitario) {
         this.mpjValorUnitario = mpjValorUnitario;
     }
 
