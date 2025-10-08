@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgProdutosPesquisar.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgFornecedorPesquisar.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgUsuariosPesquisar.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/tools/Util.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgFuncionariosPesquisar.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgUsuarios.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgFuncionarios.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgFornecedores.java</file>
+            <file>file:/H:/sistema-MarioJunior/src/view/JDlgProdutos.java</file>
+        </group>
     </open-files>
 </project-private>
