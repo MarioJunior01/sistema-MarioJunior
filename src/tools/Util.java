@@ -52,9 +52,14 @@ public class Util {
 
     public static boolean perguntar(String cad) {
 
-        JOptionPane.showConfirmDialog(null, cad, "", JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE);
-        return true;
+        int resposta = JOptionPane.showConfirmDialog(
+                null,
+                cad,
+                "Confirmação",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+        return resposta == JOptionPane.YES_OPTION;
     }
 
     public static int srToInt(String num) {
@@ -76,19 +81,28 @@ public class Util {
         return Double.toString(num);
     }
 
-    public static String dateToStr(Date data) {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-         String dataStr = formato.format(data);
-
+    public static String dateToStr(Date dataDt) {
+        String dataStr = null;
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            dataStr = df.format(dataDt);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data inválida", "Atenção", JOptionPane.ERROR_MESSAGE);
+        }
         return dataStr;
 
     }
 
-    public static Date strToDate(String data) throws ParseException {
-           SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");             
-        return formato.parse(data);
+    public static Date strToDate(String dataStr) {
+        Date dataDt = null;
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            dataDt = df.parse(dataStr);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Data inválida", "Atenção", JOptionPane.ERROR_MESSAGE);
+        }
+        return dataDt;
 
     }
+
 }
-
-
