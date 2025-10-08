@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 public class MpjTbUsuario  implements java.io.Serializable {
 
 
-     private Integer mpjIdUsuario;
+     private int mpjIdUsuario;
      private String mpjNomeUsuario;
      private String mpjApelidoUsuario;
      private int mpjCpfUsuario;
@@ -55,11 +55,11 @@ public class MpjTbUsuario  implements java.io.Serializable {
 
     
     @Column(name="mpj_idUsuario", unique=true, nullable=false)
-    public Integer getMpjIdUsuario() {
+    public int getMpjIdUsuario() {
         return this.mpjIdUsuario;
     }
     
-    public void setMpjIdUsuario(Integer mpjIdUsuario) {
+    public void setMpjIdUsuario(int mpjIdUsuario) {
         this.mpjIdUsuario = mpjIdUsuario;
     }
 
