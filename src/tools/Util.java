@@ -94,15 +94,25 @@ public class Util {
     }
 
     public static Date strToDate(String dataStr) {
-        Date dataDt = null;
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            dataDt = df.parse(dataStr);
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Data inválida", "Atenção", JOptionPane.ERROR_MESSAGE);
+        if (dataStr == null) {
+            JOptionPane.showMessageDialog(null, "Por favor, informe uma data!");
         }
-        return dataDt;
-
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+         Date dataDT = null;
+        try {
+            return dataDT = df.parse(dataStr.trim());
+            
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Data inválida: " + dataStr,
+                    "Atenção",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            
+        }
+        return dataDT;
     }
 
 }

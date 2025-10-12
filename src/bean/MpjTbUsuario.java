@@ -25,36 +25,37 @@ public class MpjTbUsuario  implements java.io.Serializable {
      private int mpjIdUsuario;
      private String mpjNomeUsuario;
      private String mpjApelidoUsuario;
-     private int mpjCpfUsuario;
+     private String mpjCpfUsuario;
      private Date mpjDataNascimentoUsuario;
-     private Boolean mpjAtivoUsuario;
-     private String mpjNivelUsuario;
-     private String mpjSenhaFuncionario;
+     private String mpjAtivoUsuario;
+     private int mpjNivelUsuario;
+     private String mpjSenhaUsuario;
 
     public MpjTbUsuario() {
     }
 
 	
-    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, int mpjCpfUsuario, Date mpjDataNascimentoUsuario) {
+    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario) {
         this.mpjNomeUsuario = mpjNomeUsuario;
         this.mpjApelidoUsuario = mpjApelidoUsuario;
         this.mpjCpfUsuario = mpjCpfUsuario;
         this.mpjDataNascimentoUsuario = mpjDataNascimentoUsuario;
     }
-    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, int mpjCpfUsuario, Date mpjDataNascimentoUsuario, Boolean mpjAtivoUsuario, String mpjNivelUsuario, String mpjSenhaFuncionario) {
+    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario, String mpjAtivoUsuario, int mpjNivelUsuario, String mpjSenhaUsuario) {
        this.mpjNomeUsuario = mpjNomeUsuario;
        this.mpjApelidoUsuario = mpjApelidoUsuario;
        this.mpjCpfUsuario = mpjCpfUsuario;
        this.mpjDataNascimentoUsuario = mpjDataNascimentoUsuario;
        this.mpjAtivoUsuario = mpjAtivoUsuario;
        this.mpjNivelUsuario = mpjNivelUsuario;
-       this.mpjSenhaFuncionario = mpjSenhaFuncionario;
+       this.mpjSenhaUsuario = mpjSenhaUsuario;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     
 
-    
-    @Column(name="mpj_idUsuario", unique=true, nullable=false)
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name="mpj_idUsuario")
     public int getMpjIdUsuario() {
         return this.mpjIdUsuario;
     }
@@ -84,12 +85,12 @@ public class MpjTbUsuario  implements java.io.Serializable {
     }
 
     
-    @Column(name="mpj_cpfUsuario", nullable=false)
-    public int getMpjCpfUsuario() {
+    @Column(name="mpj_cpfUsuario", nullable=false,length=21)
+    public String getMpjCpfUsuario() {
         return this.mpjCpfUsuario;
     }
     
-    public void setMpjCpfUsuario(int mpjCpfUsuario) {
+    public void setMpjCpfUsuario(String mpjCpfUsuario) {
         this.mpjCpfUsuario = mpjCpfUsuario;
     }
 
@@ -104,33 +105,33 @@ public class MpjTbUsuario  implements java.io.Serializable {
     }
 
     
-    @Column(name="mpj_ativoUsuario")
-    public Boolean getMpjAtivoUsuario() {
+    @Column(name="mpj_ativoUsuario",length=2)
+    public String getMpjAtivoUsuario() {
         return this.mpjAtivoUsuario;
     }
     
-    public void setMpjAtivoUsuario(Boolean mpjAtivoUsuario) {
+    public void setMpjAtivoUsuario(String mpjAtivoUsuario) {
         this.mpjAtivoUsuario = mpjAtivoUsuario;
     }
 
     
-    @Column(name="mpj_nivelUsuario", length=40)
-    public String getMpjNivelUsuario() {
+    @Column(name="mpj_nivelUsuario")
+    public int getMpjNivelUsuario() {
         return this.mpjNivelUsuario;
     }
     
-    public void setMpjNivelUsuario(String mpjNivelUsuario) {
+    public void setMpjNivelUsuario(int mpjNivelUsuario) {
         this.mpjNivelUsuario = mpjNivelUsuario;
     }
 
     
-    @Column(name="mpj_senhaFuncionario", length=70)
-    public String getMpjSenhaFuncionario() {
-        return this.mpjSenhaFuncionario;
+    @Column(name="mpj_senhaUsuario", length=70)
+    public String getMpjSenhaUsuario() {
+        return this.mpjSenhaUsuario;
     }
     
-    public void setMpjSenhaFuncionario(String mpjSenhaFuncionario) {
-        this.mpjSenhaFuncionario = mpjSenhaFuncionario;
+    public void setMpjSenhaUsuario(String mpjSenhaUsuario) {
+        this.mpjSenhaUsuario = mpjSenhaUsuario;
     }
 
 
