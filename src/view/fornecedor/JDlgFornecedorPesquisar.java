@@ -4,6 +4,11 @@
  */
 package view.fornecedor;
 
+import bean.MpjTbFornecedor;
+import dao.FornecedorDAO;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author u04584043221
@@ -14,12 +19,21 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
      * Creates new form JDlgFornecedorPesquisar
      */
     private JDlgFornecedores jdlFornecedores;
+    private ControlleFornecedor controllerFornecedor;
+
     public JDlgFornecedorPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        List lista = (List) fornecedorDAO.listAll();
+        controllerFornecedor = new ControlleFornecedor(); // inicialize antes
+        controllerFornecedor.setList(lista);
+        mpj_jTb.setModel(controllerFornecedor);
+
     }
-    public void setTelaPai(JDlgFornecedores jdlFornecedores){
-    this.jdlFornecedores = jdlFornecedores;
+
+    public void setTelaPai(JDlgFornecedores jdlFornecedores) {
+        this.jdlFornecedores = jdlFornecedores;
     }
 
     /**
@@ -33,8 +47,9 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         mpj_jTb = new javax.swing.JTable();
-        mpj_jBtnOK = new javax.swing.JButton();
+        mpj_jBtnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        mpj_jBtnOK1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,15 +66,22 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(mpj_jTb);
 
-        mpj_jBtnOK.setText("OK");
-        mpj_jBtnOK.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jBtnCancelar.setText("Cancelar");
+        mpj_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mpj_jBtnOKActionPerformed(evt);
+                mpj_jBtnCancelarActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Lista de Fornecedores");
+
+        mpj_jBtnOK1.setText("OK");
+        mpj_jBtnOK1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jBtnOK1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,36 +89,58 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(mpj_jBtnOK)))
-                .addContainerGap())
+                .addComponent(jScrollPane1))
             .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(328, 328, 328)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 335, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mpj_jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(770, Short.MAX_VALUE)
+                    .addComponent(mpj_jBtnOK1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(20, 20, 20)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
-                .addComponent(mpj_jBtnOK)
-                .addContainerGap())
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(mpj_jBtnCancelar)
+                .addGap(22, 22, 22))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(665, Short.MAX_VALUE)
+                    .addComponent(mpj_jBtnOK1)
+                    .addGap(21, 21, 21)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mpj_jBtnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnOKActionPerformed
+    private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
         // TODO add your handling code here:
+
         this.setVisible(false);
-    }//GEN-LAST:event_mpj_jBtnOKActionPerformed
+    }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
+
+    private void mpj_jBtnOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnOK1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = mpj_jTb.getSelectedRow();
+        if (selectedRow != -1) {
+            MpjTbFornecedor fornecededor = controllerFornecedor.getBean(selectedRow);
+            jdlFornecedores.beanView(fornecededor);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um Fornecedor", "Aviso", JOptionPane.WARNING_MESSAGE);
+
+        }
+    }//GEN-LAST:event_mpj_jBtnOK1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +187,8 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton mpj_jBtnOK;
+    private javax.swing.JButton mpj_jBtnCancelar;
+    private javax.swing.JButton mpj_jBtnOK1;
     private javax.swing.JTable mpj_jTb;
     // End of variables declaration//GEN-END:variables
 }

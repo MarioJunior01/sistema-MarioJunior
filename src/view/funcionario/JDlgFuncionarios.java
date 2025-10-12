@@ -39,11 +39,11 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     public void beanView(MpjTbFuncionario funcionario) {
         mpj_jTxtNomeFuncionario.setText(funcionario.getMpjNomeCompletoFuncionario());
         mpj_jTxtEmailFuncionario.setText(funcionario.getMpjEmailFuncionario());
-        mpj_jCboCargoFuncionario.setSelectedIndex(funcionario.getMpjCargoFuncionario());
         mpj_jFmtDataNascimentoFuncionario.setText(Util.dateToStr(funcionario.getMpjDataNascimento()));
-        mpj_jCboSetorFuncionario.setSelectedIndex(funcionario.getMpjSetorFuncionario());
         mpj_jFmtCpfFuncionario.setText(funcionario.getMpjCpfFuncionario());
         mpj_jFmtTelefoneFuncionario.setText(funcionario.getMpjTelefoneFuncionario());
+        mpj_jCboSetorFuncionario.setSelectedIndex(funcionario.getMpjSetorFuncionario());
+        mpj_jCboCargoFuncionario.setSelectedIndex(funcionario.getMpjCargoFuncionario());
         mpj_jCboSexoFuncionario1.setSelectedIndex(funcionario.getMpjSexoFuncionario());
     }
 

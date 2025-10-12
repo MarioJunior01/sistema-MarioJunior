@@ -3,24 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/Hibernate/Util.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbFuncionario.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbFornecedor.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbUsuario.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/JDlgUsuariosPesquisar.java</file>
+            <file>file:/C:/Users/mario/sistema-MarioJunior/src/img/carteira-de-identidade.png</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/tools/Util.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbCompraProdutoId.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/JDlgUsuarios.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbCompra.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbCompraProduto.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/hibernate.reveng.xml</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbProduto.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/ProdutoDAO.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/CompraDAO.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/FornecedorDAO.java</file>
         </group>
     </open-files>
 </project-private>

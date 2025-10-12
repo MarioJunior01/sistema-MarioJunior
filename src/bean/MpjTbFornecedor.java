@@ -18,30 +18,32 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "mpj_tbFornecedor",
-         catalog = "db_mario_junior"
+        catalog = "db_mario_junior"
 )
 public class MpjTbFornecedor implements java.io.Serializable {
 
-    private int mpjCnpjFornecedor;
+    private String mpjCnpjFornecedor;
     private String mpjNomeFantasiaFornecedor;
     private String mpjRazaoSocialFornecedor;
     private Date mpjDataCriacaoFornecedor;
-    private double mpjCapitalFornecedor;
     private String mpjQuantidadeFuncionariosFornecedor;
     private String mpjSegmentoFornecedor;
     private String mpjTelefoneFornecedor;
     private String mpjEmailFornecedor;
     private String mpjCepFornecedor;
     private String mpjRuaFornecedor;
+    private int mpjNumeroFornecedor;
     private String mpjEstadoFornecedor;
     private String mpjPaisFornecedor;
     private String mpjServicoPrestadoFornecedor;
     private String mpjNomeResponsavelFornecedor;
+    private String mpjPorteFornecedor;
+    private String mpjComplementoFornecedor;
 
     public MpjTbFornecedor() {
     }
 
-    public MpjTbFornecedor(int mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
+    public MpjTbFornecedor(String mpjComplementoFornecedor ,int mpjNumeroFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
         this.mpjCnpjFornecedor = mpjCnpjFornecedor;
         this.mpjNomeFantasiaFornecedor = mpjNomeFantasiaFornecedor;
         this.mpjRazaoSocialFornecedor = mpjRazaoSocialFornecedor;
@@ -51,14 +53,16 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjRuaFornecedor = mpjRuaFornecedor;
         this.mpjServicoPrestadoFornecedor = mpjServicoPrestadoFornecedor;
         this.mpjNomeResponsavelFornecedor = mpjNomeResponsavelFornecedor;
+        this.mpjQuantidadeFuncionariosFornecedor = mpjQuantidadeFuncionariosFornecedor;
+        this.mpjNumeroFornecedor = mpjNumeroFornecedor;
+        this.mpjComplementoFornecedor=mpjComplementoFornecedor;
     }
 
-    public MpjTbFornecedor(int mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, Date mpjDataCriacaoFornecedor, double mpjCapitalFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjSegmentoFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjEstadoFornecedor, String mpjPaisFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
+    public MpjTbFornecedor(String mpjComplementoFornecedor,int mpjNumeroFornecedor,String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, Date mpjDataCriacaoFornecedor, double mpjCapitalFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjSegmentoFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjEstadoFornecedor, String mpjPaisFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
         this.mpjCnpjFornecedor = mpjCnpjFornecedor;
         this.mpjNomeFantasiaFornecedor = mpjNomeFantasiaFornecedor;
         this.mpjRazaoSocialFornecedor = mpjRazaoSocialFornecedor;
         this.mpjDataCriacaoFornecedor = mpjDataCriacaoFornecedor;
-        this.mpjCapitalFornecedor = mpjCapitalFornecedor;
         this.mpjQuantidadeFuncionariosFornecedor = mpjQuantidadeFuncionariosFornecedor;
         this.mpjSegmentoFornecedor = mpjSegmentoFornecedor;
         this.mpjTelefoneFornecedor = mpjTelefoneFornecedor;
@@ -69,23 +73,34 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjPaisFornecedor = mpjPaisFornecedor;
         this.mpjServicoPrestadoFornecedor = mpjServicoPrestadoFornecedor;
         this.mpjNomeResponsavelFornecedor = mpjNomeResponsavelFornecedor;
+        this.mpjComplementoFornecedor=mpjComplementoFornecedor;
+        this.mpjNumeroFornecedor=mpjNumeroFornecedor;
 
     }
 
     @Id
 
-    @Column(name = "mpj_cnpjFornecedor", unique = true, nullable = false)
-    public int getMpjCnpjFornecedor() {
+    @Column(name = "mpj_cnpjFornecedor", unique = true, nullable = false, length = 30)
+    public String getMpjCnpjFornecedor() {
         return this.mpjCnpjFornecedor;
     }
 
-    public void setMpjCnpjFornecedor(int mpjCnpjFornecedor) {
+    public void setMpjCnpjFornecedor(String mpjCnpjFornecedor) {
         this.mpjCnpjFornecedor = mpjCnpjFornecedor;
     }
 
     @Column(name = "mpj_nomeFantasiaFornecedor", nullable = false, length = 60)
     public String getMpjNomeFantasiaFornecedor() {
         return this.mpjNomeFantasiaFornecedor;
+    }
+
+    public void setMpjPorteFornecedor(String mpjPorteFornecedor) {
+        this.mpjPorteFornecedor = mpjPorteFornecedor;
+    }
+
+    @Column(name = "mpj_porteFornecedor", nullable = false, length = 100)
+    public String getMpjPorteFornecedor() {
+        return this.mpjPorteFornecedor;
     }
 
     public void setMpjNomeFantasiaFornecedor(String mpjNomeFantasiaFornecedor) {
@@ -111,16 +126,7 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjDataCriacaoFornecedor = mpjDataCriacaoFornecedor;
     }
 
-    @Column(name = "mpj_capitalFornecedor", precision = 10)
-    public double getMpjCapitalFornecedor() {
-        return this.mpjCapitalFornecedor;
-    }
-
-    public void setMpjCapitalFornecedor(double mpjCapitalFornecedor) {
-        this.mpjCapitalFornecedor = mpjCapitalFornecedor;
-    }
-
-    @Column(name = "mpj_quantidadeFuncionariosFornecedor", length = 16777215)
+    @Column(name = "mpj_quantidadeFuncionariosFornecedor", length = 100)
     public String getMpjQuantidadeFuncionariosFornecedor() {
         return this.mpjQuantidadeFuncionariosFornecedor;
     }
@@ -209,5 +215,24 @@ public class MpjTbFornecedor implements java.io.Serializable {
     public void setMpjNomeResponsavelFornecedor(String mpjNomeResponsavelFornecedor) {
         this.mpjNomeResponsavelFornecedor = mpjNomeResponsavelFornecedor;
     }
+
+    @Column(name = "numeroFornecedor", nullable = false)
+    public int getMpjNumeroFornecedor() {
+        return this.mpjNumeroFornecedor;
+    }
+
+    public void setMpjNumeroFornecedor(int mpjNumeroFornecedor) {
+        this.mpjNumeroFornecedor = mpjNumeroFornecedor;
+    }
+    
+    @Column(name = "complementoFornecedor", nullable = false,length=200)
+    public String  getMpjComplementoFornecedor() {
+        return this.mpjComplementoFornecedor;
+    }
+
+    public void setMpjComplementoFornecedor(String mpjComplementoFornecedor) {
+        this.mpjComplementoFornecedor = mpjComplementoFornecedor;
+    }
+
 
 }
