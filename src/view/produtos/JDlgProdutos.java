@@ -2,6 +2,7 @@ package view.produtos;
 
 import bean.MpjTbProduto;
 import dao.ProdutoDAO;
+import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
@@ -105,7 +106,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
         // Preço
         try {
             double preco = Util.strToDouble(mpj_jTxtPrecoProduto.getText());
-            if (preco <= 0) {
+            if (preco <= -1) {
                 Util.mensagem("O preço do produto deve ser maior que zero.");
                 mpj_jTxtPrecoProduto.setBorder(bordaErro);
                 return true;
@@ -395,13 +396,23 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
-        Util.habilitar(false, mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar, mpj_jTxtPrecoProduto);
+        Util.habilitar(false, mpj_jTxtIdProduto, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
     private void mpj_jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        Util.perguntar("Deseja excluir o registro?");
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        if (Util.perguntar("Deseja excluir o registro?") == true) {
+
+            produtoDAO.delete(viewBeanProdutos());
+            Util.mensagem("Produto deletado ");
+            HistoricoTransacoes.salvar("DELETE PRODUTO", "ID PRODUTO" + viewBeanProdutos().getMpjIdProduto() + "Nome Produto" + viewBeanProdutos().getMpjNomeProduto());
+
+        } else {
+            Util.mensagem("Operacao Cancelada");
+
+        }
     }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
     private void mpj_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnIncluirActionPerformed
@@ -425,12 +436,14 @@ public class JDlgProdutos extends javax.swing.JFrame {
             if (incluir == true) {
                 produtosDAO.insert(viewBeanProdutos());
                 Util.mensagem("Produto cadastrado com sucesso ");
+                HistoricoTransacoes.salvar("CREATE PRODUTO", "ID PRODUTO" + viewBeanProdutos().getMpjIdProduto() + "Nome Produto" + viewBeanProdutos().getMpjNomeProduto());
 
             } else {
                 produtosDAO.update(viewBeanProdutos());
                 Util.mensagem("Produto editado  com sucesso ");
+                HistoricoTransacoes.salvar("UPDATE PRODUTO", "ID PRODUTO" + viewBeanProdutos().getMpjIdProduto() + "Nome Produto" + viewBeanProdutos().getMpjNomeProduto());
+
             }
-            Util.limpar(mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnCancelar, mpj_jBtnConfirmar);
             Util.limpar(mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
 
         }

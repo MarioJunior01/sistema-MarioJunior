@@ -6,6 +6,7 @@ package view.funcionario;
 
 import bean.MpjTbFuncionario;
 import dao.FuncionarioDAO;
+import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import tools.Util;
@@ -388,6 +389,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             funcionarioDAO.delete(viewBean());
             Util.mensagem("Funcionario Removido");
+            HistoricoTransacoes.salvar("DELETE Funcionario", "CPF" + viewBean().getMpjCpfFuncionario() + "Nome Completo" + viewBean().getMpjNomeCompletoFuncionario());
             Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
 
         }
@@ -400,14 +402,18 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
             if (incluir == true) {
                 funcionarioDAO.insert(viewBean());
                 Util.mensagem("Funcionario Cadastrado com Sucesso");
+                HistoricoTransacoes.salvar("CREATE NEW Funcionario", "CPF" + viewBean().getMpjCpfFuncionario() + "Nome Completo" + viewBean().getMpjNomeCompletoFuncionario());
+                Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
+
             } else {
 
                 funcionarioDAO.update(viewBean());
                 Util.mensagem("Funcionario  Atualizado com sucesso");
+                HistoricoTransacoes.salvar("UPDATE  Funcionario", "CPF" + viewBean().getMpjCpfFuncionario() + "Nome Completo" + viewBean().getMpjNomeCompletoFuncionario());
+
             }
 
             Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-            Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
 
             Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
         }

@@ -427,6 +427,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             UsuarioDAO usuariosDAO = new UsuarioDAO();
             usuariosDAO.delete(usuarios);
             Util.mensagem("Usuario Excluido com sucesso");
+            HistoricoTransacoes.salvar("Delete Usuario",
+                    "ID Usuario: " + usuarios.getMpjIdUsuario()
+                    + "Nome Usuario " + usuarios.getMpjNomeUsuario()
+            );
         } else {
             Util.mensagem("Operacao Cancelada");
         }
@@ -444,19 +448,28 @@ public class JDlgUsuarios extends javax.swing.JDialog {
                 novoUsuario.setMpjDataNascimentoUsuario(Util.strToDate(mpj_jFmtDataDeNascimento.getText()));
                 usuariosDAO.insert(novoUsuario);
                 Util.mensagem("Usuario Criado com sucesso");
+                HistoricoTransacoes.salvar("Create new Usuario",
+                        "ID Usuario: " + novoUsuario.getMpjIdUsuario()
+                        + "Nome Usuario " + novoUsuario.getMpjNomeUsuario()
+                );
 
             } else {
                 MpjTbUsuario usuarioUpdate = viewBean();
                 usuarioUpdate.setMpjIdUsuario(Util.srToInt(mpj_JtfCodigoUsuario.getText()));
+                usuarioUpdate.setMpjDataNascimentoUsuario(Util.strToDate(mpj_jFmtDataDeNascimento.getText()));
                 usuariosDAO.update(usuarioUpdate);
                 Util.mensagem("Usuario Alterado com sucesso");
+                HistoricoTransacoes.salvar("Update Usuario",
+                        "ID Usuario: " + usuarioUpdate.getMpjIdUsuario()
+                        + "Nome Usuario " + usuarioUpdate.getMpjNomeUsuario());
 
             }
             Util.habilitar(false, mpj_JtfCodigoUsuario, mpj_jTxtNome, mpj_jTxtApelido,
                     mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
                     mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-            Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-
+            Util.habilitar(false, mpj_jTxtNome, mpj_jTxtApelido,
+                    mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
+                    mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
         }
 
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed

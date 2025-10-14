@@ -74,13 +74,13 @@ public class Util {
 
     public static double strToDouble(String num) {
         if (num == null || num.trim().isEmpty()) {
-            return 0.0; // valor padrão para vazio ou nulo
+            return 0.00; // valor padrão para vazio ou nulo
         }
         try {
             return Double.parseDouble(num.trim());
         } catch (NumberFormatException e) {
             Util.mensagem("Digite um valor valido");
-            return 0.0; // valor padrão em caso de erro
+            return 0.00; // valor padrão em caso de erro
         }
     }
 

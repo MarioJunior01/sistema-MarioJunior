@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.io.File;
+import java.io.IOException;
 import view.compra.JDlgCompra;
 import view.compra.JDlgComprasProdutos;
 import view.fornecedor.JDlgFornecedorPesquisar;
@@ -22,7 +24,7 @@ import view.usuarios.JDlgUsuariosPesquisar;
  * @author mario
  */
 public class Main extends javax.swing.JFrame {
-    
+
     private JDlgCompra jDlgCompra;
     private JDlgUsuarios jDlgUsuarios;
     private JDlgProdutos jDlgProdutos;
@@ -62,6 +64,8 @@ public class Main extends javax.swing.JFrame {
         mpj_jMniCompraProduto = new javax.swing.JMenu();
         mpj_jMniCompra = new javax.swing.JMenuItem();
         mpj_jMniComprasPesquisar = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +148,18 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(mpj_jMniCompraProduto);
 
+        jMenu1.setText("Relatorio");
+
+        jMenuItem1.setText("Gerar Historico de transacoes");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar2.add(jMenu1);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,7 +205,7 @@ public class Main extends javax.swing.JFrame {
                 setVisible(true);
             }
         });
-        
+
 
     }//GEN-LAST:event_mpj_jMniComprasPesquisarActionPerformed
 
@@ -197,7 +213,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         JDlgUsuarios jDlgUsuarios = new JDlgUsuarios(this, true);
         jDlgUsuarios.setVisible(true);
-        
+
         jDlgUsuarios.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
@@ -212,7 +228,7 @@ public class Main extends javax.swing.JFrame {
         JDlgProdutos jDlgProdutos = new JDlgProdutos();
         jDlgProdutos.setDefaultCloseOperation(JDlgProdutos.DISPOSE_ON_CLOSE); // importante
         jDlgProdutos.setVisible(true);
-        
+
         jDlgProdutos.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
@@ -251,6 +267,42 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mpj_jMnuiFornecedorActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // Caminho do arquivo CSV
+        String caminhoArquivo = "historico-transacoes/historico/historico_transacoes.csv";
+        File arquivo = new File(caminhoArquivo);
+
+        // Verifica se o arquivo existe
+        if (!arquivo.exists()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "O arquivo de histórico não foi encontrado!",
+                    "Erro",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Tenta abrir o arquivo usando o aplicativo padrão do sistema
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            try {
+                desktop.open(arquivo);
+            } catch (IOException ex) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Não foi possível abrir o arquivo: " + ex.getMessage(),
+                        "Erro",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "A operação não é suportada pelo seu sistema.",
+                    "Erro",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,21 +317,21 @@ public class Main extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Main.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Main.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Main.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -296,8 +348,10 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu.Separator jSeparator1;

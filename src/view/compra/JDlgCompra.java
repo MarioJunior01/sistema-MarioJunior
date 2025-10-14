@@ -440,7 +440,7 @@ public class JDlgCompra extends javax.swing.JDialog {
         incluirCompra = true;
         Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
         Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
-        Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
+        Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
 
     }//GEN-LAST:event_mpj_jBtIncluirCompraActionPerformed
 
@@ -450,24 +450,30 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         if (validacaoCompra() == false) {
             if (incluirCompra == true) {
-                MpjTbCompra novaCompra = viewBean();
+                viewBean();
 
-                compra.insert(novaCompra);
+                compra.insert(viewBean());
                 Util.mensagem("Compra Cadastrada com sucesso");
                 atualizarTabela();
                 HistoricoTransacoes.salvar(
-                        "Inserção de Compra",
-                        "Fornecedor: " + novaCompra.getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
-                        + ", Valor: " + novaCompra.getMpjValorCompra()
+                        "CREATE compra",
+                        "Fornecedor: " + viewBean().getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
+                        + ", Valor: " + viewBean().getMpjValorCompra()
                 );
+                Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
 
             } else {
 
                 compra.update(viewBean());
                 Util.mensagem("Compra Atualizada com sucesso ");
+                HistoricoTransacoes.salvar(
+                        "UPDATE compra",
+                        "Fornecedor: " + viewBean().getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
+                        + ", Valor: " + viewBean().getMpjValorCompra()
+                );
+                Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
 
             }
-            Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
 
             Util.habilitar(true, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
             Util.habilitar(false, mpj_jBtCancelarCompra, mpj_jBtrConfirmarCompra);
@@ -482,20 +488,30 @@ public class JDlgCompra extends javax.swing.JDialog {
         incluirCompra = false;
         Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
         Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
-        Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
 
     }//GEN-LAST:event_mpj_jBtAlterarCompraActionPerformed
 
     private void mpj_jBtExcluirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtExcluirCompraActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-         MpjTbCompra compraDelete= new MpjTbCompra();
-         compraDelete.setMpjDataCompra(Util.strToDate(mpj_jFtmDataCompra.getText()));
-         compraDelete.setMpjIdCompra(Util.srToInt(mpj_jTxtCodigoCompra.getText()));
+        MpjTbCompra compraDelete = new MpjTbCompra();
+        compraDelete.setMpjDataCompra(Util.strToDate(mpj_jFtmDataCompra.getText()));
+        compraDelete.setMpjIdCompra(Util.srToInt(mpj_jTxtCodigoCompra.getText()));
         CompraDAO compraDAO = new CompraDAO();
-        compraDAO.delete(compraDelete);
-        Util.mensagem("Compra Deletada com sucesso");
-         atualizarTabela();
+        if (Util.perguntar("Deseja deletar essa compra?") == true) {
+            compraDAO.delete(compraDelete);
+            Util.mensagem("Compra Deletada com sucesso");
+            HistoricoTransacoes.salvar(
+                    "Delete da compra",
+                    "Fornecedor: " + compraDelete.getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
+                    + ", Valor: " + compraDelete.getMpjValorCompra()
+            );
+            Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboFornecedor, mpj_jCboVedendor);
+            atualizarTabela();
+            Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboFornecedor, mpj_jCboVedendor);
+        } else {
+            Util.mensagem("Operacao Cancelada");
+        }
 
 
     }//GEN-LAST:event_mpj_jBtExcluirCompraActionPerformed
