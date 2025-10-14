@@ -51,6 +51,7 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         mpj_jTbFuncionarios = new javax.swing.JTable();
+        mpj_jBtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -80,6 +81,13 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
         jScrollPane2.setViewportView(mpj_jTbFuncionarios);
         mpj_jTbFuncionarios.getAccessibleContext().setAccessibleParent(this);
 
+        mpj_jBtnCancelar.setText("Cancelar");
+        mpj_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jBtnCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +98,9 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(mpj_jBtnOK)
+                        .addComponent(mpj_jBtnCancelar)
+                        .addGap(18, 18, 18)
+                        .addComponent(mpj_jBtnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
@@ -107,7 +117,9 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(mpj_jBtnOK))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mpj_jBtnOK)
+                            .addComponent(mpj_jBtnCancelar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -133,13 +145,21 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
         if (selectedRow != -1) {
             MpjTbFuncionario funcionario = controllerFuncionarios.getBean(selectedRow);
             jDlgFuncionarios.beanView(funcionario);
+            this.setVisible(false);
+            
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um Funcionario  primeiro", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecione um Funcionario  primeiro, ou Clique em Cancelar ", "Aviso", JOptionPane.WARNING_MESSAGE);
 
         }
-        this.setVisible(false);
+      
+
 
     }//GEN-LAST:event_mpj_jBtnOKActionPerformed
+
+    private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +207,7 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton mpj_jBtnCancelar;
     private javax.swing.JButton mpj_jBtnOK;
     private javax.swing.JTable mpj_jTbFuncionarios;
     // End of variables declaration//GEN-END:variables

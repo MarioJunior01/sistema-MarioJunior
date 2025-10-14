@@ -32,7 +32,7 @@ public class ControlleFornecedor extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 15; // Ajuste conforme o número de colunas que deseja mostrar
+        return 16; // Ajuste conforme o número de colunas que deseja mostrar
     }
 
     @Override

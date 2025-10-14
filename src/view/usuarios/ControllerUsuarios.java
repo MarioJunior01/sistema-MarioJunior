@@ -31,7 +31,7 @@ public class ControllerUsuarios extends  AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 6; //To change body of generated methods, choose Tools | Templates.
+        return 7; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -73,7 +73,8 @@ public class ControllerUsuarios extends  AbstractTableModel{
          else if ( columnIndex == 5) {
             return "Ativo";}
         else if ( columnIndex == 6) {
-            return "Nivel";}
+            return "Nivel";
+        }
         return "";
     }
     

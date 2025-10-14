@@ -26,15 +26,15 @@ public class MpjTbFuncionario implements java.io.Serializable {
     private String mpjNomeCompletoFuncionario;
     private String mpjTelefoneFuncionario;
     private String mpjEmailFuncionario;
-    private int mpjCargoFuncionario;
-    private int mpjSetorFuncionario;
-    private int mpjSexoFuncionario;
+    private String mpjCargoFuncionario;
+    private String mpjSetorFuncionario;
+    private String mpjSexoFuncionario;
     private Date mpjDataNascimento;
 
     public MpjTbFuncionario() {
     }
 
-    public MpjTbFuncionario(String mpjCpfFuncionario, String mpjNomeCompletoFuncionario, int mpjSetorFuncionario, int mpjSexoFuncionario, Date mpjDataNascimento) {
+    public MpjTbFuncionario(String mpjCpfFuncionario, String mpjNomeCompletoFuncionario, String mpjSetorFuncionario, String mpjSexoFuncionario, Date mpjDataNascimento) {
         this.mpjCpfFuncionario = mpjCpfFuncionario;
         this.mpjNomeCompletoFuncionario = mpjNomeCompletoFuncionario;
         this.mpjSetorFuncionario = mpjSetorFuncionario;
@@ -42,7 +42,7 @@ public class MpjTbFuncionario implements java.io.Serializable {
         this.mpjDataNascimento = mpjDataNascimento;
     }
 
-    public MpjTbFuncionario(String mpjCpfFuncionario, String mpjNomeCompletoFuncionario, String mpjTelefoneFuncionario, String mpjEmailFuncionario, int mpjCargoFuncionario, int mpjSetorFuncionario, int mpjSexoFuncionario, Date mpjDataNascimento) {
+    public MpjTbFuncionario(String mpjCpfFuncionario, String mpjNomeCompletoFuncionario, String mpjTelefoneFuncionario, String mpjEmailFuncionario, String mpjCargoFuncionario, String mpjSetorFuncionario, String mpjSexoFuncionario, Date mpjDataNascimento) {
         this.mpjCpfFuncionario = mpjCpfFuncionario;
         this.mpjNomeCompletoFuncionario = mpjNomeCompletoFuncionario;
         this.mpjTelefoneFuncionario = mpjTelefoneFuncionario;
@@ -93,29 +93,29 @@ public class MpjTbFuncionario implements java.io.Serializable {
     }
 
     @Column(name = "mpj_cargoFuncionario", length = 60)
-    public int getMpjCargoFuncionario() {
+    public String getMpjCargoFuncionario() {
         return this.mpjCargoFuncionario;
     }
 
-    public void setMpjCargoFuncionario(int mpjCargoFuncionario) {
+    public void setMpjCargoFuncionario(String mpjCargoFuncionario) {
         this.mpjCargoFuncionario = mpjCargoFuncionario;
     }
 
     @Column(name = "mpj_setorFuncionario", nullable = false, length = 40)
-    public int getMpjSetorFuncionario() {
+    public String getMpjSetorFuncionario() {
         return this.mpjSetorFuncionario;
     }
 
-    public void setMpjSetorFuncionario(int mpjSetorFuncionario) {
+    public void setMpjSetorFuncionario(String mpjSetorFuncionario) {
         this.mpjSetorFuncionario = mpjSetorFuncionario;
     }
 
     @Column(name = "mpj_sexoFuncionario", nullable = false, length = 20)
-    public int getMpjSexoFuncionario() {
+    public String getMpjSexoFuncionario() {
         return this.mpjSexoFuncionario;
     }
 
-    public void setMpjSexoFuncionario(int mpjSexoFuncionario) {
+    public void setMpjSexoFuncionario(String mpjSexoFuncionario) {
         this.mpjSexoFuncionario = mpjSexoFuncionario;
     }
 
@@ -124,6 +124,11 @@ public class MpjTbFuncionario implements java.io.Serializable {
     public Date getMpjDataNascimento() {
         return this.mpjDataNascimento;
     }
+    
+    @Override
+    public String toString() {
+    return mpjNomeCompletoFuncionario + " - " + mpjCargoFuncionario;
+}
 
     public void setMpjDataNascimento(Date mpjDataNascimento) {
         this.mpjDataNascimento = mpjDataNascimento;

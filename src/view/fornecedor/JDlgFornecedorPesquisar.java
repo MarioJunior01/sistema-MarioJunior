@@ -53,17 +53,21 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        mpj_jTb.setAutoCreateRowSorter(true);
         mpj_jTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5", "Título 6"
             }
         ));
+        mpj_jTb.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        mpj_jTb.setRowHeight(15);
         jScrollPane1.setViewportView(mpj_jTb);
 
         mpj_jBtnCancelar.setText("Cancelar");
@@ -88,21 +92,19 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(328, 328, 328)
                 .addComponent(jLabel1)
-                .addGap(0, 335, Short.MAX_VALUE))
+                .addGap(0, 534, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mpj_jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(770, Short.MAX_VALUE)
-                    .addComponent(mpj_jBtnOK1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(20, 20, 20)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 843, Short.MAX_VALUE)
+                        .addComponent(mpj_jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mpj_jBtnOK1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,15 +112,12 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
                 .addGap(68, 68, 68)
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(mpj_jBtnCancelar)
-                .addGap(22, 22, 22))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(665, Short.MAX_VALUE)
-                    .addComponent(mpj_jBtnOK1)
-                    .addGap(21, 21, 21)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mpj_jBtnCancelar)
+                    .addComponent(mpj_jBtnOK1))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -136,8 +135,9 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
         if (selectedRow != -1) {
             MpjTbFornecedor fornecededor = controllerFornecedor.getBean(selectedRow);
             jdlFornecedores.beanView(fornecededor);
+            this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um Fornecedor", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecione um Fornecedor ou clique em Cancelar", "Aviso", JOptionPane.WARNING_MESSAGE);
 
         }
     }//GEN-LAST:event_mpj_jBtnOK1ActionPerformed

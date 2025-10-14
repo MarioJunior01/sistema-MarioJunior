@@ -221,6 +221,7 @@
         </Property>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;String&gt;()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
@@ -244,12 +245,13 @@
     <Component class="javax.swing.JComboBox" name="mpj_jCboCargoFuncionario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="Gerente"/>
-            <StringItem index="1" value="Empregado"/>
-            <StringItem index="2" value="Auxiliar"/>
-            <StringItem index="3" value="Menor Aprendiz"/>
-            <StringItem index="4" value="Estagiario"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Vendedor"/>
+            <StringItem index="1" value="Caixa"/>
+            <StringItem index="2" value="Empacotador"/>
+            <StringItem index="3" value="Gerente"/>
+            <StringItem index="4" value="Limpeza"/>
+            <StringItem index="5" value="Empregado"/>
           </StringArray>
         </Property>
       </Properties>
@@ -257,6 +259,8 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mpj_jCboCargoFuncionarioActionPerformed"/>
       </Events>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;String&gt;()"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="JDlgFuncionarios_mpj_jCboCargoFuncionario"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
@@ -357,6 +361,7 @@
         </Property>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;String&gt;()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>

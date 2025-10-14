@@ -6,6 +6,8 @@ package view.funcionario;
 
 import bean.MpjTbFuncionario;
 import dao.FuncionarioDAO;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 import tools.Util;
 
 /**
@@ -18,18 +20,19 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     public JDlgFuncionarios(java.awt.Frame parent, boolean modal) {
         initComponents();
-        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnCancelar, mpj_jBtnConfirmar);
+        Util.habilitar(false, mpj_jCboSexoFuncionario1, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnCancelar, mpj_jBtnConfirmar);
     }
 
     public MpjTbFuncionario viewBean() {
         MpjTbFuncionario funcionario = new MpjTbFuncionario();
+
         funcionario.setMpjNomeCompletoFuncionario(mpj_jTxtNomeFuncionario.getText());
         funcionario.setMpjCpfFuncionario(mpj_jFmtCpfFuncionario.getText());
         funcionario.setMpjTelefoneFuncionario(mpj_jFmtTelefoneFuncionario.getText());
         funcionario.setMpjEmailFuncionario(mpj_jTxtEmailFuncionario.getText());
-        funcionario.setMpjCargoFuncionario(mpj_jCboCargoFuncionario.getSelectedIndex());
-        funcionario.setMpjSetorFuncionario(mpj_jCboSetorFuncionario.getSelectedIndex());
-        funcionario.setMpjSexoFuncionario(mpj_jCboSexoFuncionario1.getSelectedIndex());
+        funcionario.setMpjCargoFuncionario(mpj_jCboCargoFuncionario.getSelectedItem().toString());
+        funcionario.setMpjSetorFuncionario(mpj_jCboSetorFuncionario.getSelectedItem().toString());
+        funcionario.setMpjSexoFuncionario(mpj_jCboSexoFuncionario1.getSelectedItem().toString());
         funcionario.setMpjDataNascimento(Util.strToDate(mpj_jFmtDataNascimentoFuncionario.getText().trim()));
 
         return funcionario;
@@ -42,9 +45,67 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
         mpj_jFmtDataNascimentoFuncionario.setText(Util.dateToStr(funcionario.getMpjDataNascimento()));
         mpj_jFmtCpfFuncionario.setText(funcionario.getMpjCpfFuncionario());
         mpj_jFmtTelefoneFuncionario.setText(funcionario.getMpjTelefoneFuncionario());
-        mpj_jCboSetorFuncionario.setSelectedIndex(funcionario.getMpjSetorFuncionario());
-        mpj_jCboCargoFuncionario.setSelectedIndex(funcionario.getMpjCargoFuncionario());
-        mpj_jCboSexoFuncionario1.setSelectedIndex(funcionario.getMpjSexoFuncionario());
+        mpj_jCboSetorFuncionario.setSelectedItem(funcionario.getMpjSetorFuncionario());
+        mpj_jCboCargoFuncionario.setSelectedItem(funcionario.getMpjCargoFuncionario());
+        mpj_jCboSexoFuncionario1.setSelectedItem(funcionario.getMpjSexoFuncionario());
+    }
+
+    public boolean validacao() {
+        LineBorder bordaErro = new LineBorder(Color.RED, 2);
+        LineBorder bordaNormal = new LineBorder(Color.GRAY, 1);
+        if (mpj_jTxtNomeFuncionario.getText().length() <= 5) {
+            Util.mensagem("Por favor preencha seu nome corretamente");
+            mpj_jTxtNomeFuncionario.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtNomeFuncionario.setBorder(bordaNormal);
+        }
+        if (mpj_jTxtEmailFuncionario.getText().length() <= 8) {
+            Util.mensagem("Por favor preencha seu e-mail corretamente");
+            mpj_jTxtEmailFuncionario.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtEmailFuncionario.setBorder(bordaNormal);
+        }
+
+        if (mpj_jFmtCpfFuncionario.getText().isEmpty() || mpj_jFmtCpfFuncionario.getText().length() != 14) {
+            Util.mensagem("Digite um CPF válido!");
+            mpj_jFmtCpfFuncionario.setBorder(new LineBorder(Color.RED, 2));
+            return true;
+        } else {
+            mpj_jFmtCpfFuncionario.setBorder(new LineBorder(Color.GRAY, 1));
+        }
+
+        if (mpj_jCboCargoFuncionario.getSelectedIndex() == -1) {
+            Util.mensagem("Por favor selecione uma opcao");
+            mpj_jCboSexoFuncionario1.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jCboCargoFuncionario.setBorder(bordaNormal);
+        }
+        if (mpj_jCboSetorFuncionario.getSelectedIndex() == -1) {
+            Util.mensagem("Por favor selecione uma opcao");
+            mpj_jCboSetorFuncionario.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jCboSetorFuncionario.setBorder(bordaNormal);
+        }
+        if (mpj_jCboSexoFuncionario1.getSelectedIndex() == -1) {
+            Util.mensagem("Por favor selecione uma opcao");
+            mpj_jCboSexoFuncionario1.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jCboSexoFuncionario1.setBorder(bordaNormal);
+        }
+
+        if (Util.strToDate(mpj_jFmtDataNascimentoFuncionario.getText()) == null) {
+            Util.mensagem("Data invalida");
+            mpj_jFmtDataNascimentoFuncionario.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jFmtDataNascimentoFuncionario.setBorder(bordaNormal);
+        }
+        return false;
     }
 
     /**
@@ -64,12 +125,12 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
         mpj_jFmtTelefoneFuncionario = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         mpj_jFmtDataNascimentoFuncionario = new javax.swing.JFormattedTextField();
-        mpj_jCboSetorFuncionario = new javax.swing.JComboBox<>();
+        mpj_jCboSetorFuncionario = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         mpj_jTxtEmailFuncionario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        mpj_jCboCargoFuncionario = new javax.swing.JComboBox<>();
+        mpj_jCboCargoFuncionario = new javax.swing.JComboBox<String>();
         mpj_jBtnIncluir = new javax.swing.JButton();
         mpj_jBtnAlterar = new javax.swing.JButton();
         mpj_jBtnExcluir = new javax.swing.JButton();
@@ -79,7 +140,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        mpj_jCboSexoFuncionario1 = new javax.swing.JComboBox<>();
+        mpj_jCboSexoFuncionario1 = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -123,7 +184,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
         jLabel7.setText("Sexo:");
 
-        mpj_jCboCargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Empregado", "Auxiliar", "Menor Aprendiz", "Estagiario" }));
+        mpj_jCboCargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Caixa", "Empacotador", "Gerente", "Limpeza", "Empregado" }));
         mpj_jCboCargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mpj_jCboCargoFuncionarioActionPerformed(evt);
@@ -276,7 +337,6 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mpj_jFmtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -306,13 +366,13 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     private void mpj_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(true, mpj_jCboSexoFuncionario1, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
         Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnIncluirActionPerformed
 
     private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(true, mpj_jCboSexoFuncionario1, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
         Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
@@ -327,24 +387,30 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
         } else {
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             funcionarioDAO.delete(viewBean());
+            Util.mensagem("Funcionario Removido");
+            Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
+
         }
     }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
     private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        if (incluir == true) {
-            funcionarioDAO.insert(viewBean());
-        } else {
+        if (validacao() == false) {
+            if (incluir == true) {
+                funcionarioDAO.insert(viewBean());
+                Util.mensagem("Funcionario Cadastrado com Sucesso");
+            } else {
 
-            funcionarioDAO.update(viewBean());
+                funcionarioDAO.update(viewBean());
+                Util.mensagem("Funcionario  Atualizado com sucesso");
+            }
+
+            Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+            Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
+
+            Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
         }
-
-        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-        Util.limpar(mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario);
-        Util.mensagem("Funcionario Cadastrado com Sucesso");
-        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
     private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed

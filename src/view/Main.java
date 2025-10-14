@@ -5,17 +5,37 @@
  */
 package view;
 
+import view.compra.JDlgCompra;
+import view.fornecedor.JDlgFornecedorPesquisar;
+import view.fornecedor.JDlgFornecedores;
+import view.funcionario.JDlgFuncionarios;
+import view.funcionario.JDlgFuncionariosPesquisar;
+import view.produtos.JDlgProdutos;
+import view.produtos.JDlgProdutosPesquisar;
+import view.usuarios.JDlgUsuarios;
+import view.usuarios.JDlgUsuariosPesquisar;
+
 /**
+ * p
  *
  * @author mario
  */
-public class Main extends javax.swing.JDialog {
+public class Main extends javax.swing.JFrame {
+
+    private JDlgCompra jDlgCompra;
+    private JDlgUsuarios jDlgUsuarios;
+    private JDlgProdutos jDlgProdutos;
+    private JDlgFuncionarios jDlgFuncionarios;
+    private JDlgFornecedores jDlgFornecedor;
+    private JDlgUsuariosPesquisar jDlgUsuariosPesquisar;
+    private JDlgProdutosPesquisar jDlgProdutosPesquisar;
+    private JDlgFuncionariosPesquisar jDlgFuncionariosPesquisar;
+    private JDlgFornecedorPesquisar jDlgFornecedorPesquisar;
 
     /**
      * Creates new form Main
      */
-    public Main(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public Main() {
         initComponents();
     }
 
@@ -28,21 +48,121 @@ public class Main extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        mpj_jMniUsuariosPesquisar = new javax.swing.JMenuItem();
+        mpj_jMniProdutosPesquisar = new javax.swing.JMenu();
+        mpj_jMniFuncionarioPesquisar = new javax.swing.JMenuItem();
+        mpj_jMniFornecedorPesquisar = new javax.swing.JMenuItem();
+        mpj_jMniComprasPesquisar = new javax.swing.JMenu();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenu4.setText("Cadastros");
+
+        jMenu5.setText("Usuarios");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenu5);
+
+        jMenu6.setText("Funcionarios");
+        jMenu4.add(jMenu6);
+
+        jMenu7.setText("Fornecedores");
+        jMenu4.add(jMenu7);
+
+        jMenuItem1.setText("Compra");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem1);
+
+        jMenuItem2.setText("Produtos");
+        jMenu4.add(jMenuItem2);
+
+        jMenuBar2.add(jMenu4);
+
+        jMenu1.setText(" Movimento");
+
+        mpj_jMniUsuariosPesquisar.setText("Usuarios");
+        jMenu1.add(mpj_jMniUsuariosPesquisar);
+
+        mpj_jMniProdutosPesquisar.setText("Produtos");
+        jMenu1.add(mpj_jMniProdutosPesquisar);
+
+        mpj_jMniFuncionarioPesquisar.setText("Funcionario");
+        mpj_jMniFuncionarioPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jMniFuncionarioPesquisarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mpj_jMniFuncionarioPesquisar);
+
+        mpj_jMniFornecedorPesquisar.setText("Fornecedor");
+        mpj_jMniFornecedorPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jMniFornecedorPesquisarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mpj_jMniFornecedorPesquisar);
+
+        mpj_jMniComprasPesquisar.setText("Compra");
+        mpj_jMniComprasPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jMniComprasPesquisarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mpj_jMniComprasPesquisar);
+
+        jMenuBar2.add(jMenu1);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 299, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mpj_jMniFuncionarioPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniFuncionarioPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mpj_jMniFuncionarioPesquisarActionPerformed
+
+    private void mpj_jMniFornecedorPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniFornecedorPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mpj_jMniFornecedorPesquisarActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void mpj_jMniComprasPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniComprasPesquisarActionPerformed
+        // TODO add your handling code here
+
+    }//GEN-LAST:event_mpj_jMniComprasPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,21 +191,27 @@ public class Main extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Main dialog = new Main(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new Main().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu mpj_jMniComprasPesquisar;
+    private javax.swing.JMenuItem mpj_jMniFornecedorPesquisar;
+    private javax.swing.JMenuItem mpj_jMniFuncionarioPesquisar;
+    private javax.swing.JMenu mpj_jMniProdutosPesquisar;
+    private javax.swing.JMenuItem mpj_jMniUsuariosPesquisar;
     // End of variables declaration//GEN-END:variables
 }

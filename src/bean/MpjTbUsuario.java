@@ -28,20 +28,21 @@ public class MpjTbUsuario  implements java.io.Serializable {
      private String mpjCpfUsuario;
      private Date mpjDataNascimentoUsuario;
      private String mpjAtivoUsuario;
-     private int mpjNivelUsuario;
+     private String mpjNivelUsuario;
      private String mpjSenhaUsuario;
 
     public MpjTbUsuario() {
     }
 
 	
-    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario) {
+    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjNivelUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario) {
         this.mpjNomeUsuario = mpjNomeUsuario;
         this.mpjApelidoUsuario = mpjApelidoUsuario;
         this.mpjCpfUsuario = mpjCpfUsuario;
         this.mpjDataNascimentoUsuario = mpjDataNascimentoUsuario;
+        this.mpjNivelUsuario = mpjNivelUsuario;
     }
-    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario, String mpjAtivoUsuario, int mpjNivelUsuario, String mpjSenhaUsuario) {
+    public MpjTbUsuario(String mpjNomeUsuario, String mpjApelidoUsuario, String mpjCpfUsuario, Date mpjDataNascimentoUsuario, String mpjAtivoUsuario, String mpjNivelUsuario, String mpjSenhaUsuario) {
        this.mpjNomeUsuario = mpjNomeUsuario;
        this.mpjApelidoUsuario = mpjApelidoUsuario;
        this.mpjCpfUsuario = mpjCpfUsuario;
@@ -115,12 +116,12 @@ public class MpjTbUsuario  implements java.io.Serializable {
     }
 
     
-    @Column(name="mpj_nivelUsuario")
-    public int getMpjNivelUsuario() {
+    @Column(name="mpj_nivelUsuario",length = 40)
+    public String getMpjNivelUsuario() {
         return this.mpjNivelUsuario;
     }
     
-    public void setMpjNivelUsuario(int mpjNivelUsuario) {
+    public void setMpjNivelUsuario(String mpjNivelUsuario) {
         this.mpjNivelUsuario = mpjNivelUsuario;
     }
 

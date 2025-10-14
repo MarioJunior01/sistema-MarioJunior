@@ -7,6 +7,8 @@ package view.fornecedor;
 import bean.MpjTbFornecedor;
 import dao.FornecedorDAO;
 import dao.FuncionarioDAO;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 import view.fornecedor.JDlgFornecedorPesquisar;
 import tools.Util;
 
@@ -53,8 +55,8 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         mpj_TbFornecedor.setMpjRazaoSocialFornecedor(mpj_jTxtRazaoSocialFornecedor.getText());
         mpj_TbFornecedor.setMpjCnpjFornecedor((mpj_jFmtCnpjFornecedor.getText()));
         mpj_TbFornecedor.setMpjEmailFornecedor(mpj_jTxtEmailFornecedor.getText());
-        mpj_TbFornecedor.setMpjCepFornecedor(mpj_jFmtCnpjFornecedor.getText());
-        mpj_TbFornecedor.setMpjEstadoFornecedor(mpj_jFtmCepFornecedor.getText());
+        mpj_TbFornecedor.setMpjCepFornecedor(mpj_jFtmCepFornecedor.getText());
+        mpj_TbFornecedor.setMpjEstadoFornecedor(mpj_jCboEstadoFornecedor.getSelectedItem().toString());
         mpj_TbFornecedor.setMpjDataCriacaoFornecedor(Util.strToDate(mpj_jFmtDataCriacaoEmpresa.getText()));
         mpj_TbFornecedor.setMpjNomeResponsavelFornecedor(mpj_jTxtNomeRepresentanteFornecedor.getText());
         mpj_TbFornecedor.setMpjTelefoneFornecedor(mpj_jFmtTelefoneFornecedor.getText());
@@ -64,49 +66,13 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         mpj_TbFornecedor.setMpjServicoPrestadoFornecedor(mpj_jTxtServicoPrestado.getText());
         mpj_TbFornecedor.setMpjComplementoFornecedor(mpj_jTxtComplementoFornecedor.getText());
         mpj_TbFornecedor.setMpjNumeroFornecedor(Util.srToInt(mpj_jTxtNumeroFornecedor.getText()));
-        if (mpj_jCboPorteFornecedor.getSelectedIndex() == 0) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("MEI) Microempreendedor Individual");
-        } else if (mpj_jCboPorteFornecedor.getSelectedIndex() == 1) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("(ME) Microempresa");
-        } else if (mpj_jCboPorteFornecedor.getSelectedIndex() == 2) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("(EPP) Empresa de Pequeno Porte");
-        } else if (mpj_jCboPorteFornecedor.getSelectedIndex() == 3) {
-            mpj_TbFornecedor.setMpjPorteFornecedor(" Média Empresa");
+        mpj_TbFornecedor.setMpjPorteFornecedor(mpj_jCboPorteFornecedor.getSelectedItem().toString());
+        mpj_TbFornecedor.setMpjQuantidadeFuncionariosFornecedor(mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedItem().toString());
+        mpj_TbFornecedor.setMpjQuantidadeFuncionariosFornecedor(mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedItem().toString());
 
-        } else if (mpj_jCboPorteFornecedor.getSelectedIndex() == 4) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("Grande Empresa");
 
-        } else {
-            mpj_TbFornecedor.setMpjPorteFornecedor("Nao definido");
-        }
-
-        if (mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedIndex() == 0) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("menos que 10");
-        } else if (mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedIndex() == 1) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("mais que 20");
-        } else if (mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedIndex() == 3) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("mais que 50");
-        } else if (mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedIndex() == 4) {
-            mpj_TbFornecedor.setMpjPorteFornecedor("mais que 100");
-        } else {
-            mpj_TbFornecedor.setMpjPorteFornecedor("Nao definido");
-        }
-        String[] estados = {
-            "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",
-            "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR",
-            "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC",
-            "SP", "SE", "TO"
-        };
-
-        int indice = mpj_jCboEstadoFornecedor.getSelectedIndex();
-
-        if (indice >= 0 && indice < estados.length) {
-            mpj_TbFornecedor.setMpjEstadoFornecedor(estados[indice]);
-        } else {
-
-            mpj_TbFornecedor.setMpjEstadoFornecedor("Nao definido");
-        }
         return mpj_TbFornecedor;
+
     }
 
     public void beanView(MpjTbFornecedor mpj_TbFornecedor) {
@@ -125,45 +91,134 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         mpj_jTxtServicoPrestado.setText(mpj_TbFornecedor.getMpjServicoPrestadoFornecedor());
         mpj_jTxtComplementoFornecedor.setText(mpj_TbFornecedor.getMpjComplementoFornecedor());
         mpj_jTxtNumeroFornecedor.setText(Util.intToStr(mpj_TbFornecedor.getMpjNumeroFornecedor()));
-        // ComboBox Porte da empresa
-        if ("MEI - Microempreendedor Individual".equals(mpj_TbFornecedor.getMpjPorteFornecedor())) {
-            mpj_jCboPorteFornecedor.setSelectedIndex(0);
-        } else if ("ME - Microempresa".equals(mpj_TbFornecedor.getMpjPorteFornecedor())) {
-            mpj_jCboPorteFornecedor.setSelectedIndex(1);
-        } else if ("EPP - Empresa de Pequeno Porte".equals(mpj_TbFornecedor.getMpjPorteFornecedor())) {
-            mpj_jCboPorteFornecedor.setSelectedIndex(2);
-        } else if ("Média Empresa".equals(mpj_TbFornecedor.getMpjPorteFornecedor())) {
-            mpj_jCboPorteFornecedor.setSelectedIndex(3);
-        } else if ("Grande Empresa".equals(mpj_TbFornecedor.getMpjPorteFornecedor())) {
-            mpj_jCboPorteFornecedor.setSelectedIndex(4);
+        mpj_jCboPorteFornecedor.setSelectedItem(mpj_TbFornecedor.getMpjPorteFornecedor());
+        mpj_jCboQuantidadeFuncionariosFornecedor.setSelectedItem(mpj_TbFornecedor.getMpjQuantidadeFuncionariosFornecedor());
+        mpj_jCboEstadoFornecedor.setSelectedItem(mpj_TbFornecedor.getMpjEstadoFornecedor());
+    }
+
+    public boolean validacao() {
+        LineBorder bordaErro = new LineBorder(Color.RED, 2);
+        LineBorder bordaNormal = new LineBorder(Color.GRAY, 1);
+        if (mpj_jTxtNomeFantasiaFornecedor.getText().length() <= 5) {
+            Util.mensagem("Por favor preencha seu Nome Fantasia corretamente");
+            mpj_jTxtNomeFantasiaFornecedor.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtNomeFantasiaFornecedor.setBorder(bordaNormal);
+        }
+        if (mpj_jTxtRazaoSocialFornecedor.getText().length() <= 5) {
+            Util.mensagem("Por favor preencha sua Razao Social  corretamente");
+            mpj_jTxtRazaoSocialFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtRazaoSocialFornecedor.setBorder(bordaNormal);
         }
 
-        // ComboBox Quantidade de funcionários
-        if ("menos que 10".equals(mpj_TbFornecedor.getMpjQuantidadeFuncionariosFornecedor())) {
-            mpj_jCboQuantidadeFuncionariosFornecedor.setSelectedIndex(0);
-        } else if ("mais que 20".equals(mpj_TbFornecedor.getMpjQuantidadeFuncionariosFornecedor())) {
-            mpj_jCboQuantidadeFuncionariosFornecedor.setSelectedIndex(1);
-        } else if ("mais que 50".equals(mpj_TbFornecedor.getMpjQuantidadeFuncionariosFornecedor())) {
-            mpj_jCboQuantidadeFuncionariosFornecedor.setSelectedIndex(2);
-        } else if ("mais que 100".equals(mpj_TbFornecedor.getMpjQuantidadeFuncionariosFornecedor())) {
-            mpj_jCboQuantidadeFuncionariosFornecedor.setSelectedIndex(3);
+        if (mpj_jFmtCnpjFornecedor.getText().isEmpty() || mpj_jFmtCnpjFornecedor.getText().length() != 19) {
+            Util.mensagem("Digite um CNPJ válido!");
+            mpj_jFmtCnpjFornecedor.setBorder(new LineBorder(Color.RED, 2));
+            return true;
+        } else {
+            mpj_jFmtCnpjFornecedor.setBorder(new LineBorder(Color.GRAY, 1));
         }
-        // ComboBox Estado
-        String[] estados = {
-            "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",
-            "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR",
-            "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC",
-            "SP", "SE", "TO"
-        };
+        if (mpj_jCboPorteFornecedor.getSelectedIndex() == -1) {
+            Util.mensagem("Por favor selecione uma opcao");
+            mpj_jCboPorteFornecedor.setBorder(bordaErro);
+            return true;
 
-        int indiceEstado = -1;
-        for (int i = 0; i < estados.length; i++) {
-            if (estados[i].equals(mpj_TbFornecedor.getMpjEstadoFornecedor())) {
-                indiceEstado = i;
-                break;
-            }
+        } else {
+            mpj_jCboPorteFornecedor.setBorder(bordaNormal);
         }
-        mpj_jCboEstadoFornecedor.setSelectedIndex(indiceEstado);
+
+        if (mpj_jCboEstadoFornecedor.getSelectedIndex() == -1) {
+            Util.mensagem("Por favor selecione uma opcao");
+            mpj_jCboEstadoFornecedor.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jCboEstadoFornecedor.setBorder(bordaNormal);
+        }
+        if (mpj_jFtmCepFornecedor.getText().length() != 9) {
+            Util.mensagem("Digite um CEP valido");
+            mpj_jFtmCepFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jFtmCepFornecedor.setBorder(bordaNormal);
+        }
+        if (Util.strToDate(mpj_jFmtDataCriacaoEmpresa.getText()) == null) {
+            Util.mensagem("Digite uma Data Valida");
+            mpj_jFmtDataCriacaoEmpresa.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jFmtDataCriacaoEmpresa.setBorder(bordaNormal);
+
+        }
+        if (mpj_jTxtRuaFornecedor.getText().length() <= 6) {
+            Util.mensagem("Digite o nome da rua corretamente");
+            mpj_jTxtRuaFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtRuaFornecedor.setBorder(bordaNormal);
+        }
+
+        if (mpj_jFmtTelefoneFornecedor.getText().length() != 13) {
+            Util.mensagem("Digite o  numero de telefone corretamente");
+            mpj_jFmtTelefoneFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jFmtTelefoneFornecedor.setBorder(bordaErro);
+
+        }
+        if (mpj_jTxtComplementoFornecedor.getText().length() <= 6) {
+            Util.mensagem("Informe um complemento valido");
+            mpj_jTxtComplementoFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtComplementoFornecedor.setBorder(bordaNormal);
+        }
+
+        if (mpj_jTxtNomeRepresentanteFornecedor.getText().length() <= 10) {
+            Util.mensagem("Digite um nome valido");
+            mpj_jTxtNomeRepresentanteFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtNomeRepresentanteFornecedor.setBorder(bordaNormal);
+        }
+
+        if (mpj_jTxtEmailFornecedor.getText().length() <= 10) {
+            Util.mensagem("Digite um Email  valido");
+            mpj_jTxtEmailFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtEmailFornecedor.setBorder(bordaNormal);
+        }
+
+        if (mpj_jTxtServicoPrestado.getText().length() <= 6) {
+            Util.mensagem("Digite um servico");
+            mpj_jTxtServicoPrestado.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtServicoPrestado.setBorder(bordaNormal);
+        }
+
+        if (mpj_jTxtSegmentoFornecedor.getText().length() <= 6) {
+            Util.mensagem("Digite um Segmento Valido");
+            mpj_jTxtSegmentoFornecedor.setBorder(bordaErro);
+            return true;
+
+        } else {
+            mpj_jTxtSegmentoFornecedor.setBorder(bordaNormal);
+        }
+
+        return false;
     }
 
     /**
@@ -244,6 +299,7 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         jLabel6.setText("Quantidade de Funcionários: ");
 
         mpj_jCboQuantidadeFuncionariosFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "menos que 10", "mais que 20", "mais que 50", "mais de 100" }));
+        mpj_jCboQuantidadeFuncionariosFornecedor.setFocusable(false);
 
         jLabel7.setText("Telefone:");
 
@@ -484,9 +540,7 @@ public class JDlgFornecedores extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(mpj_jFtmCepFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(28, 28, 28)))
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -512,7 +566,7 @@ public class JDlgFornecedores extends javax.swing.JDialog {
     private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(true, mpj_jTxtRuaFornecedor, mpj_jTxtServicoPrestado, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
         Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
@@ -523,21 +577,28 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         if (resposta == true) {
             fornecedorDAO.delete(viewBean());
             Util.mensagem("Fornecedor excluido com sucesso");
+            Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+
         } else {
             Util.mensagem("Operacao Cancelada");
+            Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+
         }
     }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
     private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         FuncionarioDAO funcionariosDAO = new FuncionarioDAO();
-        if (incluir == true) {
-            funcionariosDAO.insert(viewBean());
-        } else {
-            funcionariosDAO.update(viewBean());
-        }
-        Util.habilitar(false, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        if (validacao() == false) {
 
-        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+            if (incluir == true) {
+                funcionariosDAO.insert(viewBean());
+            } else {
+                funcionariosDAO.update(viewBean());
+            }
+            Util.habilitar(false, mpj_jTxtRuaFornecedor, mpj_jTxtServicoPrestado, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+            Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+            Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        }
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
     private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
@@ -559,9 +620,9 @@ public class JDlgFornecedores extends javax.swing.JDialog {
     private void mpj_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         incluir = true;
-        Util.habilitar(true, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(true, mpj_jTxtServicoPrestado, mpj_jTxtRuaFornecedor, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
         Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-        Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor);
+        Util.limpar(mpj_jTxtServicoPrestado, mpj_jTxtRuaFornecedor, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor);
 
     }//GEN-LAST:event_mpj_jBtnIncluirActionPerformed
 

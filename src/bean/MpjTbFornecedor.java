@@ -34,7 +34,6 @@ public class MpjTbFornecedor implements java.io.Serializable {
     private String mpjRuaFornecedor;
     private int mpjNumeroFornecedor;
     private String mpjEstadoFornecedor;
-    private String mpjPaisFornecedor;
     private String mpjServicoPrestadoFornecedor;
     private String mpjNomeResponsavelFornecedor;
     private String mpjPorteFornecedor;
@@ -43,7 +42,7 @@ public class MpjTbFornecedor implements java.io.Serializable {
     public MpjTbFornecedor() {
     }
 
-    public MpjTbFornecedor(String mpjComplementoFornecedor ,int mpjNumeroFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
+    public MpjTbFornecedor(String mpjComplementoFornecedor, int mpjNumeroFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
         this.mpjCnpjFornecedor = mpjCnpjFornecedor;
         this.mpjNomeFantasiaFornecedor = mpjNomeFantasiaFornecedor;
         this.mpjRazaoSocialFornecedor = mpjRazaoSocialFornecedor;
@@ -55,10 +54,10 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjNomeResponsavelFornecedor = mpjNomeResponsavelFornecedor;
         this.mpjQuantidadeFuncionariosFornecedor = mpjQuantidadeFuncionariosFornecedor;
         this.mpjNumeroFornecedor = mpjNumeroFornecedor;
-        this.mpjComplementoFornecedor=mpjComplementoFornecedor;
+        this.mpjComplementoFornecedor = mpjComplementoFornecedor;
     }
 
-    public MpjTbFornecedor(String mpjComplementoFornecedor,int mpjNumeroFornecedor,String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, Date mpjDataCriacaoFornecedor, double mpjCapitalFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjSegmentoFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjEstadoFornecedor, String mpjPaisFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
+    public MpjTbFornecedor(String mpjComplementoFornecedor, int mpjNumeroFornecedor, String mpjCnpjFornecedor, String mpjNomeFantasiaFornecedor, String mpjRazaoSocialFornecedor, Date mpjDataCriacaoFornecedor, double mpjCapitalFornecedor, String mpjQuantidadeFuncionariosFornecedor, String mpjSegmentoFornecedor, String mpjTelefoneFornecedor, String mpjEmailFornecedor, String mpjCepFornecedor, String mpjRuaFornecedor, String mpjEstadoFornecedor, String mpjPaisFornecedor, String mpjServicoPrestadoFornecedor, String mpjNomeResponsavelFornecedor) {
         this.mpjCnpjFornecedor = mpjCnpjFornecedor;
         this.mpjNomeFantasiaFornecedor = mpjNomeFantasiaFornecedor;
         this.mpjRazaoSocialFornecedor = mpjRazaoSocialFornecedor;
@@ -70,11 +69,10 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjCepFornecedor = mpjCepFornecedor;
         this.mpjRuaFornecedor = mpjRuaFornecedor;
         this.mpjEstadoFornecedor = mpjEstadoFornecedor;
-        this.mpjPaisFornecedor = mpjPaisFornecedor;
         this.mpjServicoPrestadoFornecedor = mpjServicoPrestadoFornecedor;
         this.mpjNomeResponsavelFornecedor = mpjNomeResponsavelFornecedor;
-        this.mpjComplementoFornecedor=mpjComplementoFornecedor;
-        this.mpjNumeroFornecedor=mpjNumeroFornecedor;
+        this.mpjComplementoFornecedor = mpjComplementoFornecedor;
+        this.mpjNumeroFornecedor = mpjNumeroFornecedor;
 
     }
 
@@ -162,7 +160,7 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjEmailFornecedor = mpjEmailFornecedor;
     }
 
-    @Column(name = "mpj_cepFornecedor", nullable = false, length = 20)
+    @Column(name = "mpj_cepFornecedor", nullable = false, length = 30)
     public String getMpjCepFornecedor() {
         return this.mpjCepFornecedor;
     }
@@ -187,15 +185,6 @@ public class MpjTbFornecedor implements java.io.Serializable {
 
     public void setMpjEstadoFornecedor(String mpjEstadoFornecedor) {
         this.mpjEstadoFornecedor = mpjEstadoFornecedor;
-    }
-
-    @Column(name = "mpj_paisFornecedor", length = 20)
-    public String getMpjPaisFornecedor() {
-        return this.mpjPaisFornecedor;
-    }
-
-    public void setMpjPaisFornecedor(String mpjPaisFornecedor) {
-        this.mpjPaisFornecedor = mpjPaisFornecedor;
     }
 
     @Column(name = "mpj_servicoPrestadoFornecedor", nullable = false, length = 300)
@@ -224,9 +213,9 @@ public class MpjTbFornecedor implements java.io.Serializable {
     public void setMpjNumeroFornecedor(int mpjNumeroFornecedor) {
         this.mpjNumeroFornecedor = mpjNumeroFornecedor;
     }
-    
-    @Column(name = "complementoFornecedor", nullable = false,length=200)
-    public String  getMpjComplementoFornecedor() {
+
+    @Column(name = "complementoFornecedor", nullable = false, length = 200)
+    public String getMpjComplementoFornecedor() {
         return this.mpjComplementoFornecedor;
     }
 
@@ -234,5 +223,9 @@ public class MpjTbFornecedor implements java.io.Serializable {
         this.mpjComplementoFornecedor = mpjComplementoFornecedor;
     }
 
+    @Override
+    public String toString() {
+        return mpjNomeFantasiaFornecedor + " - " + mpjCnpjFornecedor; //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

@@ -2,7 +2,9 @@ package view.produtos;
 
 import bean.MpjTbProduto;
 import dao.ProdutoDAO;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import tools.Util;
 
 /*
@@ -14,7 +16,7 @@ import tools.Util;
  * @author u04584043221
  */
 public class JDlgProdutos extends javax.swing.JFrame {
-    
+
     private boolean incluir = true;
 
     /**
@@ -22,7 +24,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
      */
     public JDlgProdutos() {
         initComponents();
-        Util.habilitar(false,mpj_jTxtIdProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+        Util.habilitar(false, mpj_jTxtIdProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar);
     }
 
     /**
@@ -48,9 +50,9 @@ public class JDlgProdutos extends javax.swing.JFrame {
         } else {
             produtos.setMpjValidadeProduto(Util.strToDate(mpj_jFmtDataValidade.getText()));
         }
-        
+
         return produtos;
-        
+
     }
 
     public void beanView(MpjTbProduto produtos) {
@@ -63,7 +65,84 @@ public class JDlgProdutos extends javax.swing.JFrame {
         mpj_jFmtDataFabricacao.setText(Util.dateToStr(produtos.getMpjDataFabricaoProduto()));
         mpj_jFmtDataValidade.setText(Util.dateToStr(produtos.getMpjValidadeProduto()));
     }
-    
+
+    public boolean validacaoProduto() {
+        LineBorder bordaErro = new LineBorder(Color.RED, 2);
+        LineBorder bordaNormal = new LineBorder(Color.GRAY, 1);
+
+        // Nome do produto
+        if (mpj_jTxtNomeProduto.getText().trim().length() <= 2) {
+            Util.mensagem("Por favor, preencha o nome do produto corretamente.");
+            mpj_jTxtNomeProduto.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtNomeProduto.setBorder(bordaNormal);
+        }
+
+        // Descrição do produto
+        if (mpj_jTxtDescricao.getText().trim().isEmpty()) {
+            Util.mensagem("Por favor, preencha a descrição do produto.");
+            mpj_jTxtDescricao.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtDescricao.setBorder(bordaNormal);
+        }
+
+        // Fabricante
+        if (mpj_jTxtNomeFabricante.getText().trim().isEmpty()) {
+            Util.mensagem("Por favor, informe o nome do fabricante.");
+            mpj_jTxtNomeFabricante.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtNomeFabricante.setBorder(bordaNormal);
+        }
+
+        // Preço
+        try {
+            double preco = Util.strToDouble(mpj_jTxtPrecoProduto.getText());
+            if (preco <= 0) {
+                Util.mensagem("O preço do produto deve ser maior que zero.");
+                mpj_jTxtPrecoProduto.setBorder(bordaErro);
+                return true;
+            } else {
+                mpj_jTxtPrecoProduto.setBorder(bordaNormal);
+            }
+        } catch (NumberFormatException e) {
+            Util.mensagem("Preço inválido. Digite apenas números.");
+            mpj_jTxtPrecoProduto.setBorder(bordaErro);
+            return true;
+        }
+
+        // Segmento
+        if (mpj_jTxtSegmentoProduto.getText().trim().isEmpty()) {
+            Util.mensagem("Por favor, informe o segmento do produto.");
+            mpj_jTxtSegmentoProduto.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jTxtSegmentoProduto.setBorder(bordaNormal);
+        }
+
+        // Data de fabricação
+        if (Util.strToDate(mpj_jFmtDataFabricacao.getText()) == null) {
+            Util.mensagem("Data de fabricação inválida.");
+            mpj_jFmtDataFabricacao.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jFmtDataFabricacao.setBorder(bordaNormal);
+        }
+
+        // Data de validade
+        if (Util.strToDate(mpj_jFmtDataValidade.getText()) == null) {
+            Util.mensagem("Data de validade inválida.");
+            mpj_jFmtDataValidade.setBorder(bordaErro);
+            return true;
+        } else {
+            mpj_jFmtDataValidade.setBorder(bordaNormal);
+        }
+
+        return false; // tudo válido
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -310,8 +389,9 @@ public class JDlgProdutos extends javax.swing.JFrame {
 
     private void mpj_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+        incluir = false;
         Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
-        Util.habilitar(false, mpj_jTxtIdProduto,mpj_jTxtPrecoProduto, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.habilitar(false, mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnAlterarActionPerformed
 
     private void mpj_jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnExcluirActionPerformed
@@ -323,8 +403,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Util.habilitar(true, mpj_jTxtNomeProduto, mpj_jFmtDataValidade, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar, mpj_jTxtPrecoProduto);
         Util.habilitar(false, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-        Util.limpar(mpj_jTxtIdProduto,mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
-
+        incluir = true;
     }//GEN-LAST:event_mpj_jBtnIncluirActionPerformed
 
     private void mpj_jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnPesquisarActionPerformed
@@ -337,24 +416,27 @@ public class JDlgProdutos extends javax.swing.JFrame {
     private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         ProdutoDAO produtosDAO = new ProdutoDAO();
-        
-        if (incluir == true) {
-            produtosDAO.insert(viewBeanProdutos());
-            Util.mensagem("Produto cadastrado com sucesso ");
-        } else {
-            produtosDAO.update(viewBeanProdutos());
-            Util.mensagem("Produto editado  com sucesso ");
+        if (validacaoProduto() == false) {
+            if (incluir == true) {
+                produtosDAO.insert(viewBeanProdutos());
+                Util.mensagem("Produto cadastrado com sucesso ");
+            } else {
+                produtosDAO.update(viewBeanProdutos());
+                Util.mensagem("Produto editado  com sucesso ");
+            }
+            Util.limpar(mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnCancelar, mpj_jBtnConfirmar);
+            Util.limpar(mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+
         }
-        Util.limpar(mpj_jTxtIdProduto,mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jTxtNomeFabricante, mpj_jFmtDataFabricacao, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnCancelar, mpj_jBtnConfirmar);
-        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
     private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed
         // TODO add your handling code here:
 
-        Util.habilitar(false, mpj_jTxtIdProduto,mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+        Util.habilitar(false, mpj_jTxtIdProduto, mpj_jTxtPrecoProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
         Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-        Util.limpar(mpj_jTxtIdProduto,mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
+        Util.mensagem("Opercao Cancelada");
+        Util.limpar(mpj_jTxtIdProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao);
     }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
 
     /**

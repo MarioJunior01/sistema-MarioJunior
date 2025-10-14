@@ -73,8 +73,15 @@ public class Util {
     }
 
     public static double strToDouble(String num) {
-        return Double.parseDouble(num);
-
+        if (num == null || num.trim().isEmpty()) {
+            return 0.0; // valor padrão para vazio ou nulo
+        }
+        try {
+            return Double.parseDouble(num.trim());
+        } catch (NumberFormatException e) {
+            Util.mensagem("Digite um valor valido");
+            return 0.0; // valor padrão em caso de erro
+        }
     }
 
     public static String doubleToStr(double num) {
@@ -87,32 +94,20 @@ public class Util {
         try {
             dataStr = df.format(dataDt);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Data inválida", "Atenção", JOptionPane.ERROR_MESSAGE);
+            dataStr = null;
         }
         return dataStr;
 
     }
 
     public static Date strToDate(String dataStr) {
-        if (dataStr == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, informe uma data!");
-        }
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         df.setLenient(false);
-         Date dataDT = null;
         try {
-            return dataDT = df.parse(dataStr.trim());
-            
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Data inválida: " + dataStr,
-                    "Atenção",
-                    JOptionPane.ERROR_MESSAGE
-            );
-            
+            return df.parse(dataStr.trim());
+        } catch (ParseException | NullPointerException ex) {
+            return null; // retorna null se a data for inválida ou nula
         }
-        return dataDT;
     }
 
 }
