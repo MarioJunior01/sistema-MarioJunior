@@ -86,7 +86,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="mpj_jBtCancelarCompra" min="-2" pref="108" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="mpj_AtualizarTabela" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -147,7 +147,7 @@
                           <Component id="mpj_jBtAlterarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mpj_jBtrConfirmarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mpj_jBtCancelarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mpj_AtualizarTabela" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -163,6 +163,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mpj_jTxtCodigoCompra">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mpj_jTxtCodigoCompraActionPerformed"/>
       </Events>
@@ -328,15 +331,15 @@
         <Property name="text" type="java.lang.String" value="Codigo gerado Automaticamente"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="mpj_AtualizarTabela">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/run.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Atualizar Pagina"/>
+        <Property name="text" type="java.lang.String" value="Atualizar Tabela"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mpj_AtualizarTabelaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

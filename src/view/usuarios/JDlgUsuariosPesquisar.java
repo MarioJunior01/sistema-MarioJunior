@@ -32,6 +32,7 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         List lista = (List) usuariosDAO.listAll();
         controllerUsuarios.setList(lista);
         mpj_jTbUsuarios.setModel(controllerUsuarios);
+        
     }
 
     public void setTelaPai(JDlgUsuarios jDlgUsuarios) {

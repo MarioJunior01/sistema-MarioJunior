@@ -7,6 +7,7 @@ package view.usuarios;
 
 import bean.MpjTbUsuario;
 import dao.UsuarioDAO;
+import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
 import tools.Util;
 import java.util.List;
@@ -24,55 +25,55 @@ import javax.swing.border.LineBorder;
  * @author u10916731103
  */
 public class JDlgUsuarios extends javax.swing.JDialog {
-    
+
     private boolean incluir;
     private List listaUsuarios;
-    
+
     public JDlgUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         setTitle("Cadastro de Usuários");
         setLocationRelativeTo(null);
-        
+
         Util.habilitar(false, mpj_jTxtNome, mpj_jTxtApelido,
                 mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
                 mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-        
+
     }
-    
+
     public MpjTbUsuario viewBean() {
-        
+
         MpjTbUsuario usuarios = new MpjTbUsuario();
         usuarios.setMpjNomeUsuario(mpj_jTxtNome.getText());
         usuarios.setMpjApelidoUsuario(mpj_jTxtApelido.getText());
         usuarios.setMpjCpfUsuario((mpj_jFmtCpf.getText()));
         usuarios.setMpjSenhaUsuario((mpj_jPwfSenha.getText()));
         usuarios.setMpjNivelUsuario(mpj_jCboNivel.getSelectedItem().toString());
-        
+
         if (mpj_jChbAtivo.isSelected() == true) {
             usuarios.setMpjAtivoUsuario("S");
         } else {
             usuarios.setMpjAtivoUsuario("N");
         }
-        
+
         return usuarios;
     }
-    
+
     public void beanView(MpjTbUsuario usuarios) {
         mpj_JtfCodigoUsuario.setText(Util.intToStr(usuarios.getMpjIdUsuario()));
         mpj_jTxtNome.setText(usuarios.getMpjNomeUsuario());
         mpj_jTxtApelido.setText(usuarios.getMpjApelidoUsuario());
         mpj_jFmtCpf.setText((usuarios.getMpjCpfUsuario()));
         mpj_jFmtDataDeNascimento.setText(Util.dateToStr(usuarios.getMpjDataNascimentoUsuario()));
-        
+
         mpj_jPwfSenha.setText(usuarios.getMpjSenhaUsuario());
         mpj_jCboNivel.setSelectedItem(usuarios.getMpjNivelUsuario());
-        
+
         mpj_jChbAtivo.setSelected(usuarios.equals(usuarios.getMpjAtivoUsuario()));
-        
+
     }
-    
+
     public boolean validacao() {
         LineBorder bordaErro = new LineBorder(Color.RED, 2);
         LineBorder bordaNormal = new LineBorder(Color.GRAY, 1);
@@ -87,11 +88,11 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             Util.mensagem("Por favor preencha seu apelido corretamente");
             mpj_jTxtApelido.setBorder(bordaErro);
             return true;
-            
+
         } else {
             mpj_jTxtNome.setBorder(bordaNormal);
         }
-        
+
         if (mpj_jFmtCpf.getText().isEmpty() || mpj_jFmtCpf.getText().length() != 14) {
             Util.mensagem("Digite um CPF válido!");
             mpj_jFmtCpf.setBorder(new LineBorder(Color.RED, 2));
@@ -103,16 +104,16 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             Util.mensagem("Por favor selecione uma opcao");
             mpj_jCboNivel.setBorder(bordaErro);
             return true;
-            
+
         } else {
             mpj_jCboNivel.setBorder(bordaNormal);
         }
-        
+
         if (mpj_jPwfSenha.getText().length() <= 5) {
             Util.mensagem("Sua senha deve ter mais do que 5 caracteres");
             mpj_jPwfSenha.setBorder(bordaErro);
             return true;
-            
+
         } else {
             mpj_jTxtNome.setBorder(bordaNormal);
         }
@@ -420,7 +421,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         MpjTbUsuario usuarios = viewBean();
         usuarios.setMpjIdUsuario(Util.srToInt(mpj_JtfCodigoUsuario.getText()));
         usuarios.setMpjDataNascimentoUsuario(Util.strToDate(mpj_jFmtDataDeNascimento.getText()));
-        
+
         boolean resposta = Util.perguntar("Deseja excluir o registro?");
         if (resposta == true) {
             UsuarioDAO usuariosDAO = new UsuarioDAO();
@@ -429,10 +430,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         } else {
             Util.mensagem("Operacao Cancelada");
         }
-        
+
 
     }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
-    
+
 
     private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
@@ -443,18 +444,19 @@ public class JDlgUsuarios extends javax.swing.JDialog {
                 novoUsuario.setMpjDataNascimentoUsuario(Util.strToDate(mpj_jFmtDataDeNascimento.getText()));
                 usuariosDAO.insert(novoUsuario);
                 Util.mensagem("Usuario Criado com sucesso");
+
             } else {
                 MpjTbUsuario usuarioUpdate = viewBean();
                 usuarioUpdate.setMpjIdUsuario(Util.srToInt(mpj_JtfCodigoUsuario.getText()));
                 usuariosDAO.update(usuarioUpdate);
                 Util.mensagem("Usuario Alterado com sucesso");
-                
+
             }
             Util.habilitar(false, mpj_JtfCodigoUsuario, mpj_jTxtNome, mpj_jTxtApelido,
                     mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
                     mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
             Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
-            
+
         }
 
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed

@@ -6,6 +6,7 @@
 package view;
 
 import view.compra.JDlgCompra;
+import view.compra.JDlgComprasProdutos;
 import view.fornecedor.JDlgFornecedorPesquisar;
 import view.fornecedor.JDlgFornecedores;
 import view.funcionario.JDlgFuncionarios;
@@ -21,7 +22,7 @@ import view.usuarios.JDlgUsuariosPesquisar;
  * @author mario
  */
 public class Main extends javax.swing.JFrame {
-
+    
     private JDlgCompra jDlgCompra;
     private JDlgUsuarios jDlgUsuarios;
     private JDlgProdutos jDlgProdutos;
@@ -48,84 +49,100 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        mpj_jMniUsuariosPesquisar = new javax.swing.JMenuItem();
-        mpj_jMniProdutosPesquisar = new javax.swing.JMenu();
-        mpj_jMniFuncionarioPesquisar = new javax.swing.JMenuItem();
-        mpj_jMniFornecedorPesquisar = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mpj_jMniProduto = new javax.swing.JMenuItem();
+        mpj_jMniUsuarios = new javax.swing.JMenuItem();
+        mpj_jMnuiFornecedor = new javax.swing.JMenuItem();
+        mpj_jMniFuncionarios = new javax.swing.JMenuItem();
+        mpj_jMniCompraProduto = new javax.swing.JMenu();
+        mpj_jMniCompra = new javax.swing.JMenuItem();
         mpj_jMniComprasPesquisar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+
+        jLabel1.setFont(new java.awt.Font("Unispace", 2, 24)); // NOI18N
+        jLabel1.setText("Sistema de Compras ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel1)
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(262, Short.MAX_VALUE))
+        );
+
         jMenu4.setText("Cadastros");
+        jMenu4.add(jSeparator1);
 
-        jMenu5.setText("Usuarios");
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jMniProduto.setText("Produtos");
+        mpj_jMniProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
+                mpj_jMniProdutoActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu5);
+        jMenu4.add(mpj_jMniProduto);
 
-        jMenu6.setText("Funcionarios");
-        jMenu4.add(jMenu6);
-
-        jMenu7.setText("Fornecedores");
-        jMenu4.add(jMenu7);
-
-        jMenuItem1.setText("Compra");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jMniUsuarios.setText("Usuarios");
+        mpj_jMniUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mpj_jMniUsuariosActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem1);
+        jMenu4.add(mpj_jMniUsuarios);
 
-        jMenuItem2.setText("Produtos");
-        jMenu4.add(jMenuItem2);
+        mpj_jMnuiFornecedor.setText("Fornecedor");
+        mpj_jMnuiFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jMnuiFornecedorActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mpj_jMnuiFornecedor);
+
+        mpj_jMniFuncionarios.setText("Funcionarios");
+        mpj_jMniFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jMniFuncionariosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mpj_jMniFuncionarios);
 
         jMenuBar2.add(jMenu4);
 
-        jMenu1.setText(" Movimento");
+        mpj_jMniCompraProduto.setText(" Movimento");
 
-        mpj_jMniUsuariosPesquisar.setText("Usuarios");
-        jMenu1.add(mpj_jMniUsuariosPesquisar);
-
-        mpj_jMniProdutosPesquisar.setText("Produtos");
-        jMenu1.add(mpj_jMniProdutosPesquisar);
-
-        mpj_jMniFuncionarioPesquisar.setText("Funcionario");
-        mpj_jMniFuncionarioPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        mpj_jMniCompra.setText("Compra ");
+        mpj_jMniCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mpj_jMniFuncionarioPesquisarActionPerformed(evt);
+                mpj_jMniCompraActionPerformed(evt);
             }
         });
-        jMenu1.add(mpj_jMniFuncionarioPesquisar);
+        mpj_jMniCompraProduto.add(mpj_jMniCompra);
 
-        mpj_jMniFornecedorPesquisar.setText("Fornecedor");
-        mpj_jMniFornecedorPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mpj_jMniFornecedorPesquisarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mpj_jMniFornecedorPesquisar);
-
-        mpj_jMniComprasPesquisar.setText("Compra");
+        mpj_jMniComprasPesquisar.setText("Compra Produto");
         mpj_jMniComprasPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mpj_jMniComprasPesquisarActionPerformed(evt);
             }
         });
-        jMenu1.add(mpj_jMniComprasPesquisar);
+        mpj_jMniCompraProduto.add(mpj_jMniComprasPesquisar);
 
-        jMenuBar2.add(jMenu1);
+        jMenuBar2.add(mpj_jMniCompraProduto);
 
         setJMenuBar(jMenuBar2);
 
@@ -133,36 +150,106 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 299, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mpj_jMniCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniCompraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        JDlgCompra jDlgCompra = new JDlgCompra(this, true);
+        jDlgCompra.setVisible(true);
+        jDlgCompra.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o diálogo fechar
+                setVisible(true);
+            }
+        });
 
-    private void mpj_jMniFuncionarioPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniFuncionarioPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mpj_jMniFuncionarioPesquisarActionPerformed
-
-    private void mpj_jMniFornecedorPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniFornecedorPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mpj_jMniFornecedorPesquisarActionPerformed
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu5ActionPerformed
+    }//GEN-LAST:event_mpj_jMniCompraActionPerformed
 
     private void mpj_jMniComprasPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniComprasPesquisarActionPerformed
         // TODO add your handling code here
+        JDlgComprasProdutos jDlgComprasProdutos = new JDlgComprasProdutos(this, true);
+        jDlgComprasProdutos.setVisible(true);
+        jDlgComprasProdutos.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o diálogo fechar
+                setVisible(true);
+            }
+        });
+        
 
     }//GEN-LAST:event_mpj_jMniComprasPesquisarActionPerformed
+
+    private void mpj_jMniUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniUsuariosActionPerformed
+        // TODO add your handling code here:
+        JDlgUsuarios jDlgUsuarios = new JDlgUsuarios(this, true);
+        jDlgUsuarios.setVisible(true);
+        
+        jDlgUsuarios.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o diálogo fechar
+                setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_mpj_jMniUsuariosActionPerformed
+
+    private void mpj_jMniProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniProdutoActionPerformed
+        // TODO add your handling code here:
+        JDlgProdutos jDlgProdutos = new JDlgProdutos();
+        jDlgProdutos.setDefaultCloseOperation(JDlgProdutos.DISPOSE_ON_CLOSE); // importante
+        jDlgProdutos.setVisible(true);
+        
+        jDlgProdutos.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o JFrame de produtos for fechado
+                setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_mpj_jMniProdutoActionPerformed
+
+    private void mpj_jMniFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMniFuncionariosActionPerformed
+        // TODO add your handling code here:
+
+        JDlgFuncionarios jDlgFuncionarios = new JDlgFuncionarios(this, true);
+        jDlgFuncionarios.setVisible(true);
+        jDlgFuncionarios.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o diálogo fechar
+                setVisible(true);
+            }
+        });
+
+    }//GEN-LAST:event_mpj_jMniFuncionariosActionPerformed
+
+    private void mpj_jMnuiFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jMnuiFornecedorActionPerformed
+        // TODO add your handling code here:
+        JDlgFornecedores jDlgFornecedores = new JDlgFornecedores(this, true);
+        jDlgFornecedores.setVisible(true);
+        jDlgFornecedores.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Reexibe o Main quando o diálogo fechar
+                setVisible(true);
+            }
+        });
+
+    }//GEN-LAST:event_mpj_jMnuiFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,16 +265,24 @@ public class Main extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+                    
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -200,18 +295,18 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuItem mpj_jMniCompra;
+    private javax.swing.JMenu mpj_jMniCompraProduto;
     private javax.swing.JMenu mpj_jMniComprasPesquisar;
-    private javax.swing.JMenuItem mpj_jMniFornecedorPesquisar;
-    private javax.swing.JMenuItem mpj_jMniFuncionarioPesquisar;
-    private javax.swing.JMenu mpj_jMniProdutosPesquisar;
-    private javax.swing.JMenuItem mpj_jMniUsuariosPesquisar;
+    private javax.swing.JMenuItem mpj_jMniFuncionarios;
+    private javax.swing.JMenuItem mpj_jMniProduto;
+    private javax.swing.JMenuItem mpj_jMniUsuarios;
+    private javax.swing.JMenuItem mpj_jMnuiFornecedor;
     // End of variables declaration//GEN-END:variables
 }

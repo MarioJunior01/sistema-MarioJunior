@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import tools.Util;
+import view.Main;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,6 +26,10 @@ public class JDlgProdutos extends javax.swing.JFrame {
     public JDlgProdutos() {
         initComponents();
         Util.habilitar(false, mpj_jTxtIdProduto, mpj_jTxtNomeProduto, mpj_jFmtDataFabricacao, mpj_jTxtNomeFabricante, mpj_jFmtDataValidade, mpj_jTxtDescricao, mpj_jTxtSegmentoProduto, mpj_jTxtDescricao, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+    }
+
+    public JDlgProdutos(Main aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -420,6 +425,7 @@ public class JDlgProdutos extends javax.swing.JFrame {
             if (incluir == true) {
                 produtosDAO.insert(viewBeanProdutos());
                 Util.mensagem("Produto cadastrado com sucesso ");
+
             } else {
                 produtosDAO.update(viewBeanProdutos());
                 Util.mensagem("Produto editado  com sucesso ");

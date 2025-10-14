@@ -11,6 +11,7 @@ import bean.MpjTbFuncionario;
 import dao.CompraDAO;
 import dao.FornecedorDAO;
 import dao.FuncionarioDAO;
+import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.Timer;
@@ -28,6 +29,8 @@ public class JDlgCompra extends javax.swing.JDialog {
      */
     private boolean incluirCompra = true;
     private boolean incluirProduto = true;
+    private List listaFuncionarios;
+    private List listaCompras;
     private ControllerCompra controllerCompra;
 
     public JDlgCompra(java.awt.Frame parent, boolean modal) {
@@ -49,9 +52,9 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         CompraDAO compraDAO = new CompraDAO();
-        List listaFuncionarios = (List) funcionarioDAO.listAll();
-        List listaCompras = (List) compraDAO.listAll();
-        controllerCompra = new ControllerCompra();
+        this.listaFuncionarios = (List) funcionarioDAO.listAll();
+        this.listaCompras = (List) compraDAO.listAll();
+        this.controllerCompra = new ControllerCompra();
         for (int i = 0; i < listaFuncionarios.size(); i++) {
             mpj_jCboVedendor.addItem((MpjTbFuncionario) listaFuncionarios.get(i));
         }
@@ -62,7 +65,7 @@ public class JDlgCompra extends javax.swing.JDialog {
             mpj_jCboFornecedor.addItem((MpjTbFornecedor) listaFornecedores.get(i));
         }
 
-        controllerCompra.setList(listaCompras);
+        this.controllerCompra.setList(listaCompras);
         mpj_jTbCompras.setModel(controllerCompra);
 
     }
@@ -78,7 +81,7 @@ public class JDlgCompra extends javax.swing.JDialog {
     }
 
     public void beanView(MpjTbCompra compra) {
-
+        mpj_jTxtCodigoCompra.setText(Util.intToStr(compra.getMpjIdCompra()));
         mpj_jFtmDataCompra.setText(Util.dateToStr(compra.getMpjDataCompra()));
 
         mpj_jTxtTotalCompra.setText(Util.doubleToStr(compra.getMpjValorCompra()));
@@ -87,6 +90,13 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         mpj_jCboFornecedor.setSelectedItem(compra.getMpjTbFornecedor());
 
+    }
+
+    public void atualizarTabela() {
+        CompraDAO compraDAO = new CompraDAO();
+        this.listaCompras = (List) compraDAO.listAll(); // Busca as compras atualizadas
+        this.controllerCompra.setList(listaCompras);    // Atualiza o controlador da tabela
+        mpj_jTbCompras.updateUI(); // Força o JTable a redesenhar os dados
     }
 
     public boolean validacaoCompra() {
@@ -175,12 +185,13 @@ public class JDlgCompra extends javax.swing.JDialog {
         mpj_jBtrConfirmarCompra = new javax.swing.JButton();
         mpj_jBtCancelarCompra = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        mpj_AtualizarTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Codigo");
 
+        mpj_jTxtCodigoCompra.setEnabled(false);
         mpj_jTxtCodigoCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mpj_jTxtCodigoCompraActionPerformed(evt);
@@ -282,11 +293,11 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         jLabel6.setText("Codigo gerado Automaticamente");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/run.png"))); // NOI18N
-        jButton1.setText("Atualizar Pagina");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        mpj_AtualizarTabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/run.png"))); // NOI18N
+        mpj_AtualizarTabela.setText("Atualizar Tabela");
+        mpj_AtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                mpj_AtualizarTabelaActionPerformed(evt);
             }
         });
 
@@ -346,7 +357,7 @@ public class JDlgCompra extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(mpj_jBtCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(mpj_AtualizarTabela)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -394,7 +405,7 @@ public class JDlgCompra extends javax.swing.JDialog {
                             .addComponent(mpj_jBtAlterarCompra)
                             .addComponent(mpj_jBtrConfirmarCompra)
                             .addComponent(mpj_jBtCancelarCompra)
-                            .addComponent(jButton1))))
+                            .addComponent(mpj_AtualizarTabela))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -427,30 +438,40 @@ public class JDlgCompra extends javax.swing.JDialog {
     private void mpj_jBtIncluirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtIncluirCompraActionPerformed
         // TODO add your handling code here:
         incluirCompra = true;
-        Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-        Util.habilitar(false, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
+        Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
+        Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
+        Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
 
     }//GEN-LAST:event_mpj_jBtIncluirCompraActionPerformed
 
     private void mpj_jBtrConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtrConfirmarCompraActionPerformed
         // TODO add your handling code here:
         CompraDAO compra = new CompraDAO();
-        MpjTbCompra novaCompra = viewBean();
 
         if (validacaoCompra() == false) {
             if (incluirCompra == true) {
-                compra.insert(viewBean());
-                novaCompra.setMpjIdCompra(Util.srToInt(mpj_jTxtCodigoCompra.getText()));
+                MpjTbCompra novaCompra = viewBean();
+
+                compra.insert(novaCompra);
                 Util.mensagem("Compra Cadastrada com sucesso");
+                atualizarTabela();
+                HistoricoTransacoes.salvar(
+                        "Inserção de Compra",
+                        "Fornecedor: " + novaCompra.getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
+                        + ", Valor: " + novaCompra.getMpjValorCompra()
+                );
 
             } else {
+
                 compra.update(viewBean());
                 Util.mensagem("Compra Atualizada com sucesso ");
+
             }
             Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
 
             Util.habilitar(true, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
             Util.habilitar(false, mpj_jBtCancelarCompra, mpj_jBtrConfirmarCompra);
+            atualizarTabela();
 
         }
 
@@ -460,16 +481,23 @@ public class JDlgCompra extends javax.swing.JDialog {
         // TODO add your handling code here:
         incluirCompra = false;
         Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-        Util.habilitar(false, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
+        Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
+        Util.limpar(mpj_jCboFornecedor, mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor);
+
     }//GEN-LAST:event_mpj_jBtAlterarCompraActionPerformed
 
     private void mpj_jBtExcluirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtExcluirCompraActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-
+         MpjTbCompra compraDelete= new MpjTbCompra();
+         compraDelete.setMpjDataCompra(Util.strToDate(mpj_jFtmDataCompra.getText()));
+         compraDelete.setMpjIdCompra(Util.srToInt(mpj_jTxtCodigoCompra.getText()));
         CompraDAO compraDAO = new CompraDAO();
-        compraDAO.delete(viewBean());
+        compraDAO.delete(compraDelete);
         Util.mensagem("Compra Deletada com sucesso");
+         atualizarTabela();
+
+
     }//GEN-LAST:event_mpj_jBtExcluirCompraActionPerformed
 
     private void mpj_jBtCancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtCancelarCompraActionPerformed
@@ -480,15 +508,11 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     }//GEN-LAST:event_mpj_jBtCancelarCompraActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void mpj_AtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_AtualizarTabelaActionPerformed
         this.setVisible(false);
-      //atualizar pagina
-        Timer timer = new Timer(1000, e -> {
-            this.setVisible(true);
-        });
-        timer.setRepeats(false);
-        timer.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        mpj_jTbCompras.setModel(controllerCompra);
+        this.setVisible(true);
+    }//GEN-LAST:event_mpj_AtualizarTabelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -536,7 +560,6 @@ public class JDlgCompra extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -544,6 +567,7 @@ public class JDlgCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton mpj_AtualizarTabela;
     private javax.swing.JButton mpj_jBtAdicionarProduto;
     private javax.swing.JButton mpj_jBtAlterarCompra;
     private javax.swing.JButton mpj_jBtCancelarCompra;
