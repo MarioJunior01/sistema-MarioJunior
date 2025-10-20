@@ -84,7 +84,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         } else {
             mpj_jTxtNome.setBorder(bordaNormal);
         }
-        if (mpj_jTxtApelido.getText().length() <= 5) {
+        if (mpj_jTxtApelido.getText().length() <= 3) {
             Util.mensagem("Por favor preencha seu apelido corretamente");
             mpj_jTxtApelido.setBorder(bordaErro);
             return true;
@@ -464,13 +464,12 @@ public class JDlgUsuarios extends javax.swing.JDialog {
                         + "Nome Usuario " + usuarioUpdate.getMpjNomeUsuario());
 
             }
-            Util.habilitar(false, mpj_JtfCodigoUsuario, mpj_jTxtNome, mpj_jTxtApelido,
-                    mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
-                    mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-            Util.habilitar(false, mpj_jTxtNome, mpj_jTxtApelido,
-                    mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
-                    mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
+
         }
+        Util.habilitar(true,mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+        Util.habilitar(false, mpj_jTxtNome, mpj_jTxtApelido,
+                mpj_jFmtCpf, mpj_jFmtDataDeNascimento, mpj_jPwfSenha,
+                mpj_jCboNivel, mpj_jChbAtivo, mpj_jBtnConfirmar, mpj_jBtnCancelar);
 
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 

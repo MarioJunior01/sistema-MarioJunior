@@ -7,6 +7,7 @@ package view.fornecedor;
 import bean.MpjTbFornecedor;
 import dao.FornecedorDAO;
 import dao.FuncionarioDAO;
+import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import view.fornecedor.JDlgFornecedorPesquisar;
@@ -69,7 +70,6 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         mpj_TbFornecedor.setMpjPorteFornecedor(mpj_jCboPorteFornecedor.getSelectedItem().toString());
         mpj_TbFornecedor.setMpjQuantidadeFuncionariosFornecedor(mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedItem().toString());
         mpj_TbFornecedor.setMpjQuantidadeFuncionariosFornecedor(mpj_jCboQuantidadeFuncionariosFornecedor.getSelectedItem().toString());
-
 
         return mpj_TbFornecedor;
 
@@ -577,6 +577,8 @@ public class JDlgFornecedores extends javax.swing.JDialog {
         if (resposta == true) {
             fornecedorDAO.delete(viewBean());
             Util.mensagem("Fornecedor excluido com sucesso");
+            HistoricoTransacoes.salvar("DELETE  FORNECEDOR", "CNPJ Fornecedor:" + viewBean().getMpjCnpjFornecedor() + "Razao Social Fornecedor" + viewBean().getMpjRazaoSocialFornecedor());
+
             Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
 
         } else {
@@ -587,13 +589,20 @@ public class JDlgFornecedores extends javax.swing.JDialog {
     }//GEN-LAST:event_mpj_jBtnExcluirActionPerformed
 
     private void mpj_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnConfirmarActionPerformed
-        FuncionarioDAO funcionariosDAO = new FuncionarioDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         if (validacao() == false) {
 
             if (incluir == true) {
-                funcionariosDAO.insert(viewBean());
+
+                fornecedorDAO.insert(viewBean());
+                Util.mensagem("Fornecedor Criado com sucesso");
+                HistoricoTransacoes.salvar("CREATE FORNECEDOR", "CNPJ Fornecedor:" + viewBean().getMpjCnpjFornecedor() + "Razao Social " + viewBean().getMpjRazaoSocialFornecedor());
+
             } else {
-                funcionariosDAO.update(viewBean());
+                fornecedorDAO.update(viewBean());
+                Util.mensagem("Fornecedor Atualizado  com sucesso");
+                HistoricoTransacoes.salvar("UPDATE FORNECEDOR", "CNPJ Fornecedor:" + viewBean().getMpjCnpjFornecedor());
+
             }
             Util.habilitar(false, mpj_jTxtRuaFornecedor, mpj_jTxtServicoPrestado, mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);
             Util.limpar(mpj_jTxtSegmentoFornecedor, mpj_jTxtRazaoSocialFornecedor, mpj_jTxtNumeroFornecedor, mpj_jTxtNomeFantasiaFornecedor, mpj_jTxtNomeRepresentanteFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtEmailFornecedor, mpj_jTxtComplementoFornecedor, mpj_jFmtTelefoneFornecedor, mpj_jFmtDataCriacaoEmpresa, mpj_jFmtCnpjFornecedor, mpj_jFtmCepFornecedor, mpj_jCboQuantidadeFuncionariosFornecedor, mpj_jCboPorteFornecedor, mpj_jCboEstadoFornecedor, mpj_jBtnConfirmar, mpj_jBtnCancelar);

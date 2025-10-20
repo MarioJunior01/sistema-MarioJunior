@@ -413,10 +413,10 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
             }
 
-            Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
-
-            Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
         }
+        Util.habilitar(true, mpj_jBtnIncluir, mpj_jBtnAlterar, mpj_jBtnExcluir, mpj_jBtnPesquisar);
+
+        Util.habilitar(false, mpj_jTxtNomeFuncionario, mpj_jFmtTelefoneFuncionario, mpj_jFmtDataNascimentoFuncionario, mpj_jFmtCpfFuncionario, mpj_jTxtEmailFuncionario, mpj_jCboCargoFuncionario, mpj_jCboSetorFuncionario, mpj_jBtnConfirmar, mpj_jBtnCancelar);
     }//GEN-LAST:event_mpj_jBtnConfirmarActionPerformed
 
     private void mpj_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnCancelarActionPerformed

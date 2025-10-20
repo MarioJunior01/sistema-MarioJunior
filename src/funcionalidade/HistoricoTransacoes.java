@@ -58,5 +58,5 @@ public class HistoricoTransacoes {
         }
     }
 
-    // Método de teste rápido
+   
 }
