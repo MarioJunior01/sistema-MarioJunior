@@ -34,7 +34,7 @@ public class JDlgCompra extends javax.swing.JDialog {
     private List listaCompras;
     private List listaProdutos;
     private ControllerCompra controllerCompra;
-     ControllerComprasProdutos controllerComprasProdutos;
+    ControllerComprasProdutos controllerComprasProdutos;
 
     public JDlgCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -187,7 +187,6 @@ public class JDlgCompra extends javax.swing.JDialog {
         mpj_jBtrConfirmarCompra = new javax.swing.JButton();
         mpj_jBtCancelarCompra = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        mpj_AtualizarTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -295,14 +294,6 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         jLabel6.setText("Codigo gerado Automaticamente");
 
-        mpj_AtualizarTabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/run.png"))); // NOI18N
-        mpj_AtualizarTabela.setText("Atualizar Tabela");
-        mpj_AtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mpj_AtualizarTabelaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -357,10 +348,8 @@ public class JDlgCompra extends javax.swing.JDialog {
                                 .addGap(43, 43, 43)
                                 .addComponent(mpj_jBtrConfirmarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(mpj_jBtCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mpj_AtualizarTabela)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(mpj_jBtCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 178, Short.MAX_VALUE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -406,8 +395,7 @@ public class JDlgCompra extends javax.swing.JDialog {
                             .addComponent(mpj_jBtExcluirCompra)
                             .addComponent(mpj_jBtAlterarCompra)
                             .addComponent(mpj_jBtrConfirmarCompra)
-                            .addComponent(mpj_jBtCancelarCompra)
-                            .addComponent(mpj_AtualizarTabela))))
+                            .addComponent(mpj_jBtCancelarCompra))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -525,12 +513,6 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     }//GEN-LAST:event_mpj_jBtCancelarCompraActionPerformed
 
-    private void mpj_AtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_AtualizarTabelaActionPerformed
-        this.setVisible(false);
-        mpj_jTbCompras.setModel(controllerCompra);
-        this.setVisible(true);
-    }//GEN-LAST:event_mpj_AtualizarTabelaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -584,7 +566,6 @@ public class JDlgCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton mpj_AtualizarTabela;
     private javax.swing.JButton mpj_jBtAdicionarProduto;
     private javax.swing.JButton mpj_jBtAlterarCompra;
     private javax.swing.JButton mpj_jBtCancelarCompra;

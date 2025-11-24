@@ -85,11 +85,9 @@
                               <Component id="mpj_jBtrConfirmarCompra" min="-2" pref="118" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="mpj_jBtCancelarCompra" min="-2" pref="108" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="mpj_AtualizarTabela" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="178" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -147,7 +145,6 @@
                           <Component id="mpj_jBtAlterarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mpj_jBtrConfirmarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mpj_jBtCancelarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="mpj_AtualizarTabela" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -330,17 +327,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Codigo gerado Automaticamente"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="mpj_AtualizarTabela">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/run.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Atualizar Tabela"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mpj_AtualizarTabelaActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
