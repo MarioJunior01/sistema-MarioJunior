@@ -12,3 +12,6 @@ DataHora,Ação,Detalhes
 20/10/2025 08:28:58,Create new Usuario,ID Usuario: 4Nome Usuario Gabriel  GabrieGabrie
 20/10/2025 08:30:52,Create new Usuario,ID Usuario: 5Nome Usuario Paulo Paulo  
 20/10/2025 08:34:00,Create new Usuario,ID Usuario: 6Nome Usuario  Clovis Clovis
+24/11/2025 10:54:38,CREATE compra,Fornecedor: Mario JuniorMario JuniorMario Junior ; Valor: 100.0
+24/11/2025 10:55:34,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 100.0
+24/11/2025 11:37:38,CREATE PRODUTO,ID PRODUTO0Nome ProdutoJujuba

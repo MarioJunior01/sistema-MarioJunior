@@ -9,6 +9,7 @@ import bean.MpjTbCompra;
 import bean.MpjTbFornecedor;
 import bean.MpjTbFuncionario;
 import dao.CompraDAO;
+import dao.CompraProdutoDAO;
 import dao.FornecedorDAO;
 import dao.FuncionarioDAO;
 import funcionalidade.HistoricoTransacoes;
@@ -70,6 +71,7 @@ public class JDlgCompra extends javax.swing.JDialog {
         controllerComprasProdutos = new ControllerComprasProdutos();
         controllerComprasProdutos.setList(new ArrayList());
         mpj_jTbCompras.setModel(controllerComprasProdutos);
+      
     }
 
     public MpjTbCompra viewBean() {
@@ -91,14 +93,11 @@ public class JDlgCompra extends javax.swing.JDialog {
         mpj_jCboVedendor.setSelectedItem(compra.getMpjTbFuncionario());
 
         mpj_jCboFornecedor.setSelectedItem(compra.getMpjTbFornecedor());
+        
+        CompraProdutoDAO compraProdutosDAO = new CompraProdutoDAO();
+        List lista = (List) compraProdutosDAO.listProdutos(compra);
+        controllerComprasProdutos.setList(lista);
 
-    }
-
-    public void atualizarTabela() {
-        CompraDAO compraDAO = new CompraDAO();
-        this.listaCompras = (List) compraDAO.listAll(); // Busca as compras atualizadas
-        this.controllerCompra.setList(listaCompras);    // Atualiza o controlador da tabela
-        mpj_jTbCompras.updateUI(); // Força o JTable a redesenhar os dados
     }
 
     public boolean validacaoCompra() {
@@ -187,6 +186,7 @@ public class JDlgCompra extends javax.swing.JDialog {
         mpj_jBtrConfirmarCompra = new javax.swing.JButton();
         mpj_jBtCancelarCompra = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -294,6 +294,14 @@ public class JDlgCompra extends javax.swing.JDialog {
 
         jLabel6.setText("Codigo gerado Automaticamente");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
+        jButton1.setText("Pesquisar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -348,8 +356,10 @@ public class JDlgCompra extends javax.swing.JDialog {
                                 .addGap(43, 43, 43)
                                 .addComponent(mpj_jBtrConfirmarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(mpj_jBtCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 178, Short.MAX_VALUE)))
+                                .addComponent(mpj_jBtCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -395,7 +405,8 @@ public class JDlgCompra extends javax.swing.JDialog {
                             .addComponent(mpj_jBtExcluirCompra)
                             .addComponent(mpj_jBtAlterarCompra)
                             .addComponent(mpj_jBtrConfirmarCompra)
-                            .addComponent(mpj_jBtCancelarCompra))))
+                            .addComponent(mpj_jBtCancelarCompra)
+                            .addComponent(jButton1))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -412,6 +423,9 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     private void mpj_jBtAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtAdicionarProdutoActionPerformed
         // TODO add your handling code here:
+        JDlgComprasProdutos jDlgComprasProdutos = new JDlgComprasProdutos(null, true);
+        jDlgComprasProdutos.setTelaAnterior(this);
+        jDlgComprasProdutos.setVisible(true);
 
     }//GEN-LAST:event_mpj_jBtAdicionarProdutoActionPerformed
 
@@ -427,9 +441,10 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     private void mpj_jBtIncluirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtIncluirCompraActionPerformed
         // TODO add your handling code here:
-        JDlgComprasProdutos jDlgComprasProdutos = new JDlgComprasProdutos(null, true);
-        jDlgComprasProdutos.setTelaAnterior(this);
-        jDlgComprasProdutos.setVisible(true);
+        incluirCompra = true;
+        Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
+        Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAlterarCompra, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
+
 
     }//GEN-LAST:event_mpj_jBtIncluirCompraActionPerformed
 
@@ -443,7 +458,6 @@ public class JDlgCompra extends javax.swing.JDialog {
 
                 compra.insert(viewBean());
                 Util.mensagem("Compra Cadastrada com sucesso");
-                atualizarTabela();
                 HistoricoTransacoes.salvar(
                         "CREATE compra",
                         "Fornecedor: " + viewBean().getMpjTbFornecedor().getMpjNomeFantasiaFornecedor()
@@ -466,7 +480,6 @@ public class JDlgCompra extends javax.swing.JDialog {
 
             Util.habilitar(true, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
             Util.habilitar(false, mpj_jBtCancelarCompra, mpj_jBtrConfirmarCompra);
-            atualizarTabela();
 
         }
 
@@ -496,7 +509,7 @@ public class JDlgCompra extends javax.swing.JDialog {
                     + ", Valor: " + compraDelete.getMpjValorCompra()
             );
             Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboFornecedor, mpj_jCboVedendor);
-            atualizarTabela();
+
             Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboFornecedor, mpj_jCboVedendor);
         } else {
             Util.mensagem("Operacao Cancelada");
@@ -512,6 +525,13 @@ public class JDlgCompra extends javax.swing.JDialog {
         Util.habilitar(false, mpj_jBtCancelarCompra, mpj_jBtrConfirmarCompra);
 
     }//GEN-LAST:event_mpj_jBtCancelarCompraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JDlgCompraPesquisar jDlgCompraPesquisar = new JDlgCompraPesquisar(null, true);
+        jDlgCompraPesquisar.setTelaPai(this);
+        jDlgCompraPesquisar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -559,6 +579,7 @@ public class JDlgCompra extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

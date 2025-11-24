@@ -68,6 +68,8 @@ public class CompraDAO extends AbstractDAO {
 
         return lista;
     }
+    
+    
     public static void main(String[] args) {
         CompraDAO compraDAO = new  CompraDAO();
         compraDAO.listAll();

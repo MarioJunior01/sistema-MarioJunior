@@ -8,6 +8,7 @@ package dao;
 import bean.MpjTbCompra;
 import bean.MpjTbCompraProduto;
 import bean.MpjTbFornecedor;
+import bean.MpjTbProduto;
 import bean.MpjTbUsuario;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -57,6 +58,19 @@ public class CompraProdutoDAO extends AbstractDAO {
         return lista;
 
     }
+      public Object listProdutos(MpjTbCompra compra) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbCompraProduto.class);
+        criteria.add(Restrictions.eq("Compra",compra));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+
+
+        return lista;
+
+    }
+    
+    
 
     
     @Override
