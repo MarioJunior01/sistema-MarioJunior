@@ -81,6 +81,9 @@
             <Property name="autoResizeMode" type="int" value="4"/>
             <Property name="rowHeight" type="int" value="15"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mpj_jTbMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -9,6 +9,7 @@
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/fornecedor/JDlgFornecedores.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/usuarios/JDlgUsuarios.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/Hibernate/Util.java</file>
+            <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/produtos/JDlgProdutosPesquisar.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbFornecedor.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/Main.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbCompraProdutoId.java</file>
@@ -24,7 +25,6 @@
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/funcionario/ControllerFuncionarios.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/usuarios/ControllerUsuarios.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/compra/JDlgComprasProdutos.java</file>
-            <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/compra/JanelaPrincinpal.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbFuncionario.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/compra/ControllerCompra.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbUsuario.java</file>
@@ -33,6 +33,7 @@
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/fornecedor/ControlleFornecedor.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbCompra.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/view/usuarios/JDlgUsuariosPesquisar.java</file>
+            <file>file:/C:/Users/mario/sistema-MarioJunior/src/funcionalidade/HistoricoTransacoes.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/bean/MpjTbProduto.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/CompraDAO.java</file>
             <file>file:/C:/Users/mario/sistema-MarioJunior/src/dao/FornecedorDAO.java</file>

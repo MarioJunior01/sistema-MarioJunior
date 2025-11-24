@@ -76,6 +76,11 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        mpj_jTbUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mpj_jTbUsuariosMouseClicked(evt);
+            }
+        });
         mpj_jSP.setViewportView(mpj_jTbUsuarios);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user72.png"))); // NOI18N
@@ -146,9 +151,9 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void mpj_jBtnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtnOKActionPerformed
         // TODO add your handling code here:
-        int selectedRow = mpj_jTbUsuarios.getSelectedRow();
-        if (selectedRow != -1) {
-            MpjTbUsuario usuarios = controllerUsuarios.getBean(selectedRow);
+  
+        if (mpj_jTbUsuarios.getSelectedRowCount() != -1) {
+            MpjTbUsuario usuarios = controllerUsuarios.getBean(mpj_jTbUsuarios.getSelectedRowCount());
             if (usuarios != null) {
                 jDlgUsuarios.beanView(usuarios);
             }
@@ -163,6 +168,13 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void mpj_jTbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTbUsuariosMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            mpj_jBtnOKActionPerformed(null);
+        }
+    }//GEN-LAST:event_mpj_jTbUsuariosMouseClicked
 
     /**
      * @param args the command line arguments

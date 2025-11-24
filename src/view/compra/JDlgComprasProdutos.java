@@ -5,18 +5,40 @@
  */
 package view.compra;
 
+import bean.MpjTbCompraProduto;
+import bean.MpjTbProduto;
+import dao.ProdutoDAO;
+import java.util.List;
+import tools.Util;
+
 /**
  *
  * @author mario
  */
 public class JDlgComprasProdutos extends javax.swing.JDialog {
 
+    private List listaProdutos;
+    private JDlgCompra jdlgCompras;
+
     /**
      * Creates new form JDlgComprasProdutos
      */
     public JDlgComprasProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        ProdutoDAO produtoDAO = new ProdutoDAO();
         initComponents();
+        mpj_jTxtQuantidadeProdutos1.setText("1");
+
+        listaProdutos = (List) produtoDAO.listAll();
+        for (Object object : listaProdutos) {
+            mpj_JcboProdutos.addItem((MpjTbProduto) object);
+
+        }
+        Util.habilitar(false, mpj_jTxtValorUnitarioProdutos, mpj_jTxtValorTotalProdutos);
+    }
+
+    public void setTelaAnterior(JDlgCompra jdlgCompras) {
+        this.jdlgCompras = jdlgCompras;
     }
 
     /**
@@ -29,7 +51,7 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        mpj_JcboProdutos = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         mpj_jTxtValorUnitarioProdutos = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -43,11 +65,21 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
 
         jLabel1.setText("Produtos");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mpj_JcboProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_JcboProdutosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Quantidade");
 
         jLabel3.setText("Valor Unitario");
+
+        mpj_jTxtQuantidadeProdutos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                mpj_jTxtQuantidadeProdutos1MouseReleased(evt);
+            }
+        });
 
         jLabel4.setText("Total");
 
@@ -56,6 +88,11 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
 
         mpj_jBtOK1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok.png"))); // NOI18N
         mpj_jBtOK1.setText("OK");
+        mpj_jBtOK1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpj_jBtOK1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,17 +101,23 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(mpj_JcboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(mpj_jTxtQuantidadeProdutos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(mpj_jTxtValorUnitarioProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(46, 46, 46))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(mpj_jTxtValorUnitarioProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(mpj_jTxtValorTotalProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -94,20 +137,20 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mpj_jTxtValorTotalProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mpj_jTxtValorTotalProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mpj_jTxtValorUnitarioProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mpj_JcboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mpj_jTxtValorUnitarioProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mpj_jTxtQuantidadeProdutos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addComponent(mpj_jTxtQuantidadeProdutos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mpj_jBtOK1)
                     .addComponent(mpj_jBtCancelar))
@@ -116,6 +159,33 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mpj_JcboProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_JcboProdutosActionPerformed
+        // TODO add your handling code here:
+        MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
+        mpj_jTxtValorUnitarioProdutos.setText(Util.doubleToStr(produtos.getMpjPrecoProduto()));
+        int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
+        mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr(quant * produtos.getMpjPrecoProduto()));
+
+    }//GEN-LAST:event_mpj_JcboProdutosActionPerformed
+
+    private void mpj_jTxtQuantidadeProdutos1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
+        // TODO add your handling code here:
+        MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
+        mpj_jTxtValorUnitarioProdutos.setText(Util.doubleToStr(produtos.getMpjPrecoProduto()));
+        int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
+        mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr(quant * produtos.getMpjPrecoProduto()));
+    }//GEN-LAST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
+
+    private void mpj_jBtOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtOK1ActionPerformed
+        // TODO add your handling code here:
+        MpjTbCompraProduto compraProduto = new MpjTbCompraProduto();
+        compraProduto.setMpjTbProduto((MpjTbProduto) mpj_JcboProdutos.getSelectedItem());
+        compraProduto.setMpjQuantidadeProduto(Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText()));
+        compraProduto.setMpjValorUnitario(Util.strToDouble(mpj_jTxtValorUnitarioProdutos.getText()));
+        jdlgCompras.controllerComprasProdutos.addBean(compraProduto);
+        setVisible(false);
+    }//GEN-LAST:event_mpj_jBtOK1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,11 +230,11 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JComboBox<MpjTbProduto> mpj_JcboProdutos;
     private javax.swing.JButton mpj_jBtCancelar;
     private javax.swing.JButton mpj_jBtOK1;
     private javax.swing.JTextField mpj_jTxtQuantidadeProdutos1;

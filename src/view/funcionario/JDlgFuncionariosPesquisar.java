@@ -78,6 +78,11 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        mpj_jTbFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mpj_jTbFuncionariosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(mpj_jTbFuncionarios);
         mpj_jTbFuncionarios.getAccessibleContext().setAccessibleParent(this);
 
@@ -146,12 +151,11 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
             MpjTbFuncionario funcionario = controllerFuncionarios.getBean(selectedRow);
             jDlgFuncionarios.beanView(funcionario);
             this.setVisible(false);
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um Funcionario  primeiro, ou Clique em Cancelar ", "Aviso", JOptionPane.WARNING_MESSAGE);
 
         }
-      
 
 
     }//GEN-LAST:event_mpj_jBtnOKActionPerformed
@@ -160,6 +164,12 @@ public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_mpj_jBtnCancelarActionPerformed
+
+    private void mpj_jTbFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTbFuncionariosMouseClicked
+        if (evt.getClickCount() == 2) {
+           mpj_jBtnOKActionPerformed(null);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_mpj_jTbFuncionariosMouseClicked
 
     /**
      * @param args the command line arguments

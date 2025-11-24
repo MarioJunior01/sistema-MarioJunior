@@ -90,6 +90,11 @@ public class JDlgProdutosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        mpj_jTbProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mpj_jTbProdutosMouseClicked(evt);
+            }
+        });
         mpj_JSp.setViewportView(mpj_jTbProdutos);
 
         jScrollPane2.setViewportView(mpj_JSp);
@@ -152,6 +157,13 @@ public class JDlgProdutosPesquisar extends javax.swing.JDialog {
 
         this.setVisible(false);
     }//GEN-LAST:event_mpj_JbtCancelarActionPerformed
+
+    private void mpj_jTbProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTbProdutosMouseClicked
+        // TODO add your handling code here:
+         if (evt.getClickCount() == 2) {
+            mpj_jBtnOKActionPerformed(null);
+        }
+    }//GEN-LAST:event_mpj_jTbProdutosMouseClicked
 
     /**
      * @param args the command line arguments

@@ -125,6 +125,9 @@
               <ComponentRef name="Form"/>
             </Property>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mpj_jTbFuncionariosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

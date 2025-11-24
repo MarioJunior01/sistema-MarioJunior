@@ -68,6 +68,11 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
         ));
         mpj_jTb.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         mpj_jTb.setRowHeight(15);
+        mpj_jTb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mpj_jTbMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(mpj_jTb);
 
         mpj_jBtnCancelar.setText("Cancelar");
@@ -141,6 +146,14 @@ public class JDlgFornecedorPesquisar extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_mpj_jBtnOK1ActionPerformed
+
+    private void mpj_jTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTbMouseClicked
+        // TODO add your handling code here:
+
+        if (evt.getClickCount() == 2) {
+            mpj_jBtnOK1ActionPerformed(null);
+        }
+    }//GEN-LAST:event_mpj_jTbMouseClicked
 
     /**
      * @param args the command line arguments

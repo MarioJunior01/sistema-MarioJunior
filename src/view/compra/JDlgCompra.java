@@ -13,6 +13,7 @@ import dao.FornecedorDAO;
 import dao.FuncionarioDAO;
 import funcionalidade.HistoricoTransacoes;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Timer;
 import javax.swing.border.LineBorder;
@@ -31,7 +32,9 @@ public class JDlgCompra extends javax.swing.JDialog {
     private boolean incluirProduto = true;
     private List listaFuncionarios;
     private List listaCompras;
+    private List listaProdutos;
     private ControllerCompra controllerCompra;
+     ControllerComprasProdutos controllerComprasProdutos;
 
     public JDlgCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -64,10 +67,9 @@ public class JDlgCompra extends javax.swing.JDialog {
         for (int i = 0; i < listaFornecedores.size(); i++) {
             mpj_jCboFornecedor.addItem((MpjTbFornecedor) listaFornecedores.get(i));
         }
-
-        this.controllerCompra.setList(listaCompras);
-        mpj_jTbCompras.setModel(controllerCompra);
-
+        controllerComprasProdutos = new ControllerComprasProdutos();
+        controllerComprasProdutos.setList(new ArrayList());
+        mpj_jTbCompras.setModel(controllerComprasProdutos);
     }
 
     public MpjTbCompra viewBean() {
@@ -437,10 +439,9 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     private void mpj_jBtIncluirCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtIncluirCompraActionPerformed
         // TODO add your handling code here:
-        incluirCompra = true;
-        Util.habilitar(true, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jFtmDataCompra, mpj_jTxtTotalCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-        Util.habilitar(false, mpj_jTxtCodigoCompra, mpj_jBtAdicionarProduto, mpj_jBtAlterarCompra, mpj_jBtExcluirProduto, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra);
-        Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
+        JDlgComprasProdutos jDlgComprasProdutos = new JDlgComprasProdutos(null, true);
+        jDlgComprasProdutos.setTelaAnterior(this);
+        jDlgComprasProdutos.setVisible(true);
 
     }//GEN-LAST:event_mpj_jBtIncluirCompraActionPerformed
 

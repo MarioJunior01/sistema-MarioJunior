@@ -130,4 +130,20 @@ public class MpjTbProduto implements java.io.Serializable {
         this.mpjPrecoProduto = mpjPrecoProduto;
     }
 
+    @Override
+    public String toString() {
+        return this.mpjIdProduto + " - " + this.mpjNomeProduto;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MpjTbProduto) {
+            MpjTbProduto produtos = (MpjTbProduto) obj;
+            if (produtos.getMpjIdProduto() == this.getMpjIdProduto()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
