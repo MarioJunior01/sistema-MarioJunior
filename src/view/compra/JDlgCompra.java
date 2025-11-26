@@ -450,7 +450,7 @@ public class JDlgCompra extends javax.swing.JDialog {
 
     private void mpj_jBtrConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtrConfirmarCompraActionPerformed
         // TODO add your handling code here:
-        CompraDAO compra = new CompraDAO();
+        CompraProdutoDAO compra = new CompraProdutoDAO();
 
         if (validacaoCompra() == false) {
             if (incluirCompra == true) {

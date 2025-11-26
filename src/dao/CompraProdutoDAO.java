@@ -61,7 +61,7 @@ public class CompraProdutoDAO extends AbstractDAO {
       public Object listProdutos(MpjTbCompra compra) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbCompraProduto.class);
-        criteria.add(Restrictions.eq("Compra",compra));
+        criteria.add(Restrictions.eq("mpjTbCompra",compra));
         List lista = criteria.list();
         session.getTransaction().commit();
 

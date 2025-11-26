@@ -22,7 +22,6 @@ public class ControllerCompra extends AbstractTableModel {
     }
 
     public MpjTbCompra getBean(int rowIndex) {
-
         return (MpjTbCompra) listaCompras.get(rowIndex);
     }
 

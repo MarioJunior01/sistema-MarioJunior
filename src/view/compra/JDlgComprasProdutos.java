@@ -80,6 +80,11 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
                 mpj_jTxtQuantidadeProdutos1MouseReleased(evt);
             }
         });
+        mpj_jTxtQuantidadeProdutos1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                mpj_jTxtQuantidadeProdutos1KeyReleased(evt);
+            }
+        });
 
         jLabel4.setText("Total");
 
@@ -170,11 +175,7 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
     }//GEN-LAST:event_mpj_JcboProdutosActionPerformed
 
     private void mpj_jTxtQuantidadeProdutos1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
-        // TODO add your handling code here:
-        MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
-        mpj_jTxtValorUnitarioProdutos.setText(Util.doubleToStr(produtos.getMpjPrecoProduto()));
-        int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
-        mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr(quant * produtos.getMpjPrecoProduto()));
+      
     }//GEN-LAST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
 
     private void mpj_jBtOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtOK1ActionPerformed
@@ -186,6 +187,17 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
         jdlgCompras.controllerComprasProdutos.addBean(compraProduto);
         setVisible(false);
     }//GEN-LAST:event_mpj_jBtOK1ActionPerformed
+
+    private void mpj_jTxtQuantidadeProdutos1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mpj_jTxtQuantidadeProdutos1KeyReleased
+        // TODO add your handling code here:
+      if(mpj_jTxtQuantidadeProdutos1.getText().isEmpty() == false){
+        MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
+        int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
+        mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr( quant * produtos.getMpjPrecoProduto()));
+       } else {
+           Util.limpar(mpj_jTxtValorTotalProdutos);
+       }
+    }//GEN-LAST:event_mpj_jTxtQuantidadeProdutos1KeyReleased
 
     /**
      * @param args the command line arguments
