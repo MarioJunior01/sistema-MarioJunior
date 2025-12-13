@@ -50,31 +50,48 @@ public class CompraProdutoDAO extends AbstractDAO {
     public Object list(int idCompraProduto) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbCompraProduto.class);
-        criteria.add(Restrictions.eq("IdCompraProduto",idCompraProduto));
+        criteria.add(Restrictions.eq("id", idCompraProduto));
         List lista = criteria.list();
         session.getTransaction().commit();
-
 
         return lista;
 
     }
-      public Object listProdutos(MpjTbCompra compra) {
+
+    public Object listProdutos(MpjTbCompra compra) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbCompraProduto.class);
-        criteria.add(Restrictions.eq("mpjTbCompra",compra));
+        criteria.add(Restrictions.eq("mpjTbCompra", compra));
         List lista = criteria.list();
         session.getTransaction().commit();
-
-
         return lista;
-
     }
-    
-    
 
-    
+    public void deleteProdutos(MpjTbCompra compra) {
+        session.beginTransaction();
+        try {
+            // Listar todos os produtos da compra na MESMA sessão
+            Criteria criteria = session.createCriteria(MpjTbCompraProduto.class);
+            criteria.add(Restrictions.eq("mpjTbCompra", compra));
+            List<MpjTbCompraProduto> lista = criteria.list();
+
+            // Deletar cada produto na MESMA sessão
+            for (MpjTbCompraProduto produto : lista) {
+                session.delete(produto);
+            }
+
+            // Commit da transação
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
     @Override
-    public Object  listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteia = session.createCriteria(MpjTbCompraProduto.class);
         List lista = criteia.list();
@@ -82,8 +99,9 @@ public class CompraProdutoDAO extends AbstractDAO {
 
         return lista;
     }
+
     public static void main(String[] args) {
-        CompraProdutoDAO compraProdutoDAO = new  CompraProdutoDAO();
+        CompraProdutoDAO compraProdutoDAO = new CompraProdutoDAO();
         compraProdutoDAO.listAll();
         System.out.println("Deu certo");
     }

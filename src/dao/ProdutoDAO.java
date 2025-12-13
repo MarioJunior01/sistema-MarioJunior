@@ -11,10 +11,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-/**
- *
- * @author u04584043221
- */
 public class ProdutoDAO extends AbstractDAO {
 
     @Override
@@ -43,23 +39,48 @@ public class ProdutoDAO extends AbstractDAO {
         session.getTransaction().commit();
     }
 
-  
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbProduto.class);
-        criteria.add(Restrictions.eq("idProduto",codigo));
+        criteria.add(Restrictions.eq("idProduto", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
-
 
         return lista;
 
     }
 
-    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbProduto.class);
+        criteria.add(Restrictions.like("mpjNomeProduto", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listValor(double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbProduto.class);
+        criteria.add(Restrictions.ge("mpjPrecoProduto", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeEvalor(String nome, double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbProduto.class);
+        criteria.add(Restrictions.like("mpjNomeProduto", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("mpjPrecoProduto", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
     @Override
-    public Object  listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteia = session.createCriteria(MpjTbProduto.class);
         List lista = criteia.list();
@@ -67,8 +88,9 @@ public class ProdutoDAO extends AbstractDAO {
 
         return lista;
     }
+
     public static void main(String[] args) {
-        ProdutoDAO produtoDAO = new  ProdutoDAO();
+        ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.listAll();
         System.out.println("Deu certo");
     }

@@ -19,6 +19,7 @@ public class ControllerComprasProdutos extends AbstractTableModel {
 
     public void setList(List lstComprasProdutos) {
         this.lstComprasProdutos = lstComprasProdutos;
+        this.fireTableDataChanged();
     }
 
     public MpjTbCompraProduto getBean(int rowIndex) {
@@ -76,5 +77,9 @@ public class ControllerComprasProdutos extends AbstractTableModel {
             return "Total";
         }
         return "";
+    }
+
+    public List<MpjTbCompraProduto> getList() {
+        return this.lstComprasProdutos;
     }
 }

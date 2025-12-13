@@ -9,7 +9,11 @@ import bean.MpjTbCompra;
 import bean.MpjTbFornecedor;
 import bean.MpjTbUsuario;
 import java.util.List;
+import net.sf.ehcache.hibernate.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -44,23 +48,20 @@ public class CompraDAO extends AbstractDAO {
         session.getTransaction().commit();
     }
 
-  
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbCompra.class);
-        criteria.add(Restrictions.eq("IdCompra",codigo));
+        criteria.add(Restrictions.eq("IdCompra", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
-
 
         return lista;
 
     }
 
-    
     @Override
-    public Object  listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteia = session.createCriteria(MpjTbCompra.class);
         List lista = criteia.list();
@@ -68,10 +69,23 @@ public class CompraDAO extends AbstractDAO {
 
         return lista;
     }
-    
-    
+
+    public void updateById(MpjTbCompra compra) {
+        Transaction transaction = null;
+
+        transaction = session.beginTransaction();
+        session.merge(compra);
+
+        transaction.commit();
+
+        if (transaction != null) {
+            transaction.rollback();
+        }
+
+    }
+
     public static void main(String[] args) {
-        CompraDAO compraDAO = new  CompraDAO();
+        CompraDAO compraDAO = new CompraDAO();
         compraDAO.listAll();
         System.out.println("Deu certo");
     }

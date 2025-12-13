@@ -6,6 +6,7 @@
 package view.compra;
 
 import bean.MpjTbCompra;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,19 +16,31 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerCompra extends AbstractTableModel {
 
-    private List listaCompras;
+    private List<MpjTbCompra> listaCompras;
 
-    public void setList(List listaCompras) {
-        this.listaCompras = listaCompras;
+    public ControllerCompra() {
+        this.listaCompras = new ArrayList<>(); // inicializa para evitar NullPointerException
+    }
+
+    public void setList(List<MpjTbCompra> listaCompras) {
+        if (listaCompras != null) {
+            this.listaCompras = listaCompras;
+        } else {
+            this.listaCompras = new ArrayList<>();
+        }
+        fireTableDataChanged(); // atualiza a JTable
     }
 
     public MpjTbCompra getBean(int rowIndex) {
-        return (MpjTbCompra) listaCompras.get(rowIndex);
+        if (listaCompras == null || rowIndex < 0 || rowIndex >= listaCompras.size()) {
+            return null;
+        }
+        return listaCompras.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return listaCompras.size();
+        return (listaCompras != null) ? listaCompras.size() : 0;
     }
 
     @Override

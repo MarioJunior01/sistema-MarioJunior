@@ -72,16 +72,12 @@ public class Util {
         return String.valueOf(num);
     }
 
-    public static double strToDouble(String num) {
-        if (num == null || num.trim().isEmpty()) {
-            return 0.00; // valor padrão para vazio ou nulo
+    public static double strToDouble(String valor) {
+        if (valor == null || valor.trim().isEmpty()) {
+            return 0;
         }
-        try {
-            return Double.parseDouble(num.trim());
-        } catch (NumberFormatException e) {
-            Util.mensagem("Digite um valor valido");
-            return 0.00; // valor padrão em caso de erro
-        }
+        valor = valor.replace(",", "."); // converte vírgula em ponto
+        return Double.parseDouble(valor);
     }
 
     public static String doubleToStr(double num) {
