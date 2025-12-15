@@ -120,7 +120,6 @@ public class JDlgCompra extends javax.swing.JDialog {
             mpj_jFtmDataCompra.setBorder(bordaNormal);
         }
 
-        // Validação do Vendedor
         if (mpj_jCboVedendor.getSelectedIndex() == -1) {
             Util.mensagem("Por favor, selecione um vendedor.");
             mpj_jCboVedendor.setBorder(bordaErro);
@@ -129,7 +128,6 @@ public class JDlgCompra extends javax.swing.JDialog {
             mpj_jCboVedendor.setBorder(bordaNormal);
         }
 
-        // Validação do Fornecedor
         if (mpj_jCboFornecedor.getSelectedIndex() == -1) {
             Util.mensagem("Por favor, selecione um fornecedor.");
             mpj_jCboFornecedor.setBorder(bordaErro);
@@ -477,7 +475,6 @@ public class JDlgCompra extends javax.swing.JDialog {
                     compraProdutos.setMpjTbCompra(compra);
                     compraProdutoDAO.insert(compraProdutos);
                 }
-                //remove todos os pedidosprodutos 
 
                 Util.mensagem("Compra Atualizada com sucesso ");
                 HistoricoTransacoes.salvar(

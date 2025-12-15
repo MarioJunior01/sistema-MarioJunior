@@ -44,3 +44,6 @@ DataHora,Ação,Detalhes
 15/12/2025 07:37:33,Create new Usuario,ID Usuario: 8Nome Usuario Mario Junior
 15/12/2025 07:47:21,CREATE PRODUTO,ID PRODUTO0Nome ProdutoPizza
 15/12/2025 07:49:01,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 1400.0
+15/12/2025 09:10:50,CREATE FORNECEDOR,CNPJ Fornecedor:11.111.111/1111-11 Razao Social roberto alimentos 
+15/12/2025 09:11:32,CREATE compra,Fornecedor: roberti dos santos  ; Valor: 735.0
+15/12/2025 10:03:10,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 8400.0

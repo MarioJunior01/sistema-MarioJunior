@@ -57,7 +57,8 @@ public class MpjTbCompraProduto implements java.io.Serializable {
         this.mpj_idCompraProduto = mpj_idCompraProduto;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.
+            EAGER)
     @JoinColumn(name = "mpj_idCompra", nullable = false)
     public MpjTbCompra getMpjTbCompra() {
         return this.mpjTbCompra;
@@ -67,7 +68,7 @@ public class MpjTbCompraProduto implements java.io.Serializable {
         this.mpjTbCompra = mpjTbCompra;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mpj_idProduto", nullable = false)
     public MpjTbProduto getMpjTbProduto() {
         return this.mpjTbProduto;
