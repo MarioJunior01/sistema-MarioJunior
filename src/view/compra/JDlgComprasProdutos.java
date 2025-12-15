@@ -19,6 +19,7 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
 
     private List listaProdutos;
     private JDlgCompra jdlgCompras;
+    boolean incluir;
 
     /**
      * Creates new form JDlgComprasProdutos
@@ -37,8 +38,16 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
         Util.habilitar(false, mpj_jTxtValorUnitarioProdutos, mpj_jTxtValorTotalProdutos);
     }
 
-    public void setTelaAnterior(JDlgCompra jdlgCompras) {
+    public void setTelaAnterior(JDlgCompra jdlgCompras, MpjTbCompraProduto compraProduto) {
         this.jdlgCompras = jdlgCompras;
+
+        incluir = true;
+        if (compraProduto != null) {
+            incluir = false;
+            mpj_JcboProdutos.setSelectedItem(compraProduto);
+            mpj_jTxtQuantidadeProdutos1.setText(Util.intToStr(compraProduto.getMpjQuantidadeProduto()));
+
+        }
     }
 
     /**
@@ -175,28 +184,35 @@ public class JDlgComprasProdutos extends javax.swing.JDialog {
     }//GEN-LAST:event_mpj_JcboProdutosActionPerformed
 
     private void mpj_jTxtQuantidadeProdutos1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
-      
+
     }//GEN-LAST:event_mpj_jTxtQuantidadeProdutos1MouseReleased
 
     private void mpj_jBtOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_jBtOK1ActionPerformed
         // TODO add your handling code here:
+
         MpjTbCompraProduto compraProduto = new MpjTbCompraProduto();
         compraProduto.setMpjTbProduto((MpjTbProduto) mpj_JcboProdutos.getSelectedItem());
         compraProduto.setMpjQuantidadeProduto(Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText()));
         compraProduto.setMpjValorUnitario(Util.strToDouble(mpj_jTxtValorUnitarioProdutos.getText()));
+        if (incluir == false) {
+            jdlgCompras.controllerComprasProdutos.removeBean(jdlgCompras.getMpjTbCompras().getSelectedRow());
+        }
         jdlgCompras.controllerComprasProdutos.addBean(compraProduto);
+
         setVisible(false);
+
+
     }//GEN-LAST:event_mpj_jBtOK1ActionPerformed
 
     private void mpj_jTxtQuantidadeProdutos1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mpj_jTxtQuantidadeProdutos1KeyReleased
         // TODO add your handling code here:
-      if(mpj_jTxtQuantidadeProdutos1.getText().isEmpty() == false){
-        MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
-        int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
-        mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr( quant * produtos.getMpjPrecoProduto()));
-       } else {
-           Util.limpar(mpj_jTxtValorTotalProdutos);
-       }
+        if (mpj_jTxtQuantidadeProdutos1.getText().isEmpty() == false) {
+            MpjTbProduto produtos = (MpjTbProduto) mpj_JcboProdutos.getSelectedItem();
+            int quant = Util.srToInt(mpj_jTxtQuantidadeProdutos1.getText());
+            mpj_jTxtValorTotalProdutos.setText(Util.doubleToStr(quant * produtos.getMpjPrecoProduto()));
+        } else {
+            Util.limpar(mpj_jTxtValorTotalProdutos);
+        }
     }//GEN-LAST:event_mpj_jTxtQuantidadeProdutos1KeyReleased
 
     /**

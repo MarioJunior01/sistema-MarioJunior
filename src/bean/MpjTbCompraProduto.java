@@ -23,7 +23,7 @@ import javax.persistence.Table;
 )
 public class MpjTbCompraProduto implements java.io.Serializable {
 
-    private int id;
+    private int mpj_idCompraProduto;
     private MpjTbCompra mpjTbCompra;
     private MpjTbProduto mpjTbProduto;
     private int mpjQuantidadeProduto;
@@ -32,15 +32,15 @@ public class MpjTbCompraProduto implements java.io.Serializable {
     public MpjTbCompraProduto() {
     }
 
-    public MpjTbCompraProduto(int id, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto) {
-        this.id = id;
+    public MpjTbCompraProduto(int mpj_idCompraProduto, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto) {
+        this.mpj_idCompraProduto = mpj_idCompraProduto;
         this.mpjTbCompra = mpjTbCompra;
         this.mpjTbProduto = mpjTbProduto;
         this.mpjQuantidadeProduto = mpjQuantidadeProduto;
     }
 
-    public MpjTbCompraProduto(int id, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto, double mpjValorUnitario) {
-        this.id = id;
+    public MpjTbCompraProduto(int mpj_idCompraProduto, MpjTbCompra mpjTbCompra, MpjTbProduto mpjTbProduto, int mpjQuantidadeProduto, double mpjValorUnitario) {
+        this.mpj_idCompraProduto = mpj_idCompraProduto;
         this.mpjTbCompra = mpjTbCompra;
         this.mpjTbProduto = mpjTbProduto;
         this.mpjQuantidadeProduto = mpjQuantidadeProduto;
@@ -48,13 +48,13 @@ public class MpjTbCompraProduto implements java.io.Serializable {
     }
 
     @Id
-    @Column(name = "mpj_idCompraProduto")
-    public int getId() {
-        return this.id;
+    @Column(name = "id_compra_produto")
+    public int getmpj_idCompraProduto() {
+        return this.mpj_idCompraProduto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setmpj_idCompraProduto(int mpj_idCompraProduto) {
+        this.mpj_idCompraProduto = mpj_idCompraProduto;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)

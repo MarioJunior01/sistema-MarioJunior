@@ -41,3 +41,6 @@ DataHora,Ação,Detalhes
 13/12/2025 16:57:45,CREATE compra,Fornecedor: Tainas ICM ; Valor: 1220.0
 13/12/2025 17:23:26,CREATE compra,Fornecedor: Tainas ICM ; Valor: 9.0
 13/12/2025 18:41:35,CREATE compra,Fornecedor: Tainas ICM ; Valor: 50.0
+15/12/2025 07:37:33,Create new Usuario,ID Usuario: 8Nome Usuario Mario Junior
+15/12/2025 07:47:21,CREATE PRODUTO,ID PRODUTO0Nome ProdutoPizza
+15/12/2025 07:49:01,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 1400.0
