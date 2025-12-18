@@ -49,7 +49,7 @@ public class MpjTbCompraProduto implements java.io.Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id_compra_produto")
     public int getmpj_idCompraProduto() {
         return this.mpj_idCompraProduto;
