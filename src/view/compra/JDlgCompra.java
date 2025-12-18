@@ -440,8 +440,8 @@ public class JDlgCompra extends javax.swing.JDialog {
         // TODO add your handling code here:
         incluirCompra = true;
         Util.limpar(mpj_jTxtTotalCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-        Util.habilitar(true, mpj_jTxtCodigoCompra, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor);
-        Util.habilitar(false, mpj_jBtAlterarCompra, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra, mpj_jTxtTotalCompra);
+        Util.habilitar(true, mpj_jTxtCodigoCompra, mpj_jBtrConfirmarCompra, mpj_jBtCancelarCompra, mpj_jTxtCodigoCompra, mpj_jFtmDataCompra, mpj_jCboVedendor, mpj_jCboFornecedor,mpj_jBtAdicionarProduto,mpj_jBtExcluirProduto,mpj_jBtEditarProduto);
+        Util.habilitar(false, mpj_jBtIncluirCompra, mpj_jBtExcluirCompra, mpj_jBtAlterarCompra, mpj_jTxtTotalCompra);
 
     }//GEN-LAST:event_mpj_jBtIncluirCompraActionPerformed
 

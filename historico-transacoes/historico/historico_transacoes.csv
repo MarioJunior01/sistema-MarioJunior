@@ -72,3 +72,9 @@ DataHora,Ação,Detalhes
 18/12/2025 04:59:06,Delete da compra,Fornecedor: ALimentos ; Valor: 915.0
 18/12/2025 04:59:29,UPDATE compra,Fornecedor: ALimentos ; Valor: 3050.0
 18/12/2025 09:07:42,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 800.0
+18/12/2025 09:28:19,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 0.0
+18/12/2025 09:28:57,Delete da compra,Fornecedor: roberti dos santos  ; Valor: 0.0
+18/12/2025 09:35:06,Delete da compra,Fornecedor: roberti dos santos  ; Valor: 10.6
+18/12/2025 09:35:22,Delete da compra,Fornecedor: roberti dos santos  ; Valor: 498.2
+18/12/2025 09:38:00,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 42.4
+18/12/2025 09:40:48,UPDATE compra,Fornecedor: roberti dos santos  ; Valor: 42.4

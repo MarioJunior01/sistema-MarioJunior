@@ -3,24 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/JDlgCompra.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/bean/MpjTbCompra.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/JDlgComprasProdutos.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/usuarios/JDlgConsultaUsuarios.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/dao/CompraProdutoDAO.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/usuarios/ControllerUsuarios.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/hibernate.cfg.xml</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/JDlgConsultaCompra.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/Main.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/ControllerComprasProdutos.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/produtos/JDlgConsultaProdutos.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/JDlgLogin.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/ControllerCompra.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/compra/JDlgCompraPesquisar.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/view/fornecedor/JDlgConsultaFornecedor.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/bean/MpjTbCompraProdutoId.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/bean/MpjTbCompraProduto.java</file>
-            <file>file:/H:/sistema-MarioJunior/src/Hibernate/Util.java</file>
+            <file>file:/C:/Users/u04584043221/sistema-MarioJunior/src/view/compra/JDlgCompra.java</file>
+            <file>file:/C:/Users/u04584043221/sistema-MarioJunior/src/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/u04584043221/sistema-MarioJunior/src/bean/MpjTbCompraProduto.java</file>
         </group>
     </open-files>
 </project-private>
