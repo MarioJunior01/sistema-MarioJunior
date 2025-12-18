@@ -47,3 +47,27 @@ DataHora,Ação,Detalhes
 15/12/2025 09:10:50,CREATE FORNECEDOR,CNPJ Fornecedor:11.111.111/1111-11 Razao Social roberto alimentos 
 15/12/2025 09:11:32,CREATE compra,Fornecedor: roberti dos santos  ; Valor: 735.0
 15/12/2025 10:03:10,CREATE compra,Fornecedor: Moveis moveis  ; Valor: 8400.0
+17/12/2025 18:38:12,CREATE compra,Fornecedor: Tainas ICM ; Valor: 6.48
+17/12/2025 19:12:22,CREATE compra,Fornecedor: asdsadsadsa ; Valor: 9150.0
+17/12/2025 19:15:13,CREATE compra,Fornecedor: Tainas ICM ; Valor: 4.32
+17/12/2025 19:23:39,UPDATE compra,Fornecedor: 1231231213 ; Valor: 4.32
+17/12/2025 19:23:56,UPDATE compra,Fornecedor: 1231231213 ; Valor: 4.32
+17/12/2025 19:25:31,UPDATE compra,Fornecedor: 1231231213 ; Valor: 0.0
+17/12/2025 19:34:57,UPDATE compra,Fornecedor: 1231231213 ; Valor: 1.08
+17/12/2025 19:35:24,UPDATE compra,Fornecedor: 1231231213 ; Valor: 40.0
+17/12/2025 23:01:08,UPDATE compra,Fornecedor: 1231231213 ; Valor: 45.4
+17/12/2025 23:01:28,UPDATE compra,Fornecedor: 1231231213 ; Valor: 5.0
+17/12/2025 23:04:50,UPDATE compra,Fornecedor: 1231231213 ; Valor: 5.0
+17/12/2025 23:10:27,UPDATE compra,Fornecedor: 1231231213 ; Valor: 5.0
+17/12/2025 23:18:00,UPDATE compra,Fornecedor: 1231231213 ; Valor: 4.32
+17/12/2025 23:18:18,UPDATE compra,Fornecedor: 1231231213 ; Valor: 1529.32
+17/12/2025 23:19:41,UPDATE compra,Fornecedor: 1231231213 ; Valor: 1525.0
+18/12/2025 02:06:17,CREATE FORNECEDOR,CNPJ Fornecedor:11.232.132/1312-32 Razao Social ALimentos 
+18/12/2025 02:39:43,UPDATE compra,Fornecedor: ALimentos ; Valor: 4270.0
+18/12/2025 04:49:54,CREATE compra,Fornecedor: Tainas ICM ; Valor: 0.0
+18/12/2025 04:52:42,CREATE compra,Fornecedor: Tainas ICM ; Valor: 1220.0
+18/12/2025 04:54:38,CREATE compra,Fornecedor: ALimentos ; Valor: 915.0
+18/12/2025 04:55:29,CREATE compra,Fornecedor: ALimentos ; Valor: 915.0
+18/12/2025 04:56:12,Delete da compra,Fornecedor: ALimentos ; Valor: 915.0
+18/12/2025 04:59:06,Delete da compra,Fornecedor: ALimentos ; Valor: 915.0
+18/12/2025 04:59:29,UPDATE compra,Fornecedor: ALimentos ; Valor: 3050.0

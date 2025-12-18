@@ -11,15 +11,10 @@ import java.util.List;
 import tools.Util;
 
 
-/**
- *
- * @author Marcos
- */
+
 public class JDlgConsultaProdutos extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JDlgUsuariosPesquisar
-     */
+   
     ControllerConsultasProdutos controllerConsultasProdutos;
     ProdutoDAO produtosDAO;
 
@@ -81,6 +76,18 @@ public class JDlgConsultaProdutos extends javax.swing.JDialog {
         });
 
         jLabel1.setText("Nome");
+
+        jTxtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtNomeKeyReleased(evt);
+            }
+        });
+
+        jTxtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtValorKeyReleased(evt);
+            }
+        });
 
         jLabel2.setText("Valor Maior que ");
 
@@ -170,6 +177,16 @@ public class JDlgConsultaProdutos extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_jBtnConsultaActionPerformed
+
+    private void jTxtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNomeKeyReleased
+        // TODO add your handling code here:
+         jBtnConsultaActionPerformed(null);
+    }//GEN-LAST:event_jTxtNomeKeyReleased
+
+    private void jTxtValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtValorKeyReleased
+        // TODO add your handling code here:
+         jBtnConsultaActionPerformed(null);
+    }//GEN-LAST:event_jTxtValorKeyReleased
 
     /**
      * @param args the command line arguments

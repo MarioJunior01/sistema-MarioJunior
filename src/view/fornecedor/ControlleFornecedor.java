@@ -56,9 +56,9 @@ public class ControlleFornecedor extends AbstractTableModel {
         } else if (columnIndex == 7) {
             return fornecedor.getMpjRuaFornecedor();
         } else if (columnIndex == 8) {
-            return fornecedor.getMpjNumeroFornecedor();       // Número
+            return fornecedor.getMpjNumeroFornecedor();      
         } else if (columnIndex == 9) {
-            return fornecedor.getMpjComplementoFornecedor();   // Complemento
+            return fornecedor.getMpjComplementoFornecedor();   
         } else if (columnIndex == 10) {
             return fornecedor.getMpjSegmentoFornecedor();
         } else if (columnIndex == 11) {

@@ -5,11 +5,17 @@
  */
 package view.fornecedor;
 
+import dao.FornecedorDAO;
+import java.util.List;
+
 /**
  *
  * @author mario
  */
 public class JDlgConsultaFornecedor extends javax.swing.JDialog {
+
+    FornecedorDAO fornecedorDAO;
+    ControllerConsultaFornecedor controllerConsultaFornecedor;
 
     /**
      * Creates new form JDlgConsultaFornecedor
@@ -17,6 +23,13 @@ public class JDlgConsultaFornecedor extends javax.swing.JDialog {
     public JDlgConsultaFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        setTitle("Pesquisar Fornecedores");
+        fornecedorDAO = new FornecedorDAO();
+        controllerConsultaFornecedor = new ControllerConsultaFornecedor();
+        List lista = (List) fornecedorDAO.listAll();
+        jTbFornecedores.setModel(controllerConsultaFornecedor);
+        controllerConsultaFornecedor.setList(lista);
     }
 
     /**
@@ -28,21 +41,165 @@ public class JDlgConsultaFornecedor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JtxtNomeFantasia = new javax.swing.JTextField();
+        JtxtSegmento = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTbFornecedores = new javax.swing.JTable();
+        JBtnConsultar = new javax.swing.JButton();
+        JbtnOK = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("Nome Fantasia:");
+
+        jLabel3.setText("Segmento:");
+
+        JtxtNomeFantasia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JtxtNomeFantasiaKeyReleased(evt);
+            }
+        });
+
+        JtxtSegmento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JtxtSegmentoKeyReleased(evt);
+            }
+        });
+
+        jTbFornecedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTbFornecedores);
+
+        JBtnConsultar.setText("Consultar");
+        JBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBtnConsultarActionPerformed(evt);
+            }
+        });
+
+        JbtnOK.setText("OK");
+        JbtnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JbtnOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(JtxtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(JtxtSegmento, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(JBtnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(61, 61, 61))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JbtnOK)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JtxtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JtxtSegmento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBtnConsultar))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(JbtnOK)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JbtnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnOKActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_JbtnOKActionPerformed
+
+    private void JtxtNomeFantasiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JtxtNomeFantasiaKeyReleased
+        // TODO add your handling code here:
+        JBtnConsultarActionPerformed(null);
+    }//GEN-LAST:event_JtxtNomeFantasiaKeyReleased
+
+    private void JBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnConsultarActionPerformed
+        // TODO add your handling code here:
+        if ((JtxtNomeFantasia.getText().isEmpty() == false) &&(JtxtSegmento.getText().isEmpty() == false)) {
+
+            List lista = (List) fornecedorDAO.listSegementoENomeFantasia(
+                    JtxtNomeFantasia.getText(),
+                    JtxtSegmento.getText()
+            );
+            controllerConsultaFornecedor.setList(lista);
+
+        } else if (JtxtNomeFantasia.getText().isEmpty() == false) {
+
+            List lista = (List) fornecedorDAO.listNomeFantasia(
+                    JtxtNomeFantasia.getText()
+            );
+            controllerConsultaFornecedor.setList(lista);
+
+        } else if (JtxtSegmento.getText().isEmpty() == false) {
+
+            List lista = (List) fornecedorDAO.listSegmento(
+                    JtxtSegmento.getText()
+            );
+            controllerConsultaFornecedor.setList(lista);
+        } else {
+            List lista = (List) fornecedorDAO.listAll();
+            controllerConsultaFornecedor.setList(lista);
+        }
+
+    }//GEN-LAST:event_JBtnConsultarActionPerformed
+
+    private void JtxtSegmentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JtxtSegmentoKeyReleased
+        // TODO add your handling code here:
+        JBtnConsultarActionPerformed(null);
+    }//GEN-LAST:event_JtxtSegmentoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -87,5 +244,14 @@ public class JDlgConsultaFornecedor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBtnConsultar;
+    private javax.swing.JButton JbtnOK;
+    private javax.swing.JTextField JtxtNomeFantasia;
+    private javax.swing.JTextField JtxtSegmento;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTbFornecedores;
     // End of variables declaration//GEN-END:variables
 }

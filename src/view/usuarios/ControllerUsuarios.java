@@ -26,12 +26,12 @@ public class ControllerUsuarios extends  AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        return lstUsuarios.size(); //To change body of generated methods, choose Tools | Templates.
+        return lstUsuarios.size(); 
     }
 
     @Override
     public int getColumnCount() {
-        return 7; //To change body of generated methods, choose Tools | Templates.
+        return 7; 
     }
 
     @Override

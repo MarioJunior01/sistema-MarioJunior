@@ -8,6 +8,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -48,6 +49,7 @@ public class MpjTbCompraProduto implements java.io.Serializable {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra_produto")
     public int getmpj_idCompraProduto() {
         return this.mpj_idCompraProduto;
@@ -57,8 +59,7 @@ public class MpjTbCompraProduto implements java.io.Serializable {
         this.mpj_idCompraProduto = mpj_idCompraProduto;
     }
 
-    @ManyToOne(fetch = FetchType.
-            EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mpj_idCompra", nullable = false)
     public MpjTbCompra getMpjTbCompra() {
         return this.mpjTbCompra;

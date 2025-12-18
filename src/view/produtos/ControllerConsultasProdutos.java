@@ -9,10 +9,7 @@ import bean.MpjTbProduto;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Marcos
- */
+
 public class ControllerConsultasProdutos extends AbstractTableModel {
 
     private List lstProdutos;

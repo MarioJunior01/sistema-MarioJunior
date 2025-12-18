@@ -5,22 +5,16 @@
 package view.usuarios;
 
 import view.produtos.*;
-import dao.ProdutoDAO;
+import dao.UsuarioDAO;
 import dao.UsuarioDAO;
 
 import java.util.List;
 import tools.Util;
 
-/**
- *
- * @author Marcos
- */
 public class JDlgConsultaUsuarios extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JDlgUsuariosPesquisar
-     */
     ControllerConsultaUsuario controllerConsultaUsuario;
+    UsuarioDAO usuariosDAO;
 
     public JDlgConsultaUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -28,8 +22,8 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setTitle("Pesquisar Usuários");
         controllerConsultaUsuario = new ControllerConsultaUsuario();
-        UsuarioDAO usuarios = new UsuarioDAO();
-        List lista = (List) usuarios.listAll();
+        usuariosDAO = new UsuarioDAO();
+        List lista = (List) usuariosDAO.listAll();
         controllerConsultaUsuario.setList(lista);
         jTable1.setModel(controllerConsultaUsuario);
     }
@@ -48,7 +42,7 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
         jBtnOk = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTxtNome = new javax.swing.JTextField();
-        jTxtCpf = new javax.swing.JTextField();
+        jTxApelido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jBtnConsulta = new javax.swing.JButton();
 
@@ -81,7 +75,19 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel2.setText("CPF");
+        jTxtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtNomeKeyReleased(evt);
+            }
+        });
+
+        jTxApelido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxApelidoKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setText("Apelido");
 
         jBtnConsulta.setText("Consultar");
         jBtnConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -104,31 +110,32 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
+                            .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(142, 142, 142)
-                                .addComponent(jBtnConsulta))
-                            .addComponent(jLabel2))
+                                .addComponent(jTxApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnConsulta)))
                         .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jBtnConsulta))
+                            .addComponent(jTxApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnConsulta))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -152,21 +159,32 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jBtnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaActionPerformed
-      //  if ((jTxtNome.getText().isEmpty() == false) && (jTxtCpf.getText().isEmpty() == false)) {
-         //     List lista = (List) usuarios.listNomeEvalor(jTxtNome.getText(), Util.strToDouble(jTxtCpf.getText()));
-        //      controllerConsultaUsuario.setList(lista);
-        //  } else if (jTxtNome.getText().isEmpty() == false) {
-        //  //      List lista = (List) usuarios.listNome(jTxtNome.getText());
-             // controllerConsultaUsuario.setList(lista);
-        //  //  } else if (jTxtCpf.getText().isEmpty() == false) {
-            //  List lista = (List) usuarios.listValor(Util.strToDouble(jTxtCpf.getText()));
-         //     controllerConsultaUsuario.setList(lista);
-        //  } else {
-          //    List lista = (List) usuarios.listAll();
-        //      controllerConsultaUsuario.setList(lista);
-         // }
+        if ((jTxtNome.getText().isEmpty() == false) && (jTxApelido.getText().isEmpty() == false)) {
+            List lista = (List) usuariosDAO.listNomeEApelido(jTxtNome.getText(), jTxApelido.getText());
+            controllerConsultaUsuario.setList(lista);
+        } else if (jTxtNome.getText().isEmpty() == false) {
+            List lista = (List) usuariosDAO.listNome(jTxtNome.getText());
+            controllerConsultaUsuario.setList(lista);
+        } else if (jTxApelido.getText().isEmpty() == false) {
+            List lista = (List) usuariosDAO.listApelido(jTxApelido.getText());
+            controllerConsultaUsuario.setList(lista);
+        } else {
+            List lista = (List) usuariosDAO.listAll();
+            controllerConsultaUsuario.setList(lista);
+        }
 
     }//GEN-LAST:event_jBtnConsultaActionPerformed
+
+    private void jTxtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNomeKeyReleased
+        // TODO add your handling code here:
+        jBtnConsultaActionPerformed(null);
+    }//GEN-LAST:event_jTxtNomeKeyReleased
+
+    private void jTxApelidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxApelidoKeyReleased
+        // TODO add your handling code here:
+        jBtnConsultaActionPerformed(null);
+
+    }//GEN-LAST:event_jTxApelidoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -233,38 +251,6 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -288,7 +274,7 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTxtCpf;
+    private javax.swing.JTextField jTxApelido;
     private javax.swing.JTextField jTxtNome;
     // End of variables declaration//GEN-END:variables
 }

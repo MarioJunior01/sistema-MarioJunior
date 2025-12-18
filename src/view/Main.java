@@ -83,8 +83,13 @@ public class Main extends javax.swing.JFrame {
         mpj_consultarCompras = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela Principal ");
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel1.setAutoscrolls(true);
 
         jLabel1.setFont(new java.awt.Font("Unispace", 2, 24)); // NOI18N
         jLabel1.setText("Sistema de Compras ");
@@ -153,7 +158,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel1)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -164,7 +169,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(118, 118, 118)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         jMenu4.setText("Cadastros");
@@ -278,15 +283,16 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -310,6 +316,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here
         JDlgComprasProdutos jDlgComprasProdutos = new JDlgComprasProdutos(this, true);
         jDlgComprasProdutos.setVisible(true);
+
         jDlgComprasProdutos.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
@@ -440,15 +447,9 @@ public class Main extends javax.swing.JFrame {
 
     private void mpj_tolConsultaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_tolConsultaUsuarioActionPerformed
         // TODO add your handling code here:
-        JDlgConsultaUsuarios jDlgConsultaUsuarios = new JDlgConsultaUsuarios(this, true);
+        JDlgConsultaUsuarios jDlgConsultaUsuarios = new JDlgConsultaUsuarios(this, rootPaneCheckingEnabled);
         jDlgConsultaUsuarios.setVisible(true);
-        jDlgConsultaUsuarios.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent e) {
-                // Reexibe o Main quando o diálogo fechar
-                setVisible(true);
-            }
-        });
+
     }//GEN-LAST:event_mpj_tolConsultaUsuarioActionPerformed
 
     private void mpj_toUsuarioCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_toUsuarioCadastrarActionPerformed
@@ -475,16 +476,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mpj_consultaFornecedorActionPerformed
 
     private void mpj_consultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_consultarUsuarioActionPerformed
+        mpj_tolConsultaUsuarioActionPerformed(null);
         // TODO add your handling code here:
-        JDlgConsultaUsuarios jDlgConsultaUsuarios = new JDlgConsultaUsuarios(this, true);
-        jDlgConsultaUsuarios.setVisible(true);
-        jDlgConsultaUsuarios.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent e) {
-                // Reexibe o Main quando o diálogo fechar
-                setVisible(true);
-            }
-        });
+
+
     }//GEN-LAST:event_mpj_consultarUsuarioActionPerformed
 
     private void mpj_consultarComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpj_consultarComprasActionPerformed

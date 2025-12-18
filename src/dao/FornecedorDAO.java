@@ -56,6 +56,34 @@ public class FornecedorDAO extends AbstractDAO {
         return lista;
 
     }
+        public Object listNomeFantasia(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbFornecedor.class);
+        criteria.add(Restrictions.like("mpjNomeFantasiaFornecedor", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+     public Object listSegmento(String segmento) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbFornecedor.class);
+        criteria.add(Restrictions.like("mpjSegmentoFornecedor", "%" + segmento + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+       
+       public Object listSegementoENomeFantasia(String nome, String segmento) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MpjTbFornecedor.class);
+        criteria.add(Restrictions.like("mpjNomeFantasiaFornecedor", "%" + nome + "%"));
+        criteria.add(Restrictions.eq("mpjSegmentoFornecedor", segmento));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     
     @Override

@@ -14,10 +14,6 @@ import bean.MpjTbUsuario;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Marcos
- */
 
 
 public class ControllerConsultaUsuario extends AbstractTableModel {
@@ -35,12 +31,12 @@ public class ControllerConsultaUsuario extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return lstUsuarios == null ? 0 : lstUsuarios.size();
+        return lstUsuarios.size();
     }
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -54,6 +50,9 @@ public class ControllerConsultaUsuario extends AbstractTableModel {
         } else if (columnIndex == 2) {
             return usuario.getMpjDataNascimentoUsuario();
         }
+        else if (columnIndex == 3) {
+            return usuario.getMpjApelidoUsuario();
+        }
 
         return "";
     }
@@ -66,6 +65,9 @@ public class ControllerConsultaUsuario extends AbstractTableModel {
             return "Nome";
         } else if (columnIndex == 2) {
             return "Data de Nascimento";
+        }
+        else if (columnIndex == 3) {
+            return "Apelido";
         }
 
         return "";

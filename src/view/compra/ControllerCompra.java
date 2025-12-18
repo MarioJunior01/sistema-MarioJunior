@@ -28,7 +28,7 @@ public class ControllerCompra extends AbstractTableModel {
         } else {
             this.listaCompras = new ArrayList<>();
         }
-        fireTableDataChanged(); // atualiza a JTable
+        fireTableDataChanged();
     }
 
     public MpjTbCompra getBean(int rowIndex) {

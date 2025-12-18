@@ -103,39 +103,20 @@ public class UsuarioDAO extends AbstractDAO {
         return lista;
     }
 
-    public Object listCpf(String cpf) {
+    public Object listApelido(String apelido) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbUsuario.class);
-        criteria.add(Restrictions.like("mpjCpfUsuario", "%" + cpf + "%"));
+        criteria.add(Restrictions.like("mpjApelidoUsuario", "%" + apelido + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
 
-    public Object listDataNascimento(Date dataNascimento) {
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(MpjTbUsuario.class);
-        criteria.add(Restrictions.eq("mpjDataNascimentoUsuario", dataNascimento));
-        List lista = criteria.list();
-        session.getTransaction().commit();
-        return lista;
-    }
-
-    public Object listNomeEDataNascimento(String nome, Date dataNascimento) {
+    public Object listNomeEApelido(String nome, String apelido) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MpjTbUsuario.class);
         criteria.add(Restrictions.like("mpjNomeUsuario", "%" + nome + "%"));
-        criteria.add(Restrictions.eq("mpjDataNascimentoUsuario", dataNascimento));
-        List lista = criteria.list();
-        session.getTransaction().commit();
-        return lista;
-    }
-
-    public Object listCpfENome(String cpf, String nome) {
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(MpjTbUsuario.class);
-        criteria.add(Restrictions.like("mpjCpfUsuario", "%" + cpf + "%"));
-        criteria.add(Restrictions.like("mpjNomeUsuario", "%" + nome + "%"));
+        criteria.add(Restrictions.eq("mpjApelidoUsuario", apelido));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
